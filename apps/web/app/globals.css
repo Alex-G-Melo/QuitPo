@@ -1,0 +1,319 @@
+@import 'tailwindcss';
+
+/* ============================================
+ * QuitPo Design System - Tailwind CSS v4
+ * ============================================
+ * Theme: Galaxy/Universe (Dark) + Clean Minimal (Light)
+ * Primary: Softer Indigo (#6366F1)
+ * Secondary: Teal (#0D9488)
+ * ============================================ */
+
+/* Enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+ * Theme Configuration (@theme)
+ * ============================================ */
+@theme {
+  /* ----------------------------------------
+   * Colors - Light Mode (Default)
+   * ---------------------------------------- */
+
+  /* Background & Surfaces */
+  --color-background: #FAFAFA;
+  --color-background-secondary: #F1F5F9;
+  --color-foreground: #1E1E2E;
+  --color-card: #FFFFFF;
+  --color-card-foreground: #1E1E2E;
+
+  /* Primary - Softer Indigo */
+  --color-primary: #6366F1;
+  --color-primary-hover: #4F46E5;
+  --color-primary-foreground: #FFFFFF;
+  --color-primary-soft: #E0E7FF;
+
+  /* Secondary - Teal */
+  --color-secondary: #0D9488;
+  --color-secondary-hover: #0F766E;
+  --color-secondary-foreground: #FFFFFF;
+  --color-secondary-soft: #CCFBF1;
+
+  /* Accent - Soft Lavender */
+  --color-accent: #DDD6FE;
+  --color-accent-foreground: #5B21B6;
+
+  /* Muted */
+  --color-muted: #F1F5F9;
+  --color-muted-foreground: #64748B;
+
+  /* Semantic Colors */
+  --color-destructive: #EF4444;
+  --color-destructive-foreground: #FFFFFF;
+  --color-success: #10B981;
+  --color-success-soft: #D1FAE5;
+  --color-warning: #F59E0B;
+  --color-warning-soft: #FEF3C7;
+  --color-info: #3B82F6;
+  --color-info-soft: #DBEAFE;
+
+  /* Borders & Inputs */
+  --color-border: #E2E8F0;
+  --color-input: #F8FAFC;
+  --color-ring: #6366F1;
+
+  /* Popover */
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #1E1E2E;
+
+  /* Sidebar */
+  --color-sidebar-background: #FFFFFF;
+  --color-sidebar-foreground: #1E1E2E;
+  --color-sidebar-primary: #6366F1;
+  --color-sidebar-primary-foreground: #FFFFFF;
+  --color-sidebar-accent: #F1F5F9;
+  --color-sidebar-accent-foreground: #1E1E2E;
+  --color-sidebar-border: #E2E8F0;
+  --color-sidebar-ring: #6366F1;
+
+  /* Chart Colors */
+  --color-chart-1: #6366F1;
+  --color-chart-2: #0D9488;
+  --color-chart-3: #F59E0B;
+  --color-chart-4: #10B981;
+  --color-chart-5: #8B5CF6;
+
+  /* ----------------------------------------
+   * Typography
+   * ---------------------------------------- */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+  /* ----------------------------------------
+   * Spacing
+   * ---------------------------------------- */
+  --spacing: 0.25rem;
+
+  /* ----------------------------------------
+   * Border Radius (Full pill for buttons/inputs)
+   * ---------------------------------------- */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-2xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* ----------------------------------------
+   * Shadows (Soft only - no strong shadows)
+   * ---------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+  /* ----------------------------------------
+   * Animations
+   * ---------------------------------------- */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ----------------------------------------
+   * Breakpoints
+   * ---------------------------------------- */
+  --breakpoint-xs: 480px;
+  --breakpoint-3xl: 1920px;
+}
+
+/* ============================================
+ * Dark Mode Overrides (Galaxy Theme)
+ * ============================================ */
+.dark {
+  /* Background & Surfaces */
+  --color-background: #0a0a1a;
+  --color-background-secondary: #0f0f24;
+  --color-foreground: #F8FAFC;
+  --color-card: #12122a;
+  --color-card-foreground: #F8FAFC;
+
+  /* Primary - Lighter Indigo for dark mode */
+  --color-primary: #818CF8;
+  --color-primary-hover: #A5B4FC;
+  --color-primary-foreground: #0a0a1a;
+  --color-primary-soft: #312E81;
+
+  /* Secondary - Teal */
+  --color-secondary: #14B8A6;
+  --color-secondary-hover: #2DD4BF;
+  --color-secondary-foreground: #0a0a1a;
+  --color-secondary-soft: #134e4a;
+
+  /* Accent - Pink for dark mode */
+  --color-accent: #F472B6;
+  --color-accent-foreground: #0a0a1a;
+
+  /* Muted */
+  --color-muted: #1e1e3a;
+  --color-muted-foreground: #94A3B8;
+
+  /* Semantic */
+  --color-destructive: #F87171;
+  --color-destructive-foreground: #0a0a1a;
+  --color-success: #34D399;
+  --color-success-soft: #064e3b;
+  --color-warning: #FBBF24;
+  --color-warning-soft: #78350f;
+  --color-info: #60A5FA;
+  --color-info-soft: #1e3a5f;
+
+  /* Borders & Inputs */
+  --color-border: #2d2d4a;
+  --color-input: #1a1a32;
+  --color-ring: #818CF8;
+
+  /* Popover */
+  --color-popover: #12122a;
+  --color-popover-foreground: #F8FAFC;
+
+  /* Sidebar */
+  --color-sidebar-background: #12122a;
+  --color-sidebar-foreground: #F8FAFC;
+  --color-sidebar-primary: #818CF8;
+  --color-sidebar-primary-foreground: #0a0a1a;
+  --color-sidebar-accent: #1e1e3a;
+  --color-sidebar-accent-foreground: #F8FAFC;
+  --color-sidebar-border: #2d2d4a;
+  --color-sidebar-ring: #818CF8;
+
+  /* Chart Colors */
+  --color-chart-1: #818CF8;
+  --color-chart-2: #14B8A6;
+  --color-chart-3: #FBBF24;
+  --color-chart-4: #34D399;
+  --color-chart-5: #A78BFA;
+
+  /* Darker shadows for dark mode */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
+ * Font Face Declarations
+ * ============================================ */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('/fonts/SpaceGrotesk-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/Inter-Variable.woff2') format('woff2');
+}
+
+/* ============================================
+ * Base Layer - Global Styles
+ * ============================================ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings use display font */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  /* Restore pointer cursor for buttons */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Focus ring styles */
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+ * Custom Utilities (Tailwind v4 @utility)
+ * ============================================ */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 0.3s var(--ease-smooth);
+}
+
+@utility animate-slide-up {
+  animation: slideUp 0.3s var(--ease-smooth);
+}
+
+@utility animate-slide-down {
+  animation: slideDown 0.3s var(--ease-smooth);
+}
+
+@utility animate-scale-in {
+  animation: scaleIn 0.2s var(--ease-bounce);
+}
+
+/* ============================================
+ * Keyframe Animations
+ * ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+}
