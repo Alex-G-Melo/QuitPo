@@ -1,4 +1,11 @@
-# Phase 9: Content Blocker
+# Phase 9: Content Blocker & Social Media Safety
+
+## Overview
+
+This phase covers content blocking and social media safety features. See also:
+- [FEATURE_OPTIONAL_FRICTION.md](./FEATURE_OPTIONAL_FRICTION.md) - Optional breathing exercise before risky apps
+- [FEATURE_SCREEN_TIME_TRACKING.md](./FEATURE_SCREEN_TIME_TRACKING.md) - Track time in risky apps with notifications
+- [GUIDE_SOCIAL_MEDIA_SAFETY.md](./GUIDE_SOCIAL_MEDIA_SAFETY.md) - Platform-specific safety setup guides
 
 ## Steps 55-62
 
@@ -860,3 +867,290 @@ export const blockerRouter = router({
 ### 62. Safe Search Enforcement
 
 Already implemented in background.ts service worker above.
+
+---
+
+## Steps 63-65: Social Media Safety Features
+
+### 63. Optional Friction Mode
+
+See [FEATURE_OPTIONAL_FRICTION.md](./FEATURE_OPTIONAL_FRICTION.md) for full specification.
+
+**Summary**: Optional breathing exercise before opening risky apps (Instagram, TikTok, etc.)
+- Inspired by "one sec" app (57% reduction in app opens - peer-reviewed study)
+- MUST be opt-in, not default
+- Shows motivational messages during breathing
+- Uses Screen Time API (iOS) and Accessibility Service (Android)
+
+```typescript
+// apps/mobile/app/(settings)/friction.tsx
+import { View, Text, Switch, Pressable } from 'react-native'
+import { useState } from 'react'
+import { api } from '@/lib/api'
+import { AppPicker } from '@/components/AppPicker'
+
+export default function FrictionSettingsScreen() {
+  const [enabled, setEnabled] = useState(false)
+  const [selectedApps, setSelectedApps] = useState<string[]>([])
+
+  const { data: settings } = api.friction.getSettings.useQuery()
+  const updateMutation = api.friction.updateSettings.useMutation()
+
+  const handleToggle = async (value: boolean) => {
+    setEnabled(value)
+    await updateMutation.mutateAsync({ enabled: value })
+  }
+
+  return (
+    <View className="flex-1 bg-gray-900 p-4">
+      <Text className="text-white text-2xl font-bold mb-2">Breathing Mode</Text>
+      <Text className="text-gray-400 mb-6">
+        Take a moment before opening apps that might trigger you.
+      </Text>
+
+      <View className="bg-gray-800 rounded-xl p-4 mb-4 flex-row items-center justify-between">
+        <View>
+          <Text className="text-white text-lg font-medium">Enable</Text>
+          <Text className="text-gray-400">Show breathing exercise</Text>
+        </View>
+        <Switch
+          value={enabled}
+          onValueChange={handleToggle}
+          trackColor={{ true: '#8B5CF6' }}
+        />
+      </View>
+
+      {enabled && (
+        <AppPicker
+          selectedApps={selectedApps}
+          onSelectionChange={setSelectedApps}
+        />
+      )}
+    </View>
+  )
+}
+```
+
+### 64. Screen Time Tracking & Notifications
+
+See [FEATURE_SCREEN_TIME_TRACKING.md](./FEATURE_SCREEN_TIME_TRACKING.md) for full specification.
+
+**Summary**: Track time in risky apps and send empathetic notifications
+- Continuous use alerts (e.g., 15 min in one session)
+- Daily total alerts
+- Late night warnings (10 PM - 6 AM)
+- Weekly summary reports
+- Three notification styles: Gentle, Encouraging, Direct
+
+```typescript
+// apps/mobile/app/(settings)/screen-time.tsx
+import { View, Text, Switch, Pressable } from 'react-native'
+import { useState } from 'react'
+import Slider from '@react-native-community/slider'
+
+export default function ScreenTimeSettingsScreen() {
+  const [enabled, setEnabled] = useState(false)
+  const [continuousThreshold, setContinuousThreshold] = useState(15)
+  const [dailyThreshold, setDailyThreshold] = useState(30)
+  const [lateNightAlerts, setLateNightAlerts] = useState(true)
+  const [notificationStyle, setNotificationStyle] = useState<'gentle' | 'encouraging' | 'direct'>('encouraging')
+
+  return (
+    <View className="flex-1 bg-gray-900 p-4">
+      <Text className="text-white text-2xl font-bold mb-2">Screen Time Tracking</Text>
+      <Text className="text-gray-400 mb-6">
+        Get notified about your time in risky apps.
+      </Text>
+
+      {/* Enable Toggle */}
+      <View className="bg-gray-800 rounded-xl p-4 mb-4">
+        <View className="flex-row items-center justify-between">
+          <Text className="text-white text-lg font-medium">Enable Tracking</Text>
+          <Switch value={enabled} onValueChange={setEnabled} trackColor={{ true: '#8B5CF6' }} />
+        </View>
+      </View>
+
+      {/* Continuous Use Threshold */}
+      <View className="bg-gray-800 rounded-xl p-4 mb-4">
+        <Text className="text-white font-medium mb-2">Alert after continuous use</Text>
+        <Slider
+          value={continuousThreshold}
+          onValueChange={setContinuousThreshold}
+          minimumValue={5}
+          maximumValue={60}
+          step={5}
+          minimumTrackTintColor="#8B5CF6"
+        />
+        <Text className="text-gray-400 text-center">{continuousThreshold} minutes</Text>
+      </View>
+
+      {/* Daily Threshold */}
+      <View className="bg-gray-800 rounded-xl p-4 mb-4">
+        <Text className="text-white font-medium mb-2">Alert after daily total</Text>
+        <Slider
+          value={dailyThreshold}
+          onValueChange={setDailyThreshold}
+          minimumValue={15}
+          maximumValue={120}
+          step={15}
+          minimumTrackTintColor="#8B5CF6"
+        />
+        <Text className="text-gray-400 text-center">{dailyThreshold} minutes</Text>
+      </View>
+
+      {/* Late Night Alerts */}
+      <View className="bg-gray-800 rounded-xl p-4 mb-4 flex-row items-center justify-between">
+        <View>
+          <Text className="text-white font-medium">Late Night Alerts</Text>
+          <Text className="text-gray-400">Extra warnings 10pm - 6am</Text>
+        </View>
+        <Switch value={lateNightAlerts} onValueChange={setLateNightAlerts} trackColor={{ true: '#8B5CF6' }} />
+      </View>
+
+      {/* Notification Style */}
+      <View className="bg-gray-800 rounded-xl p-4 mb-4">
+        <Text className="text-white font-medium mb-3">Notification Style</Text>
+        <View className="flex-row gap-2">
+          {(['gentle', 'encouraging', 'direct'] as const).map((style) => (
+            <Pressable
+              key={style}
+              onPress={() => setNotificationStyle(style)}
+              className={`flex-1 py-2 rounded-lg ${notificationStyle === style ? 'bg-purple-600' : 'bg-gray-700'}`}
+            >
+              <Text className="text-white text-center capitalize">{style}</Text>
+            </Pressable>
+          ))}
+        </View>
+      </View>
+    </View>
+  )
+}
+```
+
+### 65. Social Media Safety Guides
+
+See [GUIDE_SOCIAL_MEDIA_SAFETY.md](./GUIDE_SOCIAL_MEDIA_SAFETY.md) for full content.
+
+**Summary**: Step-by-step guides for configuring each social media platform
+- Instagram: Sensitive content controls, algorithm reset, DM filtering
+- TikTok: Restricted mode, keyword filters, watch history clearing
+- Twitter/X: Safe search, muted words, sensitive media settings
+- YouTube: Restricted mode, watch history management
+- Snapchat: Sensitive content controls, Spotlight settings
+- Reddit: NSFW content settings, personalization disable
+- Discord: Explicit content filter, DM restrictions
+
+```typescript
+// apps/mobile/app/(settings)/social-safety.tsx
+import { View, Text, ScrollView, Pressable } from 'react-native'
+import { useRouter } from 'expo-router'
+
+const PLATFORMS = [
+  { id: 'instagram', name: 'Instagram', icon: '📸', steps: 6 },
+  { id: 'tiktok', name: 'TikTok', icon: '🎵', steps: 6 },
+  { id: 'twitter', name: 'Twitter/X', icon: '🐦', steps: 5 },
+  { id: 'youtube', name: 'YouTube', icon: '📺', steps: 6 },
+  { id: 'snapchat', name: 'Snapchat', icon: '👻', steps: 4 },
+  { id: 'reddit', name: 'Reddit', icon: '🔴', steps: 5 },
+  { id: 'discord', name: 'Discord', icon: '💬', steps: 4 },
+]
+
+export default function SocialSafetyScreen() {
+  const router = useRouter()
+  const { data: progress } = api.safety.getGuideProgress.useQuery()
+
+  return (
+    <ScrollView className="flex-1 bg-gray-900 p-4">
+      <Text className="text-white text-2xl font-bold mb-2">Social Media Safety</Text>
+      <Text className="text-gray-400 mb-6">
+        Configure your social apps to show less triggering content.
+      </Text>
+
+      {PLATFORMS.map((platform) => {
+        const completed = progress?.[platform.id]?.completedAt
+
+        return (
+          <Pressable
+            key={platform.id}
+            onPress={() => router.push(`/social-safety/${platform.id}`)}
+            className="bg-gray-800 rounded-xl p-4 mb-3 flex-row items-center"
+          >
+            <Text className="text-3xl mr-4">{platform.icon}</Text>
+            <View className="flex-1">
+              <Text className="text-white text-lg font-medium">{platform.name}</Text>
+              <Text className="text-gray-400">{platform.steps} steps</Text>
+            </View>
+            {completed ? (
+              <Text className="text-green-500">✓ Done</Text>
+            ) : (
+              <Text className="text-gray-500">→</Text>
+            )}
+          </Pressable>
+        )
+      })}
+
+      <View className="bg-purple-900/30 rounded-xl p-4 mt-4">
+        <Text className="text-purple-300 font-medium mb-1">💡 Tip</Text>
+        <Text className="text-gray-300">
+          Complete all guides for best results. Your algorithm may take 1-2 weeks to adjust.
+        </Text>
+      </View>
+    </ScrollView>
+  )
+}
+```
+
+---
+
+## Database Schema Additions
+
+```typescript
+// packages/db/src/schema.ts (additions for new features)
+
+// Friction mode settings
+export const frictionSettings = pgTable('friction_settings', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  userId: text('user_id').references(() => users.id).notNull().unique(),
+  enabled: boolean('enabled').default(false),
+  monitoredApps: text('monitored_apps').array().default([]),
+  breathingDuration: text('breathing_duration').default('medium'), // short, medium, long
+  showMotivationalMessages: boolean('show_motivational_messages').default(true),
+  lateNightMode: boolean('late_night_mode').default(true),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Screen time tracking settings
+export const screenTimeSettings = pgTable('screen_time_settings', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  userId: text('user_id').references(() => users.id).notNull().unique(),
+  enabled: boolean('enabled').default(false),
+  trackedApps: text('tracked_apps').array().default([]),
+  continuousThresholdMinutes: integer('continuous_threshold_minutes').default(15),
+  dailyThresholdMinutes: integer('daily_threshold_minutes').default(30),
+  lateNightAlertsEnabled: boolean('late_night_alerts_enabled').default(true),
+  notificationStyle: text('notification_style').default('encouraging'), // gentle, encouraging, direct
+  weeklyReportEnabled: boolean('weekly_report_enabled').default(true),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+})
+
+// Screen time daily stats
+export const screenTimeStats = pgTable('screen_time_stats', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  userId: text('user_id').references(() => users.id).notNull(),
+  date: date('date').notNull(),
+  totalMinutes: integer('total_minutes').default(0),
+  appBreakdown: jsonb('app_breakdown').default([]), // [{appId, appName, minutes}]
+  peakUsageHour: integer('peak_usage_hour'),
+  sessionsCount: integer('sessions_count').default(0),
+})
+
+// Social media safety guide progress
+export const safetyGuideProgress = pgTable('safety_guide_progress', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  userId: text('user_id').references(() => users.id).notNull(),
+  platform: text('platform').notNull(), // instagram, tiktok, twitter, etc.
+  stepsCompleted: integer('steps_completed').array().default([]),
+  completedAt: timestamp('completed_at'),
+  needsUpdate: boolean('needs_update').default(false),
+})
+```
