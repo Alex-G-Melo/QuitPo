@@ -16,17 +16,19 @@ QuitPo is a porn addiction recovery app inspired by [Quittr](https://quittrapp.c
 | Layer | Technology | Version |
 |-------|------------|---------|
 | Mobile | Expo SDK + React Native | SDK 54 / RN 0.81 |
-| Web | Next.js (App Router) | 16.1 |
+| Web | Next.js (App Router) | 16.1.x |
+| Frontend | React | 19.2.x |
 | Extension | Chrome Extension | Manifest V3 |
-| Styling | NativeWind (Tailwind for RN) | 4.1.23 |
+| Styling | Tailwind CSS / NativeWind | 4.1.x |
 | Backend | Next.js API Routes + tRPC | v11 |
 | Database | PostgreSQL + pgvector | 16+ |
-| ORM | Drizzle ORM | 0.45.1 |
+| ORM | Drizzle ORM | 0.45.x |
 | Auth | Firebase Authentication | Latest |
 | AI | GPT-5 Mini (primary), DeepSeek V3.2 (fallback) | - |
 | Payments | Stripe (web) + RevenueCat (mobile) | - |
-| Animations | Rive + React Native Reanimated | 9.7.1 / 4.2.1 |
+| Animations | Rive + React Native Reanimated | 9.7.x / 4.2.x |
 | State | Zustand + TanStack Query | 5.x / v5 |
+| TypeScript | TypeScript | 5.8.x |
 
 ## Project Structure
 
