@@ -1,5 +1,28 @@
 # Panic Button
 
+## Table of Contents
+
+| Section | Lines | Description |
+|---------|-------|-------------|
+| [Title](#title) | 27-28 | Emergency Urge Intervention System |
+| [Description](#description) | 30-31 | Core feature overview and purpose |
+| [Problem Statement](#problem-statement) | 33-46 | User challenges and why traditional approaches fail |
+| [Solution](#solution) | 48-80 | Multi-layered intervention strategy |
+| [Screen Content](#screen-content) | 82-171 | UI mockups for main screen, support modal, relapse flow |
+| [User Flow](#user-flow) | 193-223 | Flowchart from urge to outcome |
+| [Motivational Content Library](#motivational-content-library) | 225-321 | Message categories and tone guidelines |
+| [Implementation Details](#implementation-details) | 323-371 | Technical requirements (camera, haptics, typewriter) |
+| [Quick Access Methods](#quick-access-methods) | 373-443 | iOS/Android shortcuts, widgets, voice assistants |
+| [Notification Integration](#notification-integration) | 445-453 | Follow-up notifications after panic button use |
+| [Example Scenarios](#example-scenarios) | 455-540 | 5 detailed usage scenarios |
+| [Agent Implementation Guide](#agent-implementation-guide) | 542-589 | Tasks for foundation, backend, ui, pages agents |
+| [Success Metrics](#success-metrics) | 591-602 | Primary and secondary metrics |
+| [Accessibility](#accessibility) | 604-610 | VoiceOver, contrast, haptic alternatives |
+| [Privacy Considerations](#privacy-considerations) | 612-618 | Camera privacy, encryption, analytics |
+| [Data Model](#data-model) | 620-690 | Database tables, relationships, indexes, enums |
+
+---
+
 ## Title
 Emergency Urge Intervention System
 

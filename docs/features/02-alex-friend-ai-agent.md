@@ -1,5 +1,33 @@
 # Alex - Your Recovery Friend
 
+## Table of Contents
+
+| Section | Lines | Description |
+|---------|-------|-------------|
+| [Title](#title) | 29-30 | 24/7 AI-Powered Recovery Support Companion |
+| [Description](#description) | 32-41 | Overview of Alex as a friend, not therapist |
+| [Problem Statement](#problem-statement) | 43-58 | Barriers to getting support |
+| [Solution](#solution) | 60-100 | Instant availability, judgment-free, therapeutic techniques |
+| [User Context Integration](#user-context-integration) | 102-130 | Data sources Alex can access with permission |
+| [Session Summary System](#session-summary-system) | 132-194 | How summaries work, what they capture, RAG retrieval |
+| [Proactive Outreach System](#proactive-outreach-system) | 196-282 | Daily/weekly summaries, trigger conditions, constraints |
+| [Find a Therapist Feature](#find-a-therapist-feature) | 284-468 | When to offer, questionnaire, tiered search, streaming UX |
+| [Screen Content](#screen-content) | 470-680 | Chat interface, consent flow, settings, summary views |
+| [Example Conversations](#example-conversations) | 682-856 | 3 scenarios: urge, post-relapse, general check-in |
+| [AI Persona & Guidelines](#ai-persona--guidelines) | 858-916 | Personality, communication style, topics, safety guardrails |
+| [User Flow](#user-flow) | 918-940 | Flowchart from opening chat to session end |
+| [AI Model Configuration](#ai-model-configuration) | 942-1010 | GPT-5 Mini, DeepSeek fallback, system prompt structure |
+| [Implementation Details](#implementation-details) | 1012-1060 | Technical requirements, rate limiting, analytics |
+| [Example Quick Reply Responses](#example-quick-reply-responses) | 1062-1110 | Pre-built responses for quick reply chips |
+| [Agent Implementation Guide](#agent-implementation-guide) | 1112-1218 | Tasks for foundation, backend, ui, pages agents |
+| [Success Metrics](#success-metrics) | 1220-1238 | Engagement, outcome, cost metrics |
+| [Accessibility](#accessibility) | 1240-1246 | Screen reader, keyboard, voice input |
+| [Legal Disclaimers](#legal-disclaimers) | 1248-1278 | Not a therapist, disclaimer language, liability |
+| [Privacy Considerations](#privacy-considerations) | 1280-1308 | GDPR compliance, data handling, user controls |
+| [Data Model](#data-model) | 1310-1490 | 7 tables with full schema, relationships, indexes, enums |
+
+---
+
 ## Title
 24/7 AI-Powered Recovery Support Companion
 
