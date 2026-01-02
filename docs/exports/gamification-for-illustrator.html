@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuitPo with Alex Friend - Space Journey Illustration Brief</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-light: #818CF8;
+            --secondary: #0D9488;
+            --secondary-light: #14B8A6;
+            --accent: #F472B6;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --text: #1a1a2e;
+            --text-muted: #64748B;
+            --border: #e2e8f0;
+            --bg-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 11px;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+            padding: 20px;
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
+        .no-break {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .page-break {
+            page-break-before: always;
+            break-before: always;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            color: var(--primary);
+            margin-top: 18px;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            color: var(--text);
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        h4 {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 6px;
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .icon-lg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 10px;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Info boxes */
+        .info-box {
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+        }
+
+        .info-box.secondary {
+            border-color: var(--secondary);
+        }
+
+        .info-box.warning {
+            border-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        .info-box.accent {
+            border-color: var(--accent);
+        }
+
+        /* Dark/Galaxy boxes */
+        .galaxy-box {
+            background: linear-gradient(135deg, #0a0a1a 0%, #12122a 50%, #0f0f24 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .galaxy-box h3 {
+            color: var(--primary-light);
+            margin-top: 0;
+        }
+
+        .galaxy-box h4 {
+            color: var(--secondary-light);
+        }
+
+        .galaxy-box p {
+            color: #cbd5e1;
+        }
+
+        .galaxy-box .highlight {
+            color: var(--accent);
+        }
+
+        .galaxy-box blockquote {
+            border-left: 3px solid var(--primary-light);
+            padding-left: 16px;
+            margin: 16px 0;
+            font-style: italic;
+            color: #e2e8f0;
+        }
+
+        .galaxy-box table {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .galaxy-box th {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .galaxy-box td {
+            color: #94A3B8;
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .galaxy-box tr:nth-child(even) {
+            background: rgba(255,255,255,0.03);
+        }
+
+        /* Stage cards */
+        .stage-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+        }
+
+        .stage-card.highlight {
+            border-color: var(--success);
+            background: linear-gradient(135deg, white 0%, #ecfdf5 100%);
+        }
+
+        .stage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .stage-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+        }
+
+        .stage-days {
+            font-size: 11px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .stage-subtitle {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        .stage-narrative {
+            background: var(--bg-light);
+            border-left: 2px solid var(--primary);
+            padding: 6px 10px;
+            margin: 6px 0;
+            font-style: italic;
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        .stage-details {
+            font-size: 9px;
+        }
+
+        .stage-details strong {
+            color: var(--secondary);
+        }
+
+        /* Color swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 8px 0;
+        }
+
+        .color-swatch {
+            text-align: center;
+        }
+
+        .color-swatch .preview {
+            height: 28px;
+            border-radius: 4px;
+            margin-bottom: 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .color-swatch .name {
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+        .color-swatch .hex {
+            font-size: 8px;
+            color: var(--text-muted);
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        /* TOC */
+        .toc {
+            columns: 2;
+            column-gap: 16px;
+            font-size: 10px;
+            margin: 8px 0;
+        }
+
+        .toc-item {
+            padding: 3px 0;
+            border-bottom: 1px solid var(--border);
+            break-inside: avoid;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .toc-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .toc-number {
+            background: var(--primary);
+            color: white;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* Images grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 8px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .image-grid .caption {
+            font-size: 8px;
+            text-align: center;
+            margin-top: 3px;
+            color: var(--text-muted);
+        }
+
+        .image-grid .caption strong {
+            color: var(--primary);
+        }
+
+        /* Planet cards */
+        .planet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .planet-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px;
+            background: white;
+        }
+
+        .planet-day {
+            font-size: 10px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .planet-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--primary);
+            margin: 4px 0;
+        }
+
+        .planet-item {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Phase boxes */
+        .phase-box {
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        .phase-box.v15 {
+            border-color: var(--secondary);
+        }
+
+        .phase-box.v2 {
+            border-color: var(--accent);
+        }
+
+        .phase-box h3 {
+            margin-top: 0;
+        }
+
+        .phase-box.v15 h3 {
+            color: var(--secondary);
+        }
+
+        .phase-box.v2 h3 {
+            color: var(--accent);
+        }
+
+        /* Priority labels */
+        .priority {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 600;
+        }
+
+        .priority.must {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .priority.should {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .priority.nice {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        /* Spec box */
+        .spec-box {
+            background: #1a1a2e;
+            color: #F8FAFC;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 9px;
+            white-space: pre-line;
+            margin: 8px 0;
+        }
+
+        .spec-box strong {
+            color: var(--primary-light);
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* Lists */
+        ul {
+            margin: 6px 0;
+            padding-left: 16px;
+        }
+
+        ul li {
+            margin-bottom: 3px;
+            font-size: 10px;
+        }
+
+        ul.compact li {
+            margin-bottom: 2px;
+            font-size: 9px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 16px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 0;
+            }
+
+            .no-break {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .page-break {
+                page-break-before: always !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<h1>
+    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+    QuitPo with Alex Friend
+</h1>
+<p class="subtitle">Space Journey Progression & Achievement System — Illustration Brief for Illustrator</p>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<div class="info-box no-break">
+    <h3>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        About QuitPo
+    </h3>
+    <p><strong>QuitPo</strong> is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through psychological tools, community support, and behavioral interventions. Built on the scientific understanding that porn addiction typically requires <strong>90 days</strong> for neural pathway rewiring.</p>
+    <p>The gamification system transforms the recovery journey into a visual, emotionally resonant experience through two interconnected mechanics:</p>
+    <ul class="compact">
+        <li><strong>Alex's Space Journey</strong> — An astronaut's voyage home that parallels the user's recovery</li>
+        <li><strong>Achievement System</strong> — Badges and milestones that recognize specific accomplishments</li>
+    </ul>
+    <p>The space theme connects directly to <strong>Alex</strong>, the AI companion, creating a cohesive brand experience where the user helps Alex return to Earth while Alex helps the user return to normal life.</p>
+</div>
+
+<!-- ==================== WORKFLOW ==================== -->
+<div class="galaxy-box no-break">
+    <h3>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Important: Workflow — Illustrator to Animator
+    </h3>
+    <p><strong class="highlight">1. ILLUSTRATOR (You)</strong> — Creates all artwork: backgrounds, Alex character, ship, planets, particles, objects</p>
+    <p><strong class="highlight">2. ANIMATOR (Separate person)</strong> — Takes your illustrations and builds Rive animations with state machines</p>
+    <p style="margin-top: 12px; padding: 12px; background: rgba(255,255,255,0.08); border-radius: 8px;"><strong>Your deliverables:</strong> Layered illustration files (Adobe Illustrator .ai, Photoshop .psd, or Figma) with cleanly separated elements that the animator can rig and animate.</p>
+</div>
+
+<!-- ==================== TABLE OF CONTENTS ==================== -->
+<h2>
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></svg>
+    Table of Contents
+</h2>
+<div class="toc no-break">
+    <div class="toc-item"><span class="toc-number">1</span><a href="#colors">Brand Colors & Visual Identity</a></div>
+    <div class="toc-item"><span class="toc-number">2</span><a href="#alex">Alex Character Design</a></div>
+    <div class="toc-item"><span class="toc-number">3</span><a href="#story">The Story of Alex</a></div>
+    <div class="toc-item"><span class="toc-number">4</span><a href="#metaphor">The Space-Recovery Metaphor</a></div>
+    <div class="toc-item"><span class="toc-number">5</span><a href="#stages">The 9 Journey Stages</a></div>
+    <div class="toc-item"><span class="toc-number">6</span><a href="#planets">Planet Stops & Ship Parts (V1.5)</a></div>
+    <div class="toc-item"><span class="toc-number">7</span><a href="#corrections">Course Corrections (Relapses)</a></div>
+    <div class="toc-item"><span class="toc-number">8</span><a href="#deliverables">Illustrator Deliverables</a></div>
+    <div class="toc-item"><span class="toc-number">9</span><a href="#phases">Phases & Priorities</a></div>
+    <div class="toc-item"><span class="toc-number">10</span><a href="#specs">Technical Specifications</a></div>
+</div>
+
+<!-- ==================== 1. BRAND COLORS ==================== -->
+<h2 id="colors">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5 0-3.333 2.8-5 7-5 0 3.333-2.8 5-7 5Z"/></svg>
+    1. Brand Colors & Visual Identity
+</h2>
+
+<h3>Primary Brand Colors</h3>
+<p>These are the core colors used throughout the QuitPo app. Use them consistently in all illustrations.</p>
+
+<div class="color-grid no-break">
+    <div class="color-swatch">
+        <div class="preview" style="background: #6366F1;"></div>
+        <div class="name">Primary (Indigo)</div>
+        <div class="hex">#6366F1</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #0D9488;"></div>
+        <div class="name">Secondary (Teal)</div>
+        <div class="hex">#0D9488</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #F472B6;"></div>
+        <div class="name">Accent (Pink)</div>
+        <div class="hex">#F472B6</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #10B981;"></div>
+        <div class="name">Success (Green)</div>
+        <div class="hex">#10B981</div>
+    </div>
+</div>
+
+<div class="color-grid no-break">
+    <div class="color-swatch">
+        <div class="preview" style="background: #F59E0B;"></div>
+        <div class="name">Warning (Amber)</div>
+        <div class="hex">#F59E0B</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #EF4444;"></div>
+        <div class="name">Danger (Red)</div>
+        <div class="hex">#EF4444</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #818CF8;"></div>
+        <div class="name">Primary Glow</div>
+        <div class="hex">#818CF8</div>
+    </div>
+    <div class="color-swatch">
+        <div class="preview" style="background: #14B8A6;"></div>
+        <div class="name">Secondary Glow</div>
+        <div class="hex">#14B8A6</div>
+    </div>
+</div>
+
+<h3>Galaxy Theme (Dark Mode) — For All Space Scenes</h3>
+<p>The space journey uses a dark theme with glowing accents. This is the primary visual style for all journey illustrations.</p>
+
+<div class="galaxy-box no-break">
+    <h4>Deep Space Backgrounds</h4>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Hex Code</th>
+            <th>Usage</th>
+        </tr>
+        <tr>
+            <td>Deep Space Background</td>
+            <td><strong>#0a0a1a</strong></td>
+            <td>Primary backdrop for all space scenes</td>
+        </tr>
+        <tr>
+            <td>Space Secondary</td>
+            <td><strong>#0f0f24</strong></td>
+            <td>Slightly lighter areas, depth variation</td>
+        </tr>
+        <tr>
+            <td>Card/Surface</td>
+            <td><strong>#12122a</strong></td>
+            <td>Ship hull, UI elements in space</td>
+        </tr>
+    </table>
+
+    <h4 style="margin-top: 16px;">Glow & Accent Colors</h4>
+    <table>
+        <tr>
+            <th>Element</th>
+            <th>Hex Code</th>
+            <th>Usage</th>
+        </tr>
+        <tr>
+            <td>Primary Glow (Indigo)</td>
+            <td><strong>#818CF8</strong></td>
+            <td>Ship engines, active elements, highlights</td>
+        </tr>
+        <tr>
+            <td>Secondary Glow (Teal)</td>
+            <td><strong>#14B8A6</strong></td>
+            <td>Earth glow, destination indicators, healing</td>
+        </tr>
+        <tr>
+            <td>Accent Glow (Pink)</td>
+            <td><strong>#F472B6</strong></td>
+            <td>Celebrations, milestones, special events</td>
+        </tr>
+        <tr>
+            <td>Success Glow</td>
+            <td><strong>#22C55E</strong></td>
+            <td>Stage complete, achievements, home</td>
+        </tr>
+        <tr>
+            <td>Warning Glow</td>
+            <td><strong>#EAB308</strong></td>
+            <td>Course corrections, alerts, asteroids</td>
+        </tr>
+    </table>
+</div>
+
+<h3>Typography</h3>
+<table class="no-break">
+    <tr>
+        <th>Font</th>
+        <th>Usage</th>
+        <th>Notes</th>
+    </tr>
+    <tr>
+        <td><strong>Space Grotesk</strong></td>
+        <td>Headings, stage names, UI labels</td>
+        <td>Geometric, modern, space-appropriate</td>
+    </tr>
+    <tr>
+        <td><strong>Inter</strong></td>
+        <td>Body text, narratives, descriptions</td>
+        <td>Clean, readable, friendly</td>
+    </tr>
+</table>
+
+<!-- ==================== 2. ALEX CHARACTER ==================== -->
+<h2 id="alex">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+    2. Alex Character Design
+</h2>
+
+<p><strong>Alex is the heart of QuitPo</strong> — both the astronaut making the space journey AND the AI companion in the app. When users chat with Alex, they're talking to this astronaut. Alex is warm, friendly, and supportive.</p>
+
+<h3>Reference Images</h3>
+<div class="image-grid no-break">
+    <div>
+        <img src="alex-sticker-reference.png" alt="Alex sticker reference">
+        <div class="caption"><strong>PRIMARY REFERENCE</strong><br>Face, beard, glasses, expression</div>
+    </div>
+    <div>
+        <img src="alex-helmet-reference.png" alt="Alex with helmet">
+        <div class="caption">With helmet on<br>Suit style reference</div>
+    </div>
+    <div>
+        <img src="alex-face-reference.png" alt="Alex 3D face">
+        <div class="caption">3D face render<br>Facial features</div>
+    </div>
+</div>
+
+<div class="info-box warning no-break">
+    <h3>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Important: Beard Reference Warning
+    </h3>
+    <p>The 3D face reference has the beard <strong>WRONG</strong> — it only shows a goatee (hair around mouth only).</p>
+    <p>Alex should have a <strong>FULL beard</strong> covering cheeks, jawline, and chin, as shown in the sticker reference. <strong>Always use the sticker as the definitive guide for the beard.</strong></p>
+</div>
+
+<div class="two-col">
+    <div class="no-break">
+        <h3>Physical Appearance (Male)</h3>
+        <ul class="compact">
+            <li><strong>Hair:</strong> Brown, short, slightly messy</li>
+            <li><strong>Beard:</strong> Full beard (cheeks, jawline, chin) — NOT just a goatee</li>
+            <li><strong>Eyes:</strong> Green, friendly, warm</li>
+            <li><strong>Freckles:</strong> Light freckles on cheeks</li>
+            <li><strong>Glasses:</strong> Rectangular dark frames (important identity feature!)</li>
+            <li><strong>Expression:</strong> Friendly smile, approachable, warm</li>
+            <li><strong>Age:</strong> Late 20s to early 30s appearance</li>
+            <li><strong>Style:</strong> Stylized/cartoon (NOT realistic)</li>
+        </ul>
+    </div>
+    <div class="no-break">
+        <h3>Astronaut Suit</h3>
+        <ul class="compact">
+            <li><strong>Base color:</strong> White suit</li>
+            <li><strong>Accents:</strong> Teal (#0D9488) details and trim</li>
+            <li><strong>Helmet:</strong> White with dark/teal visor</li>
+            <li><strong>Details:</strong> Mission patches, utility pockets</li>
+            <li><strong>Gloves:</strong> White with teal accents</li>
+            <li><strong>Boots:</strong> White with teal soles</li>
+        </ul>
+    </div>
+</div>
+
+<h3>Required Poses & States</h3>
+<table class="no-break">
+    <tr>
+        <th>Pose</th>
+        <th>Description</th>
+        <th>When Used</th>
+    </tr>
+    <tr>
+        <td><strong>Floating/Drifting</strong></td>
+        <td>Relaxed zero-gravity pose, arms slightly out</td>
+        <td>Idle state, general journey</td>
+    </tr>
+    <tr>
+        <td><strong>Working on Repairs</strong></td>
+        <td>Tools in hand, focused expression, fixing ship</td>
+        <td>Early stages, ship repair narrative</td>
+    </tr>
+    <tr>
+        <td><strong>Celebrating</strong></td>
+        <td>Arms up, big smile, triumphant pose</td>
+        <td>Stage completion, achievements</td>
+    </tr>
+    <tr>
+        <td><strong>Looking at Earth</strong></td>
+        <td>Hand on viewport, hopeful expression, gazing at Earth</td>
+        <td>Later stages, approaching home</td>
+    </tr>
+    <tr>
+        <td><strong>Sitting in Cockpit</strong></td>
+        <td>Piloting position, hands on controls</td>
+        <td>Ship interior scenes</td>
+    </tr>
+    <tr>
+        <td><strong>Sitting on Moon</strong></td>
+        <td>Casual seated pose on lunar surface (like sticker)</td>
+        <td>Lunar station scene</td>
+    </tr>
+    <tr>
+        <td><strong>Course Correction</strong></td>
+        <td>Bracing, holding on, determined expression</td>
+        <td>Relapse/setback animations</td>
+    </tr>
+</table>
+
+<h3>Ship Design — "The Vessel"</h3>
+<div class="info-box secondary no-break">
+    <p>Alex's ship is a personal spacecraft — not military, not industrial. It's friendly, lived-in, and hopeful.</p>
+    <ul class="compact">
+        <li><strong>Hull color:</strong> Dark (#12122a) with indigo (#818CF8) accent lighting</li>
+        <li><strong>Engine glow:</strong> Indigo (#818CF8) when healthy, dimmer when damaged</li>
+        <li><strong>Cockpit:</strong> Visible glass dome where Alex can be seen inside</li>
+        <li><strong>Size feel:</strong> Personal craft, not huge — more "home" than "battleship"</li>
+        <li><strong>Personality:</strong> Worn but reliable, been through a lot, still flying</li>
+    </ul>
+    <h4>Ship States (for animator)</h4>
+    <ul class="compact">
+        <li><strong>Damaged/Drifting:</strong> Lights flickering, engine dark, floating</li>
+        <li><strong>Repairing:</strong> Sparks, Alex working on hull</li>
+        <li><strong>Engines Firing:</strong> Full indigo glow, moving forward</li>
+        <li><strong>Cruising:</strong> Steady glow, smooth flight</li>
+        <li><strong>Landing:</strong> Landing gear deployed, descending</li>
+    </ul>
+</div>
+
+<!-- ==================== 3. THE STORY ==================== -->
+<h2 id="story">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    3. The Story of Alex
+</h2>
+
+<div class="galaxy-box no-break">
+    <h3>Opening Narrative</h3>
+    <blockquote>
+        Alex was an astronaut on a routine mission when something went wrong. A malfunction sent the ship spiraling into the void, far from Earth, far from everyone Alex loved.
+        <br><br>
+        Now, stranded in the darkness of deep space, Alex must find the way back home. The journey is long — <strong>90 days</strong> of travel through dangerous territory. But Alex isn't alone. Mission Control is still there, guiding the way.
+        <br><br>
+        <em>And neither are you.</em>
+    </blockquote>
+</div>
+
+<h3>Why This Story Works</h3>
+<div class="two-col">
+    <div class="no-break">
+        <h4>Emotionally Resonant</h4>
+        <p>Being lost and finding your way home mirrors exactly what recovery feels like. Users aren't just tracking numbers — they're on a journey WITH Alex.</p>
+    </div>
+    <div class="no-break">
+        <h4>Recovery-Appropriate</h4>
+        <p>The journey metaphor emphasizes <strong>progress over perfection</strong>. Setbacks are "course corrections," not failures. The ship keeps flying.</p>
+    </div>
+</div>
+
+<h3>The Connection to AI Alex</h3>
+<p>The AI companion "Alex" IS this astronaut. When users chat with Alex in the app, they're talking to the astronaut making this journey. Alex's messages reference the voyage:</p>
+
+<div class="info-box no-break">
+    <p><em>"Day 15. We're in the asteroid field now. Lots of close calls today, but we made it through together."</em></p>
+    <p><em>"I can see Earth now. Just a tiny blue dot. But it's there. We're going to make it."</em></p>
+    <p><em>"That was a rough one. We got knocked off course a bit. But the ship is still flying. Are you okay?"</em></p>
+</div>
+
+<!-- ==================== 4. THE METAPHOR ==================== -->
+<h2 id="metaphor">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    4. The Space-Recovery Metaphor
+</h2>
+
+<p>Every element of Alex's space journey maps to a recovery concept:</p>
+
+<table class="no-break">
+    <tr>
+        <th>Space Journey</th>
+        <th>Recovery Journey</th>
+        <th>Visual Representation</th>
+    </tr>
+    <tr>
+        <td>Lost in deep space</td>
+        <td>Lost in addiction</td>
+        <td>Darkness, isolation, damaged ship</td>
+    </tr>
+    <tr>
+        <td>Earth = home, loved ones</td>
+        <td>Normal life, real connections</td>
+        <td>Blue planet growing larger</td>
+    </tr>
+    <tr>
+        <td>Ship damage</td>
+        <td>Brain affected by addiction</td>
+        <td>Flickering lights, broken systems</td>
+    </tr>
+    <tr>
+        <td>Ship repairs during journey</td>
+        <td>Neural pathways healing</td>
+        <td>Systems coming online, lights brightening</td>
+    </tr>
+    <tr>
+        <td>Navigation hazards</td>
+        <td>Triggers and urges</td>
+        <td>Asteroids, nebula fog, storms</td>
+    </tr>
+    <tr>
+        <td>Course corrections</td>
+        <td>Learning from setbacks</td>
+        <td>Ship adjusting trajectory (not exploding)</td>
+    </tr>
+    <tr>
+        <td>90-day journey</td>
+        <td>90-day brain rewiring period</td>
+        <td>Full voyage from void to Earth</td>
+    </tr>
+    <tr>
+        <td>Mission Control support</td>
+        <td>App, community, support system</td>
+        <td>Radio signals, communication</td>
+    </tr>
+</table>
+
+<!-- ==================== 5. THE 9 STAGES ==================== -->
+<h2 id="stages">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+    5. The 9 Journey Stages
+</h2>
+
+<p>Each stage requires a background illustration with Alex's ship. The animator will add movement, particles, and state transitions later. Your job is to create beautiful, evocative scenes that capture each stage's emotional meaning.</p>
+
+<!-- Stage 1 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 1: The Void</div>
+        <div class="stage-days">Days 0-4</div>
+    </div>
+    <div class="stage-subtitle">"Lost in Darkness"</div>
+    <div class="stage-narrative">
+        Alex drifts in complete darkness. The ship is damaged, systems failing. Earth is just a distant memory. But then — a signal. Mission Control has found Alex. The journey home begins.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Deep dark space (#0a0a1a), damaged ship with flickering lights, single distant star (Earth's direction), debris floating nearby</p>
+        <p><strong>Color Palette:</strong> Deep blacks, dark blues (#0f0f24), faint amber from ship's emergency lights, single cold white star</p>
+        <p><strong>Mood:</strong> Isolation, but with a spark of hope (the signal)</p>
+        <p><strong>Recovery Meaning:</strong> The user has just started. They feel lost, broken. But they've taken the first step by downloading the app.</p>
+    </div>
+</div>
+
+<!-- Stage 2 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 2: First Light</div>
+        <div class="stage-days">Days 5-6</div>
+    </div>
+    <div class="stage-subtitle">"Systems Coming Online"</div>
+    <div class="stage-narrative">
+        Alex works to repair the ship's basic systems. Life support stabilizes. For the first time in a long time, there's hope. Earth's signal grows slightly stronger.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Ship interior with lights coming on, Alex working on repairs, small viewport showing stars, tools floating</p>
+        <p><strong>Color Palette:</strong> Warm interior lighting (amber, soft white), cool starfield outside through viewport</p>
+        <p><strong>Mood:</strong> Activity, progress, first signs of hope</p>
+        <p><strong>Recovery Meaning:</strong> First week survived. The initial chaos is settling. Basic routines are forming.</p>
+    </div>
+</div>
+
+<!-- Stage 3 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 3: Leaving the Drift</div>
+        <div class="stage-days">Days 7-13</div>
+    </div>
+    <div class="stage-subtitle">"Engines Ignite"</div>
+    <div class="stage-narrative">
+        The engines finally respond. Alex sets course for Earth. The ship begins to move with purpose. The void behind, the journey ahead.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Ship with engines glowing (#818CF8), thrust trail behind, leaving dark zone, stars becoming denser ahead</p>
+        <p><strong>Color Palette:</strong> Indigo engine thrust (#818CF8), brightening starfield, dark void fading behind</p>
+        <p><strong>Mood:</strong> Momentum, determination, forward motion</p>
+        <p><strong>Recovery Meaning:</strong> One week complete. Momentum is building. The user is actively moving forward.</p>
+    </div>
+</div>
+
+<!-- Stage 4 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 4: The Asteroid Field</div>
+        <div class="stage-days">Days 14-29</div>
+    </div>
+    <div class="stage-subtitle">"Navigating Danger"</div>
+    <div class="stage-narrative">
+        The path home isn't empty. Alex must navigate through a field of debris — remnants of old collisions. One wrong move could set the journey back. Focus is everything.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Ship weaving through asteroids, close calls, tense navigation, rocks of varying sizes, warning lights</p>
+        <p><strong>Color Palette:</strong> Grays and browns of asteroids, warning yellow (#F59E0B) accents, alert lighting, focused blue cockpit glow</p>
+        <p><strong>Mood:</strong> Tension, focus, careful navigation</p>
+        <p><strong>Recovery Meaning:</strong> Weeks 2-4 are full of triggers. The user must stay alert, make conscious choices to avoid danger.</p>
+    </div>
+</div>
+
+<!-- Stage 5 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 5: The Nebula</div>
+        <div class="stage-days">Days 30-44</div>
+    </div>
+    <div class="stage-subtitle">"Through the Fog"</div>
+    <div class="stage-narrative">
+        A beautiful but disorienting nebula. Alex can't see far ahead. Navigation relies on instruments and trust. It's peaceful here, but easy to get lost.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Colorful nebula gas clouds, limited visibility, ship moving slowly but steadily, soft diffused lighting</p>
+        <p><strong>Color Palette:</strong> Purple (#818CF8), pink (#F472B6), teal (#14B8A6) nebula clouds, soft ethereal glow, dreamy atmosphere</p>
+        <p><strong>Mood:</strong> Peaceful but uncertain, beautiful but disorienting, trust</p>
+        <p><strong>Recovery Meaning:</strong> One month in. Things feel different — better, but unfamiliar. Brain fog is lifting. Trust the process.</p>
+    </div>
+</div>
+
+<!-- Stage 6 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 6: Clear Space</div>
+        <div class="stage-days">Days 45-59</div>
+    </div>
+    <div class="stage-subtitle">"Open Skies"</div>
+    <div class="stage-narrative">
+        Alex emerges from the nebula into clear space. For the first time, Earth is visible — a tiny blue dot in the distance. It's real. Home is real.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Clear starfield, tiny Earth visible in the distance (blue dot), ship cruising smoothly, sense of openness</p>
+        <p><strong>Color Palette:</strong> Deep space black, bright crisp stars, small blue-green Earth dot with soft glow (#14B8A6)</p>
+        <p><strong>Mood:</strong> Clarity, hope renewed, destination visible</p>
+        <p><strong>Recovery Meaning:</strong> The fog lifts. Users often report clarity, energy, feeling "normal" for the first time.</p>
+    </div>
+</div>
+
+<!-- Stage 7 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 7: The Moon's Shadow</div>
+        <div class="stage-days">Days 60-74</div>
+    </div>
+    <div class="stage-subtitle">"Almost There"</div>
+    <div class="stage-narrative">
+        The Moon comes into view. Earth grows larger every day. Alex can almost feel the pull of home. But this close, any mistake would be painful. Careful now.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Moon in view (gray, detailed), Earth much larger, ship approaching carefully, sense of gravity</p>
+        <p><strong>Color Palette:</strong> Gray moon surface with craters, blue-white Earth, careful lighting, home feels tangible</p>
+        <p><strong>Mood:</strong> Anticipation, caution, almost there</p>
+        <p><strong>Recovery Meaning:</strong> Two months in. Major progress, but complacency is dangerous. Stay focused.</p>
+    </div>
+</div>
+
+<!-- Stage 8 -->
+<div class="stage-card no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 8: Earth Orbit</div>
+        <div class="stage-days">Days 75-89</div>
+    </div>
+    <div class="stage-subtitle">"Circling Home"</div>
+    <div class="stage-narrative">
+        Alex enters Earth's orbit. The blue planet fills the viewport. Oceans, continents, clouds — it's more beautiful than memory. The ship circles, preparing for final descent.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Earth fills most of screen, ship in orbit, oceans and continents visible, atmospheric glow, preparing for landing</p>
+        <p><strong>Color Palette:</strong> Blue oceans, green/brown continents, white clouds, orbital glow, warm atmosphere edge</p>
+        <p><strong>Mood:</strong> Awe, accomplishment, beauty, anticipation of landing</p>
+        <p><strong>Recovery Meaning:</strong> The final stretch. The user can feel the change. They're different now. 90 days felt impossible once.</p>
+    </div>
+</div>
+
+<!-- Stage 9 -->
+<div class="stage-card highlight no-break">
+    <div class="stage-header">
+        <div class="stage-title">Stage 9: Homecoming</div>
+        <div class="stage-days">Day 90+</div>
+    </div>
+    <div class="stage-subtitle">"Welcome Home"</div>
+    <div class="stage-narrative">
+        The ship descends through the atmosphere. Alex feels gravity for the first time in 90 days. The hatch opens. Sunlight. Fresh air. Familiar faces. Alex is home.
+        <br><br>
+        The journey isn't truly over — life on Earth has its own challenges. But Alex is no longer lost. Alex knows the way now.
+    </div>
+    <div class="stage-details">
+        <p><strong>Visual Elements:</strong> Ship landed on Earth (green field or landing pad), hatch open, sunlight streaming in, silhouettes of people waiting, blue sky</p>
+        <p><strong>Color Palette:</strong> Warm sunlight (golden), green grass, blue sky, success green (#10B981), hopeful and alive</p>
+        <p><strong>Mood:</strong> Triumph, relief, joy, new beginning</p>
+        <p><strong>Recovery Meaning:</strong> 90 days complete. Neural rewiring achieved. Life continues from a place of strength.</p>
+    </div>
+</div>
+
+<!-- ==================== 6. PLANET STOPS ==================== -->
+<h2 id="planets">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+    6. Planet Stops & Ship Parts (V1.5)
+</h2>
+
+<p>Between the main stages, Alex makes stops at planets and space stations to collect essential ship components. Each item has a real astronaut purpose AND a recovery metaphor. <strong>This is a V1.5 feature</strong> — not needed for initial launch.</p>
+
+<h3>The Ship's Needs</h3>
+<p>When Alex's ship was damaged, several critical systems were lost. Throughout the journey, Alex must find these parts:</p>
+
+<table class="no-break">
+    <tr>
+        <th>Ship Part</th>
+        <th>Astronaut Need</th>
+        <th>Recovery Metaphor</th>
+    </tr>
+    <tr>
+        <td><strong>Navigation Computer</strong></td>
+        <td>Find the course back to Earth</td>
+        <td>Clarity — knowing your direction</td>
+    </tr>
+    <tr>
+        <td><strong>Fuel Cells</strong></td>
+        <td>Power to keep moving</td>
+        <td>Energy & motivation to continue</td>
+    </tr>
+    <tr>
+        <td><strong>Communication Array</strong></td>
+        <td>Contact with Mission Control</td>
+        <td>Connection — not being isolated</td>
+    </tr>
+    <tr>
+        <td><strong>Oxygen Recycler</strong></td>
+        <td>Breathe and survive</td>
+        <td>Self-care, breathing exercises</td>
+    </tr>
+    <tr>
+        <td><strong>Hull Plating</strong></td>
+        <td>Protect from impacts</td>
+        <td>Resilience against triggers</td>
+    </tr>
+    <tr>
+        <td><strong>Solar Panels</strong></td>
+        <td>Renewable energy source</td>
+        <td>Healthy habits that sustain you</td>
+    </tr>
+</table>
+
+<h3>Planet Stop Locations</h3>
+<div class="planet-grid">
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 10</div>
+        <div class="planet-name">Mars Outpost</div>
+        <div class="planet-item">Collects: Navigation Computer</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Red planet surface, abandoned outpost structure, ship landing, Alex retrieving equipment from dusty station</p>
+    </div>
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 20</div>
+        <div class="planet-name">Jupiter Station</div>
+        <div class="planet-item">Collects: Fuel Cells</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Massive gas giant fills background, floating station, ship docking, refueling operation</p>
+    </div>
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 35</div>
+        <div class="planet-name">Saturn Rings Depot</div>
+        <div class="planet-item">Collects: Communication Array</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Ship flying carefully through Saturn's rings, grabbing satellite dish, ice particles floating</p>
+    </div>
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 50</div>
+        <div class="planet-name">Titan Base</div>
+        <div class="planet-item">Collects: Oxygen Recycler</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Saturn's moon Titan, orange haze atmosphere, icy surface, base with domes, Alex doing breathing gesture</p>
+    </div>
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 65</div>
+        <div class="planet-name">Neptune Waypoint</div>
+        <div class="planet-item">Collects: Hull Plating</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Distant blue planet, cold remote feeling, ship repairs, installing new armor plating</p>
+    </div>
+    <div class="planet-card no-break">
+        <div class="planet-day">Day 80</div>
+        <div class="planet-name">Lunar Station</div>
+        <div class="planet-item">Collects: Solar Panels</div>
+        <p style="font-size: 10px; margin-top: 6px;"><strong>Scene:</strong> Moon base, Earth visible large in sky (almost home!), Alex sitting on moon surface like sticker, installing panels</p>
+    </div>
+</div>
+
+<!-- ==================== 7. COURSE CORRECTIONS ==================== -->
+<h2 id="corrections">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+    7. Course Corrections (Relapse Handling)
+</h2>
+
+<p>When a user relapses, it's called a "course correction" — NOT a failure. The ship gets knocked off course but <strong>keeps flying</strong>. Alex doesn't die. The journey continues. This is crucial for maintaining hope.</p>
+
+<div class="info-box secondary no-break">
+    <h3>The Philosophy</h3>
+    <p><strong>Key insight:</strong> Alex remembers the journey. The user's experience, lessons learned, days of healing — those aren't erased. They're building resilience.</p>
+    <p style="margin-top: 10px;">When a relapse happens:</p>
+    <ul class="compact">
+        <li>Alex got knocked off course (not destroyed)</li>
+        <li>Navigation needs recalibration</li>
+        <li>Some distance must be re-traveled</li>
+        <li><strong>But the ship is still flying</strong></li>
+        <li>And Alex knows more than before</li>
+    </ul>
+</div>
+
+<h3>Course Correction Visuals by Stage</h3>
+<table class="no-break">
+    <tr>
+        <th>Stage</th>
+        <th>What Happens</th>
+        <th>Visual Description</th>
+    </tr>
+    <tr>
+        <td><strong>The Void</strong></td>
+        <td>Signal lost briefly</td>
+        <td>Static effect, screen flickers, signal returns with "reconnecting" animation</td>
+    </tr>
+    <tr>
+        <td><strong>First Light</strong></td>
+        <td>Power fluctuation</td>
+        <td>Lights flicker off then back on, systems resetting</td>
+    </tr>
+    <tr>
+        <td><strong>Leaving Drift</strong></td>
+        <td>Engine stalls</td>
+        <td>Engine glow cuts out, then restarts with determination</td>
+    </tr>
+    <tr>
+        <td><strong>Asteroid Field</strong></td>
+        <td>Minor collision</td>
+        <td>Impact shake, warning lights flash yellow, ship stabilizes</td>
+    </tr>
+    <tr>
+        <td><strong>Nebula</strong></td>
+        <td>Got turned around</td>
+        <td>Compass spinning, disorientation, then reorienting to course</td>
+    </tr>
+    <tr>
+        <td><strong>Clear Space</strong></td>
+        <td>Unexpected storm</td>
+        <td>Storm clouds appear, turbulence, ship pushed back but recovers</td>
+    </tr>
+    <tr>
+        <td><strong>Moon's Shadow</strong></td>
+        <td>Missed approach</td>
+        <td>Trajectory line adjusting, going around for another pass</td>
+    </tr>
+    <tr>
+        <td><strong>Earth Orbit</strong></td>
+        <td>Wrong entry angle</td>
+        <td>Abort landing sequence, pull up, reorbit animation</td>
+    </tr>
+</table>
+
+<div class="galaxy-box no-break">
+    <h3>Alex's Course Correction Messages</h3>
+    <p><em>"I lost you for a moment. But I'm still here. Let's try again."</em></p>
+    <p><em>"A setback. The ship needs to recalibrate. But we know what to do now."</em></p>
+    <p><em>"We took a hit. Some damage, but the ship holds. Recalculating route."</em></p>
+    <p><em>"I lost my bearings in here. But I've found the path again."</em></p>
+    <p style="margin-top: 12px; color: var(--accent);"><strong>Key tone:</strong> Compassionate, forward-looking, never shaming. The journey continues.</p>
+</div>
+
+<!-- ==================== 8. DELIVERABLES ==================== -->
+<h2 id="deliverables">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    8. Illustrator Deliverables
+</h2>
+
+<p>What you need to create. The animator will take these and build Rive animations.</p>
+
+<table class="no-break">
+    <tr>
+        <th>Asset Type</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Format</th>
+    </tr>
+    <tr>
+        <td><strong>Stage Backgrounds</strong></td>
+        <td>9 main journey stage backgrounds with appropriate space scenes</td>
+        <td>9</td>
+        <td>Layered AI/PSD/Figma</td>
+    </tr>
+    <tr>
+        <td><strong>Alex Character</strong></td>
+        <td>Astronaut with separable body parts for animation rigging</td>
+        <td>1 (multiple poses)</td>
+        <td>Layered AI/PSD</td>
+    </tr>
+    <tr>
+        <td><strong>Alex's Ship</strong></td>
+        <td>Spacecraft with separate parts (hull, engines, windows, lights)</td>
+        <td>1 (multiple states)</td>
+        <td>Layered AI/PSD</td>
+    </tr>
+    <tr>
+        <td><strong>Particles & Effects</strong></td>
+        <td>Stars, nebula clouds, engine flames, sparks, confetti</td>
+        <td>~10-15</td>
+        <td>PNG transparent</td>
+    </tr>
+    <tr>
+        <td><strong>Planet Backgrounds</strong></td>
+        <td>6 planet stop locations (V1.5)</td>
+        <td>6</td>
+        <td>Layered AI/PSD</td>
+    </tr>
+    <tr>
+        <td><strong>Ship Parts</strong></td>
+        <td>6 collectible items (nav computer, fuel cells, etc.)</td>
+        <td>6</td>
+        <td>Layered AI/PSD</td>
+    </tr>
+</table>
+
+<h3>Layer Separation Requirements</h3>
+<p>For the animator to rig animations, elements must be on separate layers:</p>
+
+<div class="two-col">
+    <div class="no-break">
+        <h4>Ship Layers</h4>
+        <ul class="compact">
+            <li>Hull (main body)</li>
+            <li>Cockpit glass/dome</li>
+            <li>Engine left</li>
+            <li>Engine right</li>
+            <li>Engine flames (separate for glow effects)</li>
+            <li>Navigation lights</li>
+            <li>Damage marks (for damaged state)</li>
+        </ul>
+    </div>
+    <div class="no-break">
+        <h4>Alex Character Layers</h4>
+        <ul class="compact">
+            <li>Head (with hair, beard, glasses)</li>
+            <li>Helmet visor (separate for on/off)</li>
+            <li>Body/torso</li>
+            <li>Left arm</li>
+            <li>Right arm</li>
+            <li>Left leg</li>
+            <li>Right leg</li>
+            <li>Tool/prop in hand (optional)</li>
+        </ul>
+    </div>
+</div>
+
+<div class="no-break">
+    <h4>Background Layers</h4>
+    <ul class="compact">
+        <li>Far stars (static backdrop)</li>
+        <li>Mid-distance stars (for parallax effect)</li>
+        <li>Near elements (asteroids, nebula clouds, planets)</li>
+        <li>Foreground particles (for depth)</li>
+    </ul>
+</div>
+
+<!-- ==================== 9. PHASES ==================== -->
+<h2 id="phases">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    9. Phases & Priorities
+</h2>
+
+<div class="phase-box no-break">
+    <h3>Phase 1: MVP (Must Have for Launch)</h3>
+    <p>Ship the app with these ~15 assets. Static images acceptable — animations enhance but don't block launch.</p>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Asset</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>1-9</td>
+            <td>9 Journey Stage Backgrounds (The Void through Homecoming)</td>
+            <td><span class="priority must">MUST HAVE</span></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Alex character (rigged with multiple poses)</td>
+            <td><span class="priority must">MUST HAVE</span></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Ship exterior (layered, multiple states)</td>
+            <td><span class="priority must">MUST HAVE</span></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Ship interior cockpit view</td>
+            <td><span class="priority should">SHOULD HAVE</span></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Celebration elements (confetti, stars overlay)</td>
+            <td><span class="priority should">SHOULD HAVE</span></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>Course correction elements (warning lights, shake effect)</td>
+            <td><span class="priority should">SHOULD HAVE</span></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>Engine flame/thrust effects</td>
+            <td><span class="priority should">SHOULD HAVE</span></td>
+        </tr>
+    </table>
+</div>
+
+<div class="phase-box v15 no-break">
+    <h3>Phase 2: V1.5 (Post-Launch)</h3>
+    <p>~8 additional illustrations for planet stops feature.</p>
+    <ul class="compact">
+        <li>Mars Outpost scene + Navigation Computer item</li>
+        <li>Jupiter Station scene + Fuel Cells item</li>
+        <li>Saturn Rings Depot scene + Communication Array item</li>
+        <li>Titan Base scene + Oxygen Recycler item</li>
+        <li>Neptune Waypoint scene + Hull Plating item</li>
+        <li>Lunar Station scene + Solar Panels item</li>
+        <li>Ship with collected parts attached (upgraded appearance)</li>
+        <li>Part pickup/installation animations</li>
+    </ul>
+</div>
+
+<div class="phase-box v2 no-break">
+    <h3>Phase 3: V2 (Polish)</h3>
+    <p>~12+ additional variations for enhanced experience.</p>
+    <ul class="compact">
+        <li>Ship damage states (minor scratches, moderate damage, severe damage)</li>
+        <li>Ship "boosted" state (glowing, upgraded look for streaks)</li>
+        <li>Additional Alex poses (waving, thumbs up, sleeping, meditating)</li>
+        <li>Weather/environmental effects (storms, solar flares)</li>
+        <li>Achievement badge icons (20+ unique badges)</li>
+        <li>Stage-specific celebration variants</li>
+    </ul>
+</div>
+
+<!-- ==================== 10. TECHNICAL SPECS ==================== -->
+<h2 id="specs">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    10. Technical Specifications
+</h2>
+
+<p>Your illustrations will be used by the animator to create Rive animations. Here are the technical requirements.</p>
+
+<div class="two-col">
+    <div class="no-break">
+        <h3>Your Deliverable Formats</h3>
+        <div class="spec-box">
+<strong>PREFERRED FORMATS:</strong>
+Adobe Illustrator (.ai)
+Figma (.fig)
+Photoshop (.psd)
+
+<strong>ALSO EXPORT:</strong>
+PNG transparent (for particles/effects)
+SVG (for icons/simple shapes)
+
+<strong>IMPORTANT:</strong>
+Keep all layers named clearly
+Group related elements
+Maintain vector where possible
+        </div>
+    </div>
+    <div class="no-break">
+        <h3>Resolution & Sizing</h3>
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Artboard Size</td>
+                <td>1280 x 720 px (16:9)</td>
+            </tr>
+            <tr>
+                <td>Character Height</td>
+                <td>~300-400 px</td>
+            </tr>
+            <tr>
+                <td>Ship Width</td>
+                <td>~400-600 px</td>
+            </tr>
+            <tr>
+                <td>Color Mode</td>
+                <td>RGB</td>
+            </tr>
+            <tr>
+                <td>Export Resolution</td>
+                <td>@2x minimum</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<h3>Rive Animation Notes (For Your Reference)</h3>
+<p>The animator will create Rive files with these state machines — knowing this helps you design assets that work well for animation:</p>
+
+<table class="no-break">
+    <tr>
+        <th>State</th>
+        <th>Description</th>
+        <th>What It Needs</th>
+    </tr>
+    <tr>
+        <td><code>idle</code></td>
+        <td>Default looping animation</td>
+        <td>Ship floating gently, stars twinkling, subtle movement</td>
+    </tr>
+    <tr>
+        <td><code>transition_in</code></td>
+        <td>Entry animation when stage reached</td>
+        <td>Ship flying into scene, background appearing</td>
+    </tr>
+    <tr>
+        <td><code>transition_out</code></td>
+        <td>Exit when advancing to next stage</td>
+        <td>Ship flying out, warp effect</td>
+    </tr>
+    <tr>
+        <td><code>celebrate</code></td>
+        <td>Milestone celebration</td>
+        <td>Confetti, Alex cheering, ship lights flashing</td>
+    </tr>
+    <tr>
+        <td><code>course_correction</code></td>
+        <td>Setback animation (relapse)</td>
+        <td>Ship shaking, warning lights, then stabilizing</td>
+    </tr>
+</table>
+
+<h3>File Naming Convention</h3>
+<div class="spec-box">
+<strong>BACKGROUNDS:</strong>
+stage-01-void.ai
+stage-02-first-light.ai
+stage-03-leaving-drift.ai
+...etc
+
+<strong>CHARACTER:</strong>
+alex-character-rigged.ai
+alex-poses-floating.ai
+alex-poses-celebrating.ai
+
+<strong>SHIP:</strong>
+ship-exterior-layered.ai
+ship-interior-cockpit.ai
+ship-states-damaged.ai
+
+<strong>EFFECTS:</strong>
+particles-stars.png
+particles-engine-flame.png
+particles-confetti.png
+</div>
+
+<h3>Color Reference (Copy These Exactly)</h3>
+<div class="spec-box">
+<strong>GALAXY BACKGROUNDS:</strong>
+Deep Space:     #0a0a1a
+Space Secondary: #0f0f24
+Card Surface:    #12122a
+
+<strong>GLOWS & ACCENTS:</strong>
+Primary Glow:    #818CF8    (ship engines, highlights)
+Secondary Glow:  #14B8A6    (Earth, destinations)
+Accent Glow:     #F472B6    (celebrations)
+Success:         #10B981    (achievements, home)
+Warning:         #F59E0B    (alerts, asteroids)
+
+<strong>BRAND COLORS:</strong>
+Primary:         #6366F1
+Secondary:       #0D9488
+Accent:          #F472B6
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+    <p><strong>QuitPo with Alex Friend</strong> — Space Journey Progression & Achievement System</p>
+    <p>This document contains illustration requirements for the gamification feature.</p>
+    <p>Your illustrations will be handed to the animator to create Rive animations.</p>
+    <p style="margin-top: 8px;">Document generated: January 2026</p>
+</div>
+
+</body>
+</html>
