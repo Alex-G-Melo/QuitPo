@@ -4,7 +4,7 @@
 24/7 AI-Powered Recovery Support Companion
 
 ## Description
-The AI Therapist (branded as "Melius" in competitor apps) is a conversational AI companion available around the clock to provide emotional support, coping strategies, and therapeutic guidance. Unlike human therapists with limited availability and high costs, the AI offers immediate, judgment-free support whenever users need it most - including late nights and weekends when urges often peak. The AI uses cognitive behavioral therapy (CBT) techniques, motivational interviewing, and addiction-specific guidance.
+The AI Therapist ("Alex") is a conversational AI companion available around the clock to provide emotional support, coping strategies, and therapeutic guidance. Unlike human therapists with limited availability and high costs, Alex offers immediate, judgment-free support whenever users need it most - including late nights and weekends when urges often peak. Alex uses cognitive behavioral therapy (CBT) techniques, motivational interviewing, and addiction-specific guidance, while maintaining context about your recovery journey through personalized data access.
 
 ## Problem Statement
 
@@ -46,44 +46,135 @@ The AI Therapist provides:
 - Grounding techniques
 - Relapse prevention planning
 
-### 4. Contextual Understanding
-- Knows user's streak length
-- Aware of recent check-ins and mood
-- Can reference past conversations (within session)
-- Adapts responses to user's recovery stage
+### 4. Personalized Context (Like a Real Therapist)
+Unlike generic chatbots, Alex knows your recovery journey (with your permission):
+- Your streak history and check-in patterns
+- When you've opened the panic button and what helped
+- Blocked site attempt patterns (times, frequency - no URLs)
+- Journal entries and identified triggers
+- Community posts you've made
+- Screen time patterns and risky app usage
+- Past conversation summaries stored in RAG
 
-### 5. Privacy Assurance
-- Chat messages cleared when leaving the screen
-- No chat history stored on servers
-- Complete anonymity
-- Explicitly stated privacy policy
+This transforms Alex from a generic AI into a therapist who actually knows you.
+
+### 5. Privacy with Control
+- GDPR-compliant: Explicit opt-in consent required
+- Granular toggles: Enable/disable each data source separately
+- User ownership: View, edit, delete all stored summaries
+- Auto-expiry: Summaries expire after 2-3 months
+- Right to be forgotten: One-click delete all AI data
+
+## User Context Integration
+
+Alex accesses user data (with permission) to provide personalized support like a real therapist who knows the patient over time.
+
+### Data Sources Available
+
+Each data source can be toggled on/off separately by the user:
+
+| Data Source | What Alex Sees | Example Use |
+|-------------|----------------|-------------|
+| Profile | Name, age, recovery stage | "Hey [Name], I see you're in early recovery..." |
+| Streak & Check-ins | Current streak, mood history, urge levels | "Your mood has been lower this week. What's going on?" |
+| Panic Button | Usage frequency, times, outcomes | "I noticed you used the panic button 3x yesterday. That's a tough day." |
+| Blocked Sites | Attempt counts (no URLs), time patterns | "You tend to get blocked attempts late at night. Let's work on a nighttime routine." |
+| Journal | Full journal entries | "Last week you wrote about work stress as a trigger. How's work going?" |
+| Community | User's posts and comments | "I saw you encouraged someone in the community today. That's growth!" |
+| Screen Time | App usage patterns, risky app triggers | "Your Instagram usage spiked before recent urges. Want to discuss that?" |
+| Social Safety | Platform settings configured | "Have you tried the sensitive content filter on Twitter?" |
+| Past Summaries | Previous conversation insights (RAG) | "Last time we talked, you mentioned your relationship. Any updates?" |
+
+### Why This Matters
+
+A real therapist's value comes from knowing you over time:
+- They remember your triggers
+- They notice patterns you don't see
+- They can ask "how did that thing we discussed go?"
+- They celebrate your growth over months
+
+Alex can now do the same - but only with your explicit permission.
+
+## Session Summary System
+
+### How It Works
+
+1. **User chats with Alex** - Normal conversation flow
+2. **Session timeout detection** - User leaves chat and doesn't return for 10-15 minutes
+3. **Auto-summary generation** - AI creates a brief summary of the conversation
+4. **RAG storage** - Summary embedded and stored in pgvector for fast retrieval
+5. **Future context** - Relevant summaries retrieved when user chats again
+
+### What Summaries Capture
+
+Each summary includes:
+- **Main topics discussed** - Urges, triggers, progress, relationships, etc.
+- **Key insights/breakthroughs** - "Realized work stress is primary trigger"
+- **Triggers identified** - Specific situations or emotions mentioned
+- **Strategies recommended** - Coping techniques suggested
+- **Emotional state** - How user was feeling during conversation
+- **Action items** - Things user committed to trying
+
+### Summary Example
+
+```
+Session: Dec 28, 2025, 11:30 PM
+Duration: 15 minutes
+Topics: Late night urge, work stress
+
+Summary:
+User reached out during a strong urge (level 8) triggered by
+work stress and being alone at home. Discussed using physical
+movement (jumping jacks) which reduced urge to level 5.
+Identified Instagram scrolling as the precipitating behavior.
+Recommended: Set up Instagram sensitive content filter.
+User agreed to try the breathing exercise next time before
+reaching for phone.
+
+Emotional state: Anxious → Relieved
+Outcome: Urge managed successfully
+```
+
+### Summary Management
+
+**User Controls:**
+- View all summaries in AI Therapist Settings
+- Edit summary text (correct inaccuracies)
+- Delete individual summaries
+- Mark as "Keep" (prevents auto-expiry)
+- Export all summaries (Premium)
+- Delete all AI data (right to be forgotten)
+
+**Auto-Expiry:**
+- Summaries expire after 2-3 months by default
+- User can mark important summaries as "Keep"
+- Expiry helps manage storage and ensures relevance
+
+### RAG Retrieval
+
+When user starts a new conversation:
+1. Query pgvector with conversation context
+2. Retrieve top 3-5 most relevant past summaries
+3. Include in system prompt for Alex
+4. Alex can reference: "Last time we talked about..."
 
 ## Screen Content
 
 ### AI Chat Entry Screen
 
 **Header**
-- AI avatar/mascot (friendly robot character)
-- Name: "Melius" (or QuitPo's chosen name)
+- AI avatar/mascot (friendly astronaut character)
+- Name: "Alex"
 - Subtitle: "Powered by AI"
-- Toggle for AI persona settings (icon)
+- Settings icon (⚙️) for AI preferences
 - Close button (X)
 
 **Welcome State (First Visit)**
-```
-[AI Avatar - cute robot mascot]
-
-Talk to [AI Name]
-
-Chat messages are cleared each time you
-leave this view to ensure your privacy.
-
-[Input field: "Say something..."]
-```
+See First-Time Consent Flow section below for the complete onboarding experience.
 
 **Welcome State (Return Visit)**
 ```
-[AI Avatar]
+[Astronaut Avatar]
 
 Welcome back! I'm here to help.
 
@@ -116,6 +207,157 @@ How are you feeling right now?
 - Text input field
 - Send button
 - Voice input option (premium)
+
+### First-Time Consent Flow
+
+When a user opens Alex for the first time, they must complete the onboarding flow before chatting.
+
+**Step 1: Welcome + Terms**
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  [Astronaut Avatar]                         │
+│                                             │
+│  Meet Alex, your AI companion               │
+│                                             │
+│  Alex is here to support your recovery      │
+│  journey 24/7. To provide the best help,    │
+│  Alex can access your app data.             │
+│                                             │
+│  By continuing, you agree to our            │
+│  [Terms & Conditions] and [Privacy Policy]  │
+│                                             │
+│            [Continue →]                     │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+**Step 2: Data Access (Default: ALL ON)**
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  What Alex can see:                         │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ ☑️ Profile (name, age)              │   │
+│  │ ☑️ Streak & check-ins               │   │
+│  │ ☑️ Panic button usage               │   │
+│  │ ☑️ Blocked site attempts            │   │
+│  │ ☑️ Journal entries                  │   │
+│  │ ☑️ Community posts & comments       │   │
+│  │ ☑️ Screen time patterns             │   │
+│  │ ☑️ Social safety settings           │   │
+│  │ ☑️ Past conversation summaries      │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ⓘ Recommended: Keep all enabled for       │
+│    best personalized support.               │
+│                                             │
+│  [← Back]              [Continue →]         │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+**If user deactivates anything → Confirmation popup:**
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  Are you sure?                              │
+│                                             │
+│  Disabling access will limit Alex's         │
+│  ability to give personalized support.      │
+│                                             │
+│  [Review Settings]    [Continue Anyway]     │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+**Step 3: Ready to Chat**
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  ✓ You're all set!                          │
+│                                             │
+│  Alex is ready to support you.              │
+│  You can change settings anytime via ⚙️     │
+│                                             │
+│  [Start Chatting]                           │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### AI Therapist Settings
+
+Accessible from:
+- Settings icon (⚙️) in chat header
+- Main app Settings → AI Therapist
+
+```
+┌─────────────────────────────────────────────┐
+│  ← Back          Alex Settings              │
+│                                             │
+│  DATA ACCESS                                │
+│  What Alex can see about you                │
+│                                             │
+│  Profile (name, age)              [ON]      │
+│  Streak & check-ins               [ON]      │
+│  Panic button usage               [ON]      │
+│  Blocked site attempts            [ON]      │
+│  Journal entries                  [ON]      │
+│  Community posts & comments       [ON]      │
+│  Screen time patterns             [ON]      │
+│  Social safety settings           [ON]      │
+│  Past conversation summaries      [ON]      │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  CONVERSATION SUMMARIES                     │
+│                                             │
+│  [View All Summaries (12)]                  │
+│  [Export Summaries]              🔒 Premium │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  DATA MANAGEMENT                            │
+│                                             │
+│  [Delete All AI Data]                       │
+│  This will remove all conversation          │
+│  summaries and reset Alex's memory.         │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Summary List View
+
+```
+┌─────────────────────────────────────────────┐
+│  ← Back       Conversation Summaries        │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ Dec 28, 2025 • 11:30 PM             │   │
+│  │ Late night urge, work stress        │   │
+│  │ Outcome: Managed successfully ✓     │   │
+│  │                        [⋮ Menu]     │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ Dec 25, 2025 • 3:15 PM              │   │
+│  │ Holiday stress, family triggers     │   │
+│  │ Outcome: Managed successfully ✓     │   │
+│  │                        [⋮ Menu]     │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ Dec 20, 2025 • 9:00 AM       📌     │   │
+│  │ Breakthrough: Identified pattern    │   │
+│  │ Outcome: Key insight saved          │   │
+│  │                        [⋮ Menu]     │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  [Menu options: View, Edit, Keep, Delete]   │
+│                                             │
+└─────────────────────────────────────────────┘
+```
 
 ### Example Conversations
 
@@ -391,18 +633,33 @@ Next session starts fresh
 ### System Prompt Structure
 
 ```
-You are [AI Name], a compassionate AI companion helping users
+You are Alex, a compassionate AI companion helping users
 recover from porn addiction. You are available 24/7 to provide
 support, coping strategies, and evidence-based guidance.
 
-Context about this user:
+## User Context (from enabled data sources):
+
+**Profile & Progress:**
+- Name: {name}, Age: {age}
 - Current streak: {streak_days} days
 - Longest streak: {longest_streak} days
-- Recent mood: {recent_mood}
-- Time of day: {time_context}
 - Recovery stage: {stage}
+- Time of day: {time_context}
 
-Guidelines:
+**Recent Activity (if enabled):**
+- Recent mood trend: {mood_trend} (from check-ins)
+- Panic button usage: {panic_stats} (frequency, times)
+- Blocked site attempts: {block_count} this week
+- Screen time alerts: {screen_time_triggers}
+
+**Journal Insights (if enabled):**
+- Recent triggers mentioned: {journal_triggers}
+- Emotional themes: {journal_themes}
+
+**Past Conversation Summaries (from RAG):**
+{relevant_summaries}
+
+## Guidelines:
 1. Be warm and non-judgmental
 2. Validate feelings before offering solutions
 3. Use evidence-based techniques (CBT, motivational interviewing)
@@ -410,9 +667,11 @@ Guidelines:
 5. Ask follow-up questions to understand better
 6. Never shame or lecture
 7. Celebrate progress, no matter how small
-8. If crisis indicators, provide resources immediately
+8. Reference past conversations when relevant ("Last time we talked...")
+9. Use their name occasionally for personalization
+10. If crisis indicators, provide resources immediately
 
-Topics to avoid:
+## Topics to avoid:
 - Do not provide medical diagnoses
 - Do not engage with explicit content requests
 - Do not provide legal advice
@@ -455,13 +714,16 @@ For premium users, enable semantic search of past insights:
 
 **Free Tier**
 - 10 messages per day
-- After limit: "You've used your daily chat limit. Upgrade to Premium for unlimited conversations."
+- After limit: "You've used your daily chat limit. Upgrade to Premium for more conversations."
+- Basic context (streak, check-ins only)
 
 **Premium Tier**
-- Unlimited messages
+- 100 messages per day (cost-controlled)
 - Faster response times (priority API access)
 - Voice input option
-- Conversation insights feature
+- Full context access (all data sources)
+- Conversation summaries with RAG retrieval
+- Summary export option
 
 ### Analytics (Privacy-Preserving)
 
@@ -528,32 +790,72 @@ note what's working so you can recreate it.
 ## Agent Implementation Guide
 
 ### foundation-agent Tasks
-- Create chat_sessions table: id, user_id, started_at, ended_at, message_count
-- Create chat_analytics table: session_id, topic_category, duration_seconds
-- Set up encryption keys for any stored session data
-- Configure AI model API keys in environment
+- Create `ai_user_settings` table (see Data Model)
+- Create `ai_chat_sessions` table (see Data Model)
+- Create `ai_session_summaries` table with pgvector embedding column
+- Set up encryption keys for summary storage
+- Configure AI model API keys (GPT-5 Mini, DeepSeek V3.2)
+- Set up pgvector extension for summary embeddings
+- Create scheduled job for summary auto-expiry cleanup
 
 ### backend-agent Tasks
-- POST /api/chat/message - Send message, receive AI response
-- GET /api/chat/config - Get user's chat settings and limits
-- POST /api/chat/end-session - Log session end for analytics
-- Implement rate limiting for free tier
-- Set up fallback model switching logic
-- Create system prompt builder with user context
+**Chat API:**
+- POST /api/chat/message - Send message, receive AI response (streaming)
+- GET /api/chat/config - Get user's chat settings and rate limit status
+- POST /api/chat/start-session - Create new session record
+- POST /api/chat/end-session - End session, trigger summary generation
+
+**Settings API:**
+- GET /api/chat/settings - Get user's AI therapist settings
+- PATCH /api/chat/settings - Update data access toggles
+- POST /api/chat/settings/accept-terms - Complete onboarding
+
+**Summary API:**
+- GET /api/chat/summaries - List user's summaries (paginated)
+- GET /api/chat/summaries/:id - Get single summary
+- PATCH /api/chat/summaries/:id - Edit summary text
+- DELETE /api/chat/summaries/:id - Delete summary
+- POST /api/chat/summaries/:id/keep - Mark as "Keep"
+- DELETE /api/chat/data - Delete all AI data (GDPR)
+
+**Context Building:**
+- Session timeout detection (10-15 min inactivity)
+- Summary generation using AI model
+- RAG retrieval from pgvector for context
+- System prompt builder with enabled data sources
+- Rate limiting (10 free / 100 premium per day)
 
 ### ui-agent Tasks
+**Chat Components:**
 - ChatScreen component with message list
 - MessageBubble component (user vs AI styles)
 - TypingIndicator component
 - QuickReplyChips component
 - VoiceInputButton component (premium)
 - ChatInput component with send functionality
+- ChatHeader with settings icon
+
+**Onboarding Components:**
+- AlexOnboardingFlow (3-step consent)
+- DataAccessToggle component
+- TermsAcceptanceScreen
+- DisableConfirmationModal
+
+**Settings Components:**
+- AlexSettingsScreen
+- SummaryListView
+- SummaryDetailView (with edit/delete)
+- DeleteAllDataConfirmation
 
 ### pages-agent Tasks
 - Chat route accessible from dashboard and panic button
-- Deep link support for opening chat
+- Deep link support for opening chat (quitpo://alex)
+- First-time onboarding flow gate
+- Settings page route
+- Summaries list/detail routes
 - Proper keyboard handling for input
 - Session cleanup on navigation away
+- Timeout detection for summary generation
 
 ## Success Metrics
 
@@ -584,8 +886,109 @@ note what's working so you can recreate it.
 
 ## Privacy Considerations
 
-- Messages are not stored after session ends
-- No training on user data
-- Explicit privacy policy in welcome screen
-- Option to export conversation before closing (premium)
-- No screenshots blocked for chat screen
+### GDPR Compliance
+- **Explicit consent**: User must opt-in before Alex accesses any data
+- **Granular control**: Each data source toggleable separately
+- **Right to access**: User can view all stored summaries
+- **Right to rectification**: User can edit summaries
+- **Right to erasure**: One-click delete all AI data
+- **Data portability**: Export summaries (Premium)
+
+### Data Handling
+- **Session messages**: Not stored after session ends (real-time only)
+- **Summaries**: Stored with encryption, auto-expire after 2-3 months
+- **Embeddings**: Stored in pgvector for RAG retrieval
+- **No training**: User data never used for AI model training
+- **No third-party sharing**: Data stays within QuitPo systems
+
+### User Controls
+- Toggle each data source on/off anytime
+- View all conversation summaries
+- Edit summary content to correct inaccuracies
+- Mark summaries as "Keep" to prevent expiry
+- Delete individual summaries
+- Delete all AI data (full reset)
+
+### Transparency
+- Clear privacy policy shown at first use
+- Settings page shows exactly what Alex can see
+- User always knows what data is being accessed
+
+## Data Model
+
+This section defines the database schema for the AI Therapist feature.
+
+### Tables
+
+#### ai_user_settings
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique settings ID |
+| user_id | uuid | NOT NULL, UNIQUE | users.id | One settings record per user |
+| onboarding_completed | boolean | DEFAULT false | | Has user completed first-time flow |
+| terms_accepted_at | timestamp | | | When terms were accepted |
+| access_profile | boolean | DEFAULT true | | Can access name, age |
+| access_streak | boolean | DEFAULT true | | Can access streak & check-ins |
+| access_panic_button | boolean | DEFAULT true | | Can access panic button usage |
+| access_blocked_sites | boolean | DEFAULT true | | Can access block attempt counts |
+| access_journal | boolean | DEFAULT true | | Can access journal entries |
+| access_community | boolean | DEFAULT true | | Can access posts & comments |
+| access_screen_time | boolean | DEFAULT true | | Can access screen time data |
+| access_social_safety | boolean | DEFAULT true | | Can access platform settings |
+| access_summaries | boolean | DEFAULT true | | Can access past summaries |
+| created_at | timestamp | NOT NULL, DEFAULT now() | | |
+| updated_at | timestamp | NOT NULL, DEFAULT now() | | |
+
+#### ai_chat_sessions
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique session ID |
+| user_id | uuid | NOT NULL | users.id | User who chatted |
+| started_at | timestamp | NOT NULL | | Session start time |
+| ended_at | timestamp | | | Session end time (null if active) |
+| message_count | integer | DEFAULT 0 | | Number of messages exchanged |
+| topic_category | enum | | | 'urge', 'support', 'progress', 'general' |
+| outcome | enum | | | 'resolved', 'ongoing', 'escalated' |
+| summary_generated | boolean | DEFAULT false | | Has summary been created |
+
+#### ai_session_summaries
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique summary ID |
+| user_id | uuid | NOT NULL | users.id | User who owns summary |
+| session_id | uuid | NOT NULL | ai_chat_sessions.id | Source session |
+| summary_text | text | NOT NULL | | The summary content |
+| topics | text[] | | | Array of topics discussed |
+| triggers_identified | text[] | | | Triggers mentioned |
+| strategies_recommended | text[] | | | Coping strategies suggested |
+| emotional_state | text | | | User's emotional journey |
+| outcome | text | | | Session outcome |
+| embedding | vector(1536) | | | text-embedding-3-small vector |
+| is_kept | boolean | DEFAULT false | | User marked as "Keep" |
+| expires_at | timestamp | | | Auto-expiry date (2-3 months) |
+| created_at | timestamp | NOT NULL, DEFAULT now() | | |
+| updated_at | timestamp | NOT NULL, DEFAULT now() | | |
+
+### Relationships
+
+```
+users (1) ─────< (1) ai_user_settings
+users (1) ─────< (many) ai_chat_sessions
+ai_chat_sessions (1) ─────< (0..1) ai_session_summaries
+users (1) ─────< (many) ai_session_summaries
+```
+
+### Indexes
+
+- `ai_user_settings`: user_id (unique)
+- `ai_chat_sessions`: user_id, started_at DESC
+- `ai_session_summaries`: user_id, created_at DESC
+- `ai_session_summaries`: embedding (ivfflat for vector search)
+- `ai_session_summaries`: expires_at (for cleanup job)
+
+### Enums
+
+```sql
+CREATE TYPE ai_topic_category AS ENUM ('urge', 'support', 'progress', 'general');
+CREATE TYPE ai_session_outcome AS ENUM ('resolved', 'ongoing', 'escalated');
+```
