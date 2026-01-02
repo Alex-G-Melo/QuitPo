@@ -4,7 +4,7 @@
 Platform-Specific Safety Configuration Tutorials
 
 ## Description
-Since QuitPo cannot directly filter content inside third-party social media apps, this feature provides comprehensive step-by-step guides for users to configure each platform's built-in safety settings. This empowers users to take control of their algorithm and reduce triggering content without needing to delete apps entirely.
+Since Alex Friend cannot directly filter content inside third-party social media apps, this feature provides comprehensive step-by-step guides for users to configure each platform's built-in safety settings. This empowers users to take control of their algorithm and reduce triggering content without needing to delete apps entirely.
 
 ## Problem Statement
 
@@ -237,7 +237,7 @@ Step-by-step tutorials for:
 1. Profile → Three lines (☰) → Settings and privacy
 2. Go to "Content preferences"
 3. Enable "Restricted Mode"
-4. Set a passcode you'll forget (write it in QuitPo notes)
+4. Set a passcode you'll forget (write it in Alex Friend notes)
 
 *Cannot be easily disabled once set with passcode.*
 
@@ -397,7 +397,7 @@ Step-by-step tutorials for:
 If a platform is too triggering:
 1. **Delete the app entirely** - Most effective
 2. **Web version only** - More friction to access
-3. **Time restrictions** - QuitPo Screen Time + platform limits
+3. **Time restrictions** - Alex Friend Screen Time + platform limits
 4. **Account reset** - Fresh account, clean algorithm
 
 ### Algorithm Training Timeline
@@ -408,7 +408,7 @@ If a platform is too triggering:
 ### The Scroll Trap
 - Platforms are designed to be endless
 - Set hard time limits
-- Use QuitPo's friction feature
+- Use Alex Friend's friction feature
 
 ### Late Night = High Risk
 - Algorithms show more engaging content at night
@@ -492,7 +492,7 @@ Next recheck scheduled
 - High usage in platform → suggest safety guide
 - "You're spending a lot of time on TikTok. Want to make it safer?"
 
-### With AI Therapist
+### With Alex
 - AI can reference guides
 - "Have you configured Instagram's safety settings?"
 

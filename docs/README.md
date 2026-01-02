@@ -1,12 +1,20 @@
-# QuitPo Documentation
+# Alex Friend Documentation
+
+## Branding
+
+| Brand | Usage |
+|-------|-------|
+| **Alex Friend** | Consumer-facing app name (App Store, user's phone, in-app) |
+| **QuitPo** | Company/legal entity, SEO marketing site |
+| **Domains** | alex-friend.ai (app), quitpo.com (marketing → redirects to app) |
 
 ## Overview
 
-QuitPo is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through a combination of psychological tools, community support, and behavioral interventions. The app is built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
+Alex Friend is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through a combination of psychological tools, community support, and behavioral interventions. The app is built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
 
 ## Core Philosophy
 
-**Compassionate Recovery**: Unlike punitive approaches, QuitPo treats relapses as learning opportunities, not failures. The app uses positive reinforcement, gentle reminders, and evidence-based therapeutic techniques.
+**Compassionate Recovery**: Unlike punitive approaches, Alex Friend treats relapses as learning opportunities, not failures. The app uses positive reinforcement, gentle reminders, and evidence-based therapeutic techniques.
 
 **Privacy First**: All sensitive data stays on-device. Chat histories are cleared after sessions. No content is ever analyzed or transmitted.
 
@@ -26,7 +34,7 @@ QuitPo is a comprehensive porn addiction recovery app designed to help users bre
 | Feature | Description | Doc |
 |---------|-------------|-----|
 | **Panic Button** | Emergency intervention during urge moments with camera overlay and motivational content | [01-panic-button.md](features/01-panic-button.md) |
-| **AI Therapist** | 24/7 AI-powered supportive conversations using GPT-5 Mini | [02-ai-therapist.md](features/02-ai-therapist.md) |
+| **Alex (AI Companion)** | 24/7 AI recovery friend with personalized support and proactive outreach | [02-ai-therapist.md](features/02-ai-therapist.md) |
 | **Streak System** | Track porn-free days with 90-day rewiring goal | [03-streak-system.md](features/03-streak-system.md) |
 | **Gamification** | Life Tree progression system with achievements | [04-gamification.md](features/04-gamification.md) |
 | **Daily Check-ins** | Morning/evening mood and urge tracking | [05-daily-checkins.md](features/05-daily-checkins.md) |
@@ -76,7 +84,7 @@ QuitPo is a comprehensive porn addiction recovery app designed to help users bre
 **Home Tab**
 - Dashboard (main view)
 - Panic Button (full screen overlay)
-- AI Therapist chat
+- Alex chat
 - Pledge modal
 - Meditation player
 - Reset/relapse flow
@@ -133,7 +141,7 @@ Each feature can be implemented by specialized development agents:
 - Dashboard home screen
 
 ### Phase 3: AI & Engagement
-- AI therapist integration
+- Alex (AI companion) integration
 - Gamification system
 - Achievements
 - Notifications
@@ -162,7 +170,7 @@ Each feature can be implemented by specialized development agents:
 - Average streak length
 - 90-day completion rate
 - Panic button usage vs relapse rate
-- AI therapist engagement
+- Alex engagement
 - Daily check-in completion rate
 
 **Business Metrics**
@@ -175,7 +183,7 @@ Each feature can be implemented by specialized development agents:
 
 1. **Social Media Trigger Defense** - Guides for configuring Instagram, TikTok, etc. safety settings
 2. **Friction-Based Intervention** - Breathing exercises before opening risky apps (57% reduction proven)
-3. **AI Therapist** - 24/7 availability unlike human support
+3. **Alex (AI Companion)** - 24/7 personalized support with proactive outreach
 4. **Compassionate Reset Flow** - Non-judgmental relapse handling with journaling
 5. **Life Tree Gamification** - Visual progression metaphor tied to brain rewiring
 

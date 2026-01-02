@@ -4,7 +4,7 @@
 Morning & Evening Mood and Urge Tracking System
 
 ## Description
-Daily check-ins are brief, structured self-assessments that help users monitor their emotional state, urge levels, and triggers throughout their recovery journey. By consistently tracking this data, users develop self-awareness, identify patterns, and can proactively address high-risk situations. The check-in system also provides valuable data for the AI therapist and analytics features.
+Daily check-ins are brief, structured self-assessments that help users monitor their emotional state, urge levels, and triggers throughout their recovery journey. By consistently tracking this data, users develop self-awareness, identify patterns, and can proactively address high-risk situations. The check-in system also provides valuable data for Alex and analytics features.
 
 ## Problem Statement
 
@@ -24,7 +24,7 @@ Users in addiction recovery often struggle with:
 
 ## Solution
 
-QuitPo's check-in system provides:
+Alex Friend's check-in system provides:
 
 ### 1. Structured Daily Prompts
 - Morning check-in: Set intentions, assess starting mood
@@ -277,7 +277,7 @@ Optional: Review week's data
 User logs urge 7+ on check-in
                     ↓
 Check-in completes with extra options:
-├── "Talk to AI Therapist now?"
+├── "Talk to Alex now?"
 ├── "Try a breathing exercise?"
 └── "Open panic button?"
                     ↓
@@ -462,7 +462,7 @@ THEN show "Your consistent tracking is helping!"
 
 ## Integration Points
 
-### With AI Therapist
+### With Alex
 - AI receives recent check-in data for context
 - "I see you've been stressed this week. Want to talk about it?"
 - AI can prompt check-in if user hasn't done one today

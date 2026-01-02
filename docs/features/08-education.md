@@ -622,7 +622,7 @@ Returns to lesson
 - "Scholar" achievement for all modules
 - "Quiz Ace" for 100% score
 
-### With AI Therapist
+### With Alex
 - AI references education content
 - "In Module 2, you learned about..."
 - Suggests relevant lessons

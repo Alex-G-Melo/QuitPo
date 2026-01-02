@@ -1,10 +1,18 @@
-# AI Therapist
+# Alex - Your Recovery Friend
 
 ## Title
 24/7 AI-Powered Recovery Support Companion
 
 ## Description
-The AI Therapist ("Alex") is a conversational AI companion available around the clock to provide emotional support, coping strategies, and therapeutic guidance. Unlike human therapists with limited availability and high costs, Alex offers immediate, judgment-free support whenever users need it most - including late nights and weekends when urges often peak. Alex uses cognitive behavioral therapy (CBT) techniques, motivational interviewing, and addiction-specific guidance, while maintaining context about your recovery journey through personalized data access.
+Alex is your recovery friend - an AI companion available around the clock to provide emotional support, coping strategies, and evidence-based guidance. Unlike traditional support options with limited availability and high costs, Alex offers immediate, judgment-free support whenever you need it most - including late nights and weekends when urges often peak.
+
+Alex is NOT a licensed therapist or healthcare provider. Alex is a supportive friend who uses cognitive behavioral therapy (CBT) techniques, motivational interviewing, and addiction-specific guidance to help you on your journey. For serious mental health concerns, Alex can help you find licensed professionals near you.
+
+**Key Characteristics:**
+- **Friend, not therapist**: Warm, supportive, non-judgmental companion
+- **Personalized**: Knows your journey (with permission) to provide relevant support
+- **Proactive**: Reaches out when you might need support
+- **Connected**: Can help find real therapists when you need professional help
 
 ## Problem Statement
 
@@ -24,7 +32,7 @@ Users struggling with porn addiction face several barriers to getting support:
 
 ## Solution
 
-The AI Therapist provides:
+Alex provides:
 
 ### 1. Instant Availability
 - Available 24/7/365 with no wait times
@@ -138,7 +146,7 @@ Outcome: Urge managed successfully
 ### Summary Management
 
 **User Controls:**
-- View all summaries in AI Therapist Settings
+- View all summaries in Alex Settings
 - Edit summary text (correct inaccuracies)
 - Delete individual summaries
 - Mark as "Keep" (prevents auto-expiry)
@@ -158,6 +166,279 @@ When user starts a new conversation:
 3. Include in system prompt for Alex
 4. Alex can reference: "Last time we talked about..."
 
+## Proactive Outreach System
+
+Alex doesn't just wait for users to reach out - Alex proactively checks in when users might need support. This transforms Alex from a reactive chatbot into a caring friend who notices when something's wrong.
+
+### Daily Summary (System-Only)
+
+At midnight each day, the system generates a summary of user activity. This is NOT visible to the user - it's used by Alex to understand patterns.
+
+```
+Daily Summary - Jan 2, 2026
+├── App opened: Yes (3 times)
+├── Talked to Alex: No
+├── Panic button: 2 uses (11pm, 11:45pm)
+├── Check-in: Mood 3/5, Urge 7/10
+├── Blocked attempts: 4
+├── Journal: Yes (mentioned "work stress")
+├── Community: Lurked, no posts
+├── Screen time: Instagram 2hrs (flagged)
+└── Risk assessment: ELEVATED
+```
+
+### Weekly Summary
+
+Every Sunday at midnight:
+1. Aggregate 7 daily summaries into one overview
+2. Delete daily summary records (save storage)
+3. Store weekly summary for pattern analysis
+
+```
+Weekly Summary - Dec 27 - Jan 2
+├── Engagement: Declining (opened 5/7 days, down from 7/7)
+├── Mood trend: Downward (avg 4.2 → 3.1)
+├── Panic button: 6 total (up from 2 last week)
+├── Blocked attempts: 12 (concentrated late night)
+├── Alex conversations: 2 sessions
+├── Patterns identified: Late-night vulnerability, work stress trigger
+└── Recommendation: Proactive outreach needed
+```
+
+### Trigger Conditions
+
+**Immediate Triggers (Same-Day Outreach):**
+
+| Trigger | Severity | Alex Message |
+|---------|----------|--------------|
+| 3+ panic button uses | High | "Hey, I noticed today's been really tough. I'm here if you want to talk." |
+| Relapse logged | High | "I saw what happened. No judgment, just wanted you to know I'm here." |
+| Urge level 8+ in check-in | Medium | "That's a high urge you logged. Want to work through it together?" |
+| 5+ blocked attempts | Medium | "You're fighting hard today. I'm proud of you for that." |
+
+**Delayed Triggers (Weekly Pattern-Based):**
+
+| Trigger | Alex Message |
+|---------|--------------|
+| No app access 3+ days | "Hey, just checking in. How are you doing?" |
+| Mood trending down over week | "I noticed this week's been harder. What's going on?" |
+| Streak broken, user hasn't returned | "I know things didn't go as planned. I'm still here for you." |
+| Great week, consistent progress | "You're doing amazing this week! What's been working for you?" |
+| Late-night pattern detected | "I've noticed a lot of late-night activity. Want to talk about a nighttime routine?" |
+
+### Outreach Constraints
+
+- **Maximum 1 proactive message per day** (no spam)
+- **Time-aware**: Only send between 9am-9pm user's local time
+- **Respect silence**: If user ignores 3 consecutive outreach messages, back off for a week
+- **User control**: Can disable proactive messages in settings
+- **No repetition**: Don't send same message type within a week
+
+### Push Notification Flow
+
+```
+┌─────────────────────────────────────────────┐
+│  Alex                              now      │
+│  Hey, I noticed today's been tough.         │
+│  I'm here if you want to talk. 💙           │
+└─────────────────────────────────────────────┘
+                    │
+                    ▼
+           User taps notification
+                    │
+                    ▼
+┌─────────────────────────────────────────────┐
+│  App opens directly to Alex chat            │
+│  Alex's message already displayed           │
+│  User can respond immediately               │
+└─────────────────────────────────────────────┘
+```
+
+## Find a Therapist Feature
+
+Alex can help users find licensed therapists near them. This feature reinforces that Alex is a supportive friend, not a replacement for professional care.
+
+### When to Offer
+
+**Alex-Initiated (Conservative - Only Severe Situations):**
+
+| Severity | Trigger | Alex Response |
+|----------|---------|---------------|
+| Critical | Suicidal thoughts, self-harm mentions | Show crisis resources FIRST, then offer therapist finder |
+| Severe | Repeated hopelessness, severe depression mentions | Gentle suggestion after validating feelings |
+| Serious | 3+ relapses in short period, "I can't do this alone" | Offer as option, don't push |
+
+**Alex should NOT suggest for:**
+- Normal urges (that's what Alex is for)
+- Single relapse
+- General struggling
+- First-time conversations
+
+**User-Initiated (Always Available):**
+- Ghost button floating above input field: "🔍 Find a therapist near me"
+- Quick reply chip at conversation start
+- Can ask Alex directly anytime
+
+### Ghost Button Placement
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  [Chat conversation...]                     │
+│                                             │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│     🔍 Find a therapist near me             │  ← Ghost button (subtle)
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ Type a message...              [→] │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Pre-Search Questionnaire
+
+Before searching, Alex asks preferences:
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  Let me help you find the right therapist.  │
+│                                             │
+│  A few quick questions first:               │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  📍 How far are you willing to travel?      │
+│                                             │
+│  [5 km]  [10 km]  [25 km]  [50 km+]         │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  💰 What's your budget situation?           │
+│                                             │
+│  [I have insurance]                         │
+│  [Sliding scale / low-cost needed]          │
+│  [Any price is fine]                        │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  🏠 Preference?                             │
+│                                             │
+│  [In-person]  [Online/Video]  [Either]      │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│            [Start Search]                   │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Location Permission
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  📍 Location Permission                     │
+│                                             │
+│  To find therapists near you, I need        │
+│  your location.                             │
+│                                             │
+│  • Location is used only for this search    │
+│  • Not stored or saved anywhere             │
+│  • Deleted immediately after search         │
+│                                             │
+│  [Allow Location]       [Enter Manually]    │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Tiered Search with Streaming
+
+Alex searches tier by tier, showing progress in real-time:
+
+**Search Priority Tiers:**
+
+| Tier | Search Keywords | Why |
+|------|-----------------|-----|
+| 1 | CSAT-certified sex addiction therapist | Gold standard certification |
+| 2 | Porn addiction therapist / sex addiction counselor | Direct specialty |
+| 3 | Addiction recovery therapist | Broader addiction focus |
+| 4 | CBT therapist + addiction | Evidence-based method |
+| 5 | Behavioral therapist | Related methodology |
+| 6 | Licensed therapist / psychologist | General fallback |
+
+**Streaming UX:**
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  🔍 Searching for therapists...             │
+│                                             │
+│  ✓ CSAT-certified therapists — 0 found      │
+│  ✓ Sex addiction specialists — 0 found      │
+│  → Addiction therapists — searching...      │
+│                                             │
+│  [Stop Search]                              │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+**When Results Found:**
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│  ✓ Found 2 addiction therapists near you    │
+│                                             │
+│  I couldn't find CSAT-certified specialists │
+│  in your area, but these therapists work    │
+│  with addiction recovery:                   │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ Dr. Sarah Miller, LCSW              │   │
+│  │ ⭐ 4.8 (47 reviews)                 │   │
+│  │ 📍 2.3 km away                      │   │
+│  │ 📞 (555) 123-4567                   │   │
+│  │ Specializes in: Addiction, CBT      │   │
+│  │ [Call] [Website] [Directions]       │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ James Chen, PhD                     │   │
+│  │ ⭐ 4.6 (32 reviews)                 │   │
+│  │ 📍 3.1 km away                      │   │
+│  │ 📞 (555) 987-6543                   │   │
+│  │ Specializes in: Men's issues, CBT   │   │
+│  │ [Call] [Website] [Directions]       │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  ⚠️ Important                               │
+│  These results are from web search only.    │
+│  We have not verified these therapists.     │
+│  Please contact them directly to confirm    │
+│  availability, specialization, and fit.     │
+│                                             │
+│  💡 Tip: When you call, ask if they have    │
+│  experience with pornography addiction.     │
+│                                             │
+│  [Search Again]       [Back to Chat]        │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Technical Implementation
+
+- Use Claude web search or OpenAI web browsing
+- Search queries incorporate user preferences (distance, budget)
+- Parse results for: name, credentials, phone, address, reviews
+- Location deleted from memory immediately after search
+- No location data stored in database
+
 ## Screen Content
 
 ### AI Chat Entry Screen
@@ -165,7 +446,7 @@ When user starts a new conversation:
 **Header**
 - AI avatar/mascot (friendly astronaut character)
 - Name: "Alex"
-- Subtitle: "Powered by AI"
+- Subtitle: "Your recovery friend"
 - Settings icon (⚙️) for AI preferences
 - Close button (X)
 
@@ -185,6 +466,7 @@ How are you feeling right now?
 • Just want to talk
 • Need coping strategies
 • Feeling great today!
+• Find a therapist near me
 
 [Input field: "Say something..."]
 ```
@@ -212,17 +494,28 @@ How are you feeling right now?
 
 When a user opens Alex for the first time, they must complete the onboarding flow before chatting.
 
-**Step 1: Welcome + Terms**
+**Step 1: Welcome + Terms + Disclaimer**
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
 │  [Astronaut Avatar]                         │
 │                                             │
-│  Meet Alex, your AI companion               │
+│  Meet Alex, your recovery friend            │
 │                                             │
 │  Alex is here to support your recovery      │
 │  journey 24/7. To provide the best help,    │
 │  Alex can access your app data.             │
+│                                             │
+│  ─────────────────────────────────────      │
+│                                             │
+│  ⚠️ Important                               │
+│  Alex is an AI companion, not a licensed    │
+│  therapist or medical professional. For     │
+│  serious mental health concerns, please     │
+│  consult a licensed professional.           │
+│  Alex can help you find one.                │
+│                                             │
+│  ─────────────────────────────────────      │
 │                                             │
 │  By continuing, you agree to our            │
 │  [Terms & Conditions] and [Privacy Policy]  │
@@ -286,11 +579,11 @@ When a user opens Alex for the first time, they must complete the onboarding flo
 └─────────────────────────────────────────────┘
 ```
 
-### AI Therapist Settings
+### Alex Settings
 
 Accessible from:
 - Settings icon (⚙️) in chat header
-- Main app Settings → AI Therapist
+- Main app Settings → Alex
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -793,10 +1086,17 @@ note what's working so you can recreate it.
 - Create `ai_user_settings` table (see Data Model)
 - Create `ai_chat_sessions` table (see Data Model)
 - Create `ai_session_summaries` table with pgvector embedding column
+- Create `daily_activity_summaries` table (see Data Model)
+- Create `weekly_summaries` table (see Data Model)
+- Create `proactive_outreach_log` table (see Data Model)
+- Create `therapist_searches` table (see Data Model)
 - Set up encryption keys for summary storage
 - Configure AI model API keys (GPT-5 Mini, DeepSeek V3.2)
 - Set up pgvector extension for summary embeddings
 - Create scheduled job for summary auto-expiry cleanup
+- Create midnight cron job for daily summary generation
+- Create Sunday midnight cron job for weekly aggregation
+- Create cron job for proactive outreach trigger checks
 
 ### backend-agent Tasks
 **Chat API:**
@@ -806,9 +1106,10 @@ note what's working so you can recreate it.
 - POST /api/chat/end-session - End session, trigger summary generation
 
 **Settings API:**
-- GET /api/chat/settings - Get user's AI therapist settings
+- GET /api/chat/settings - Get user's Alex settings
 - PATCH /api/chat/settings - Update data access toggles
 - POST /api/chat/settings/accept-terms - Complete onboarding
+- PATCH /api/chat/settings/proactive - Enable/disable proactive outreach
 
 **Summary API:**
 - GET /api/chat/summaries - List user's summaries (paginated)
@@ -825,15 +1126,34 @@ note what's working so you can recreate it.
 - System prompt builder with enabled data sources
 - Rate limiting (10 free / 100 premium per day)
 
+**Proactive Outreach API:**
+- POST /api/outreach/daily-summary - Generate daily summary (cron-triggered)
+- POST /api/outreach/weekly-aggregate - Aggregate weekly (cron-triggered)
+- POST /api/outreach/check-triggers - Check and send outreach (cron-triggered)
+- GET /api/outreach/history - Get user's outreach history
+- Trigger detection logic for each outreach type
+- Push notification integration (FCM/APNs)
+- Backoff logic (3 ignored → pause for week)
+- Time-aware sending (9am-9pm user local time)
+
+**Find a Therapist API:**
+- POST /api/therapist/search - Execute tiered therapist search
+- Web search integration (Claude/OpenAI web browsing)
+- Streaming results endpoint (SSE or WebSocket)
+- Location handling (use once, delete immediately)
+- Search result parsing (name, credentials, phone, address, reviews)
+- POST /api/therapist/log-click - Log when user clicks a result
+
 ### ui-agent Tasks
 **Chat Components:**
 - ChatScreen component with message list
 - MessageBubble component (user vs AI styles)
 - TypingIndicator component
-- QuickReplyChips component
+- QuickReplyChips component (including "Find a therapist near me")
 - VoiceInputButton component (premium)
 - ChatInput component with send functionality
 - ChatHeader with settings icon
+- TherapistGhostButton (floating above input)
 
 **Onboarding Components:**
 - AlexOnboardingFlow (3-step consent)
@@ -846,16 +1166,28 @@ note what's working so you can recreate it.
 - SummaryListView
 - SummaryDetailView (with edit/delete)
 - DeleteAllDataConfirmation
+- ProactiveOutreachToggle
+
+**Find a Therapist Components:**
+- TherapistPreSearchFlow (distance, budget, format questions)
+- LocationPermissionModal
+- TherapistSearchProgress (streaming tier progress)
+- TherapistResultCard (name, rating, distance, actions)
+- TherapistResultsList
+- NoResultsMessage with disclaimer
+- StopSearchButton
 
 ### pages-agent Tasks
 - Chat route accessible from dashboard and panic button
-- Deep link support for opening chat (quitpo://alex)
+- Deep link support for opening chat (alexfriend://alex)
 - First-time onboarding flow gate
 - Settings page route
 - Summaries list/detail routes
 - Proper keyboard handling for input
 - Session cleanup on navigation away
 - Timeout detection for summary generation
+- Handle proactive outreach deep links (open chat with Alex's message)
+- Therapist search flow integration within chat
 
 ## Success Metrics
 
@@ -884,6 +1216,38 @@ note what's working so you can recreate it.
 - Adjustable text sizes
 - Voice input for accessibility needs
 
+## Legal Disclaimers
+
+### Not a Licensed Therapist
+
+**IMPORTANT**: Alex is an AI companion, NOT a licensed therapist, counselor, psychologist, or healthcare provider. Alex is designed to be a supportive friend who can offer coping strategies and emotional support, but Alex:
+
+- **Cannot diagnose** mental health conditions
+- **Cannot prescribe** treatment or medication
+- **Cannot replace** professional therapy or medical care
+- **Is not qualified** to handle severe mental health crises alone
+
+Users experiencing severe depression, suicidal thoughts, self-harm urges, or other serious mental health concerns should seek help from licensed professionals. Alex will provide crisis resources and can help users find licensed therapists near them.
+
+### Disclaimer Language (In-App)
+
+**First-time consent screen:**
+> Alex is an AI recovery companion, not a licensed therapist. For serious mental health concerns, please consult a licensed professional. Alex can help you find one.
+
+**Chat footer (always visible):**
+> Alex is an AI companion, not a medical professional. [Find a therapist →]
+
+**Before Find a Therapist results:**
+> These results are from web search only. We have not verified these therapists. Please contact them directly to confirm availability and fit.
+
+### Liability Protection
+
+- All AI responses include implicit acknowledgment that this is AI-generated content
+- Crisis situations (suicide, self-harm) trigger mandatory resource display before any AI response
+- No guarantees of recovery outcomes made anywhere in the app
+- Terms of service clearly state AI limitations
+- User must accept terms before using Alex
+
 ## Privacy Considerations
 
 ### GDPR Compliance
@@ -899,7 +1263,7 @@ note what's working so you can recreate it.
 - **Summaries**: Stored with encryption, auto-expire after 2-3 months
 - **Embeddings**: Stored in pgvector for RAG retrieval
 - **No training**: User data never used for AI model training
-- **No third-party sharing**: Data stays within QuitPo systems
+- **No third-party sharing**: Data stays within Alex Friend systems
 
 ### User Controls
 - Toggle each data source on/off anytime
@@ -916,7 +1280,7 @@ note what's working so you can recreate it.
 
 ## Data Model
 
-This section defines the database schema for the AI Therapist feature.
+This section defines the database schema for the Alex (AI Recovery Friend) feature.
 
 ### Tables
 
@@ -986,9 +1350,112 @@ users (1) ─────< (many) ai_session_summaries
 - `ai_session_summaries`: embedding (ivfflat for vector search)
 - `ai_session_summaries`: expires_at (for cleanup job)
 
+#### daily_activity_summaries
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique summary ID |
+| user_id | uuid | NOT NULL | users.id | User being summarized |
+| summary_date | date | NOT NULL | | Date of activity |
+| app_opened | boolean | DEFAULT false | | Did user open app |
+| app_open_count | integer | DEFAULT 0 | | How many times |
+| talked_to_alex | boolean | DEFAULT false | | Had Alex conversation |
+| panic_button_count | integer | DEFAULT 0 | | Panic button uses |
+| check_in_mood | integer | | | Mood score 1-5 |
+| check_in_urge | integer | | | Urge score 1-10 |
+| blocked_attempts | integer | DEFAULT 0 | | Content block attempts |
+| journal_entry | boolean | DEFAULT false | | Wrote journal entry |
+| community_posts | integer | DEFAULT 0 | | Posts/comments made |
+| flagged_screen_time | text[] | | | Apps with high usage |
+| risk_assessment | enum | | | 'low', 'moderate', 'elevated', 'high' |
+| created_at | timestamp | NOT NULL, DEFAULT now() | | |
+
+#### weekly_summaries
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique summary ID |
+| user_id | uuid | NOT NULL | users.id | User being summarized |
+| week_start | date | NOT NULL | | Monday of the week |
+| week_end | date | NOT NULL | | Sunday of the week |
+| engagement_trend | enum | | | 'improving', 'stable', 'declining' |
+| mood_average | decimal(3,2) | | | Average mood 1-5 |
+| mood_trend | enum | | | 'up', 'stable', 'down' |
+| panic_button_total | integer | DEFAULT 0 | | Total panic uses |
+| blocked_attempts_total | integer | DEFAULT 0 | | Total block attempts |
+| alex_sessions | integer | DEFAULT 0 | | Conversations with Alex |
+| patterns_identified | text[] | | | Notable patterns |
+| recommendation | text | | | Proactive outreach advice |
+| created_at | timestamp | NOT NULL, DEFAULT now() | | |
+
+#### proactive_outreach_log
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique outreach ID |
+| user_id | uuid | NOT NULL | users.id | User reached out to |
+| trigger_type | enum | NOT NULL | | What triggered outreach |
+| trigger_value | text | | | Specific trigger detail |
+| message_sent | text | NOT NULL | | Alex's outreach message |
+| sent_at | timestamp | NOT NULL | | When notification sent |
+| opened | boolean | DEFAULT false | | Did user tap notification |
+| opened_at | timestamp | | | When user opened |
+| responded | boolean | DEFAULT false | | Did user reply |
+| ignored_count | integer | DEFAULT 0 | | Consecutive ignores (for backoff) |
+
+#### therapist_searches
+| Column | Type | Constraints | FK Reference | Description |
+|--------|------|-------------|--------------|-------------|
+| id | uuid | PK | | Unique search ID |
+| user_id | uuid | NOT NULL | users.id | User who searched |
+| initiated_by | enum | NOT NULL | | 'user' or 'alex' |
+| distance_preference | text | | | '5km', '10km', '25km', '50km+' |
+| budget_preference | text | | | 'insurance', 'sliding_scale', 'any' |
+| format_preference | text | | | 'in_person', 'online', 'either' |
+| search_tiers_completed | integer[] | | | Which tiers were searched |
+| results_count | integer | DEFAULT 0 | | How many therapists found |
+| result_clicked | boolean | DEFAULT false | | Did user click a result |
+| created_at | timestamp | NOT NULL, DEFAULT now() | | |
+
+### Relationships
+
+```
+users (1) ─────< (1) ai_user_settings
+users (1) ─────< (many) ai_chat_sessions
+ai_chat_sessions (1) ─────< (0..1) ai_session_summaries
+users (1) ─────< (many) ai_session_summaries
+users (1) ─────< (many) daily_activity_summaries
+users (1) ─────< (many) weekly_summaries
+users (1) ─────< (many) proactive_outreach_log
+users (1) ─────< (many) therapist_searches
+```
+
+### Indexes
+
+- `ai_user_settings`: user_id (unique)
+- `ai_chat_sessions`: user_id, started_at DESC
+- `ai_session_summaries`: user_id, created_at DESC
+- `ai_session_summaries`: embedding (ivfflat for vector search)
+- `ai_session_summaries`: expires_at (for cleanup job)
+- `daily_activity_summaries`: user_id, summary_date (unique)
+- `weekly_summaries`: user_id, week_start (unique)
+- `proactive_outreach_log`: user_id, sent_at DESC
+- `therapist_searches`: user_id, created_at DESC
+
 ### Enums
 
 ```sql
 CREATE TYPE ai_topic_category AS ENUM ('urge', 'support', 'progress', 'general');
 CREATE TYPE ai_session_outcome AS ENUM ('resolved', 'ongoing', 'escalated');
+CREATE TYPE risk_assessment_level AS ENUM ('low', 'moderate', 'elevated', 'high');
+CREATE TYPE trend_direction AS ENUM ('up', 'stable', 'down', 'improving', 'declining');
+CREATE TYPE outreach_trigger AS ENUM (
+  'panic_button_high',      -- 3+ uses in a day
+  'relapse',                -- User logged relapse
+  'urge_high',              -- Urge level 8+ in check-in
+  'blocked_attempts_high',  -- 5+ blocked attempts
+  'no_app_access',          -- 3+ days without opening
+  'mood_declining',         -- Week-over-week mood drop
+  'streak_broken_inactive', -- Streak broke and user hasn't returned
+  'great_week',             -- Consistent progress
+  'late_night_pattern'      -- Late night usage pattern
+);
+CREATE TYPE search_initiator AS ENUM ('user', 'alex');
 ```

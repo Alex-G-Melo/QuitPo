@@ -1,12 +1,21 @@
-# QuitPo - Project Context
+# Alex Friend - Project Context
 
-QuitPo is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through psychological tools, community support, and behavioral interventions. Built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
+Alex Friend is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through psychological tools, community support, and behavioral interventions. Built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
+
+## Branding
+
+| Brand | Usage |
+|-------|-------|
+| **Alex Friend** | Consumer-facing app name (App Store, user's phone, in-app) |
+| **QuitPo** | Company/legal entity, SEO marketing site |
+| **Domains** | alex-friend.ai (app), quitpo.com (marketing, redirects to app) |
 
 ## Quick Reference
 
 | Aspect | Details |
 |--------|---------|
-| **Project Name** | QuitPo (quit porn) |
+| **App Name** | Alex Friend |
+| **Company** | QuitPo |
 | **Type** | Multi-platform recovery app |
 | **Platforms** | iOS, Android, Web, Chrome Extension |
 | **Architecture** | pnpm + Turborepo monorepo |
@@ -34,7 +43,7 @@ QuitPo is a comprehensive porn addiction recovery app designed to help users bre
 ## Project Structure
 
 ```
-quitpo/
+alex-friend/                    # Repo name (or quitpo/ for existing)
 ├── apps/
 │   ├── web/                    # Next.js 16.1 (web app + API)
 │   ├── mobile/                 # Expo SDK 54 (iOS + Android)
@@ -61,7 +70,7 @@ Comprehensive feature documentation is in `/docs/features/`. Each document inclu
 | Feature | Document | Description |
 |---------|----------|-------------|
 | Panic Button | [01-panic-button.md](docs/features/01-panic-button.md) | Emergency camera overlay intervention |
-| AI Therapist | [02-ai-therapist.md](docs/features/02-ai-therapist.md) | 24/7 GPT-powered support conversations |
+| Alex (AI Companion) | [02-ai-therapist.md](docs/features/02-ai-therapist.md) | 24/7 GPT-powered recovery support |
 | Streak System | [03-streak-system.md](docs/features/03-streak-system.md) | 90-day rewiring tracker |
 | Gamification | [04-gamification.md](docs/features/04-gamification.md) | Life Tree + achievements |
 | Daily Check-ins | [05-daily-checkins.md](docs/features/05-daily-checkins.md) | Mood and urge tracking |
@@ -90,7 +99,7 @@ Comprehensive feature documentation is in `/docs/features/`. Each document inclu
 ## Key Features Summary
 
 - **Panic Button** - Camera overlay with motivational messages + haptic feedback for urge interruption
-- **AI Therapist** - 24/7 GPT-5 Mini powered chat with CBT techniques (DeepSeek fallback)
+- **Alex** - 24/7 AI recovery companion with personalized context, proactive outreach, and therapist finder
 - **Streak System** - 90-day rewiring goal with compassionate relapse handling
 - **Life Tree** - 9-stage visual progression (Seed → Sprout → Pioneer → Momentum → Fortress → Flourishing → Thriving → Enlightened → Nirvana)
 - **Community** - Anonymous posting, peer support, group challenges
@@ -163,7 +172,7 @@ Each feature document includes agent-specific implementation guides:
 
 1. **Foundation** - Monorepo, database, authentication
 2. **Core Loop** - Streak tracking, check-ins, panic button, dashboard
-3. **AI & Engagement** - AI therapist, gamification, achievements
+3. **AI & Engagement** - Alex (AI companion), gamification, achievements
 4. **Community & Content** - Community feed, education modules, challenges
 5. **Safety & Premium** - Content blocker, screen time, friction mode, subscriptions
 6. **Polish & Launch** - Performance, accessibility, store submission

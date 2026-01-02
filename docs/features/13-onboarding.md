@@ -56,7 +56,7 @@ Explicit commitment:
 Brief introduction to key features:
 - Dashboard overview
 - Panic button location
-- AI therapist availability
+- Alex availability
 - Community access
 
 ## Screen Flow
@@ -68,7 +68,7 @@ Brief introduction to key features:
 │                                             │
 │                                             │
 │                                             │
-│              Welcome to QuitPo              │
+│            Welcome to Alex Friend           │
 │                                             │
 │     Your companion on the journey to        │
 │     freedom from porn addiction.            │
@@ -108,8 +108,8 @@ Brief introduction to key features:
 │        psychology and neuroscience.         │
 │                                             │
 │     💙 24/7 Support                         │
-│        AI therapist and community           │
-│        available whenever you need.         │
+│        Alex and community available         │
+│        whenever you need.                   │
 │                                             │
 │     🌱 Progress, Not Perfection             │
 │        Slips happen. We help you            │
@@ -170,7 +170,7 @@ Brief introduction to key features:
 │                                             │
 │                                             │
 │     A few questions will help us            │
-│     customize QuitPo for you.               │
+│     customize Alex Friend for you.          │
 │                                             │
 │     • Takes about 2 minutes                 │
 │     • Your answers are private              │
@@ -451,7 +451,7 @@ Brief introduction to key features:
 │     ✓ Daily morning & evening check-ins     │
 │     ✓ Late night alerts enabled             │
 │     ✓ Panic button on home screen           │
-│     ✓ AI therapist available 24/7           │
+│     ✓ Alex available 24/7                   │
 │                                             │
 │     ─────────────────────────────────       │
 │                                             │
@@ -601,7 +601,7 @@ Dashboard
 - User's "reasons" shown in panic button
 - User's "why" displayed during urges
 
-### With AI Therapist
+### With Alex
 - AI knows triggers, duration, previous attempts
 - Personalized conversation from day one
 

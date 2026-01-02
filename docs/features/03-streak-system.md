@@ -4,7 +4,7 @@
 90-Day Brain Rewiring Streak Tracker
 
 ## Description
-The Streak System is the central progress tracking mechanism in QuitPo. It counts consecutive days without pornography use, building toward the science-backed 90-day goal for neural pathway rewiring. Unlike generic habit trackers, this system is specifically designed for addiction recovery, handling relapses compassionately, providing milestone celebrations, and connecting streak data to other app features for contextual support.
+The Streak System is the central progress tracking mechanism in Alex Friend. It counts consecutive days without pornography use, building toward the science-backed 90-day goal for neural pathway rewiring. Unlike generic habit trackers, this system is specifically designed for addiction recovery, handling relapses compassionately, providing milestone celebrations, and connecting streak data to other app features for contextual support.
 
 ## Problem Statement
 
@@ -24,7 +24,7 @@ People trying to quit porn face several tracking challenges:
 
 ## Solution
 
-QuitPo's streak system addresses these issues through:
+Alex Friend's streak system addresses these issues through:
 
 ### 1. Science-Backed 90-Day Goal
 Research indicates that approximately 90 days is required for significant rewiring of neural pathways related to porn addiction. This gives users a concrete, meaningful target backed by neuroscience.
@@ -423,7 +423,7 @@ At day 21: "New personal best! 21 days - you're growing!"
 - Mood data shows correlation with streak length
 - Missing check-ins trigger reminders but don't break streak
 
-### With AI Therapist
+### With Alex
 - AI knows current streak and provides context-aware support
 - "You're on day [X]" references in conversation
 - Different support strategies based on streak stage

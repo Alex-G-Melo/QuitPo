@@ -4,7 +4,7 @@
 Subscription Model with Free Tier and Premium Features
 
 ## Description
-QuitPo uses a freemium model with a generous free tier that provides core recovery functionality, and a premium subscription that unlocks advanced features, unlimited access, and enhanced personalization. The pricing strategy balances accessibility (recovery tools should be available to all) with sustainability (the app needs revenue to continue development and support).
+Alex Friend uses a freemium model with a generous free tier that provides core recovery functionality, and a premium subscription that unlocks advanced features, unlimited access, and enhanced personalization. The pricing strategy balances accessibility (recovery tools should be available to all) with sustainability (the app needs revenue to continue development and support).
 
 ## Problem Statement
 
@@ -35,7 +35,7 @@ Core recovery tools always free:
 
 ### 2. Premium Value
 Clear value proposition:
-- Unlimited AI therapist
+- Unlimited Alex (AI companion)
 - Full education library
 - All meditations and sounds
 - Advanced analytics
@@ -94,7 +94,7 @@ Clear value proposition:
 | Basic analytics | ✅ Weekly summary |
 | **Crisis Support** | |
 | Panic button | ✅ Full |
-| AI therapist | ⚠️ 10 messages/day |
+| Alex (AI companion) | ⚠️ 10 messages/day |
 | Breathing exercises | ✅ 3 exercises |
 | **Community** | |
 | Read posts | ✅ Full |
@@ -121,7 +121,7 @@ Clear value proposition:
 | Advanced analytics | ✅ Full patterns |
 | **Crisis Support** | |
 | Panic button | ✅ Full |
-| AI therapist | ✅ Unlimited |
+| Alex (AI companion) | ✅ Unlimited |
 | All meditations | ✅ 15+ sessions |
 | All soundscapes | ✅ 12+ sounds |
 | Voice input | ✅ Enabled |
@@ -155,7 +155,7 @@ Clear value proposition:
 │                                             │
 │     🔒 Premium Feature                      │
 │                                             │
-│     Unlimited AI Therapist                  │
+│     Unlimited Alex (AI Companion)           │
 │                                             │
 │     You've used your 10 free messages       │
 │     today. Upgrade to continue chatting     │
@@ -177,7 +177,7 @@ Clear value proposition:
 
 ```
 ┌─────────────────────────────────────────────┐
-│  ← Back           QuitPo Premium            │
+│  ← Back         Alex Friend Premium         │
 │                                             │
 │               👑                            │
 │                                             │
@@ -185,7 +185,7 @@ Clear value proposition:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  ✓ Unlimited AI therapist (24/7)            │
+│  ✓ Unlimited Alex (24/7)                    │
 │  ✓ All 15+ guided meditations               │
 │  ✓ Complete education library               │
 │  ✓ Advanced usage analytics                 │
@@ -229,7 +229,7 @@ Clear value proposition:
 │  Current Plan                               │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
-│  │ 👑 QuitPo Premium                   │   │
+│  │ 👑 Alex Friend Premium              │   │
 │  │                                     │   │
 │  │ Annual Plan                         │   │
 │  │ $59.99/year                         │   │
@@ -265,11 +265,11 @@ Clear value proposition:
 │                                             │
 │     ⏰ Your trial ends tomorrow             │
 │                                             │
-│     You've been using QuitPo Premium        │
+│     You've been using Alex Friend Premium   │
 │     for 6 days. Here's what you'll          │
 │     lose access to:                         │
 │                                             │
-│     • Unlimited AI therapist                │
+│     • Unlimited Alex                        │
 │     • 12 meditations you've used            │
 │     • Advanced analytics                    │
 │     • Full content blocker                  │
@@ -340,8 +340,8 @@ const session = await stripe.checkout.sessions.create({
     price: 'price_annual_xxx',
     quantity: 1,
   }],
-  success_url: 'https://app.quitpo.com/success',
-  cancel_url: 'https://app.quitpo.com/pricing',
+  success_url: 'https://alex-friend.ai/success',
+  cancel_url: 'https://alex-friend.ai/pricing',
 });
 ```
 
@@ -502,7 +502,7 @@ Period ends → Downgrade to free
 - Feature usage by tier
 - Churn prediction
 
-### With AI Therapist
+### With Alex (AI Companion)
 - Message counting for free tier
 - Entitlement check before response
 

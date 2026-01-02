@@ -389,7 +389,7 @@ Setup complete
 ### Repeated Attempts
 If user hits "Continue" 3+ times in 10 minutes:
 - Show: "We noticed you're trying a lot. Everything okay?"
-- Offer: "Talk to AI therapist" option
+- Offer: "Talk to Alex" option
 - Log pattern for analytics
 
 ### Panic Button Integration
@@ -421,7 +421,7 @@ If user is late on daily check-in:
 - Reference friction usage in check-ins
 - "You deflected from Instagram 3 times today. Great work!"
 
-### With AI Therapist
+### With Alex
 - AI knows friction patterns
 - "I see you've been opening TikTok a lot today..."
 

@@ -507,7 +507,7 @@ Comment appears under post
 - Challenge progress tied to streak
 - Relapse ends challenge participation
 
-### With AI Therapist
+### With Alex
 - AI can suggest posting for support
 - "Have you tried sharing this in the community?"
 

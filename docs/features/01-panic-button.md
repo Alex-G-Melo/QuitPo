@@ -4,7 +4,7 @@
 Emergency Urge Intervention System
 
 ## Description
-The Panic Button is the most critical feature in QuitPo - a one-tap emergency intervention that activates when users feel an overwhelming urge to view pornography. It creates an immediate pattern interrupt by opening the device camera as a full-screen overlay, showing the user their own face alongside motivational messages and grounding exercises. This leverages the psychological phenomenon of self-confrontation to break the dissociative state that often precedes relapse.
+The Panic Button is the most critical feature in Alex Friend - a one-tap emergency intervention that activates when users feel an overwhelming urge to view pornography. It creates an immediate pattern interrupt by opening the device camera as a full-screen overlay, showing the user their own face alongside motivational messages and grounding exercises. This leverages the psychological phenomenon of self-confrontation to break the dissociative state that often precedes relapse.
 
 ## Problem Statement
 
@@ -43,7 +43,7 @@ Overlaid on the camera feed, powerful quotes appear:
 Below the camera overlay, users see actionable buttons:
 - "I'm thinking of relapsing" → Opens reflection exercises
 - "I relapsed" → Opens compassionate reset flow
-- Quick access to AI Therapist
+- Quick access to Alex (AI companion)
 - Breathing exercise launcher
 
 ### 4. Side Effects Education
@@ -138,7 +138,7 @@ Scrollable list of consequences with icons
 ### Support Options Modal (When "I'm thinking of relapsing" tapped)
 
 Options presented:
-1. **Talk to AI Therapist** - Opens chat immediately
+1. **Talk to Alex** - Opens chat immediately
 2. **Start Breathing Exercise** - 4-7-8 breathing animation
 3. **View My Reasons** - Shows user's personal "why" list
 4. **Call an Accountability Partner** - If configured
@@ -170,7 +170,7 @@ Options presented:
 ```
 User feels urge
        ↓
-Opens QuitPo app (or uses widget)
+Opens Alex Friend app (or uses widget)
        ↓
 Taps large "Panic Button" on dashboard
        ↓
@@ -350,21 +350,21 @@ Types: "Don't throw that away." (pause)
 The Panic Button must be accessible instantly without navigating through the app. Users in crisis need one-tap access from anywhere on their device.
 
 **URL Scheme (Foundation)**
-- Register `quitpo://panic` deep link
+- Register `alexfriend://panic` deep link
 - All quick access methods route through this URL scheme
 - Opens directly to full-screen panic button overlay
 
 #### iOS Quick Access
 
 **Action Button (iPhone 15 Pro+)**
-- User creates a Shortcut that opens `quitpo://panic`
+- User creates a Shortcut that opens `alexfriend://panic`
 - Assigns Shortcut to Action Button in Settings
 - One physical button press → Panic Button opens instantly
 - Setup guide provided during onboarding for compatible devices
 
 **Back Tap (iPhone 8+)**
 - Double or triple tap on back of phone triggers Shortcut
-- Same `quitpo://panic` Shortcut integration
+- Same `alexfriend://panic` Shortcut integration
 - Works even with phone locked (if Shortcut allows)
 
 **Lock Screen Widget**
@@ -400,8 +400,8 @@ The Panic Button must be accessible instantly without navigating through the app
 
 **Google Assistant**
 - App Actions integration
-- "Hey Google, open QuitPo panic button"
-- "Hey Google, I need help with QuitPo"
+- "Hey Google, open Alex Friend panic button"
+- "Hey Google, I need help with Alex Friend"
 
 **Samsung-Specific**
 - Side key double-press can open app via Routines
@@ -421,7 +421,7 @@ During onboarding, guide users to set up at least one quick access method:
 
 After panic button use (survived):
 - 30 minutes later: "Great job pushing through that urge! How are you feeling now?"
-- If opened 3+ times in a day: "You're fighting hard today. Consider talking to the AI therapist."
+- If opened 3+ times in a day: "You're fighting hard today. Consider talking to Alex."
 
 After relapse:
 - 24 hours later: "Yesterday was tough. Today is a new day. You've got this."
@@ -504,7 +504,7 @@ Time: 1:00 AM
 User streak: 5 days
 User wakes up, reaches for phone, feels urge
 → Pulls down notification shade
-→ Taps QuitPo Panic Button tile
+→ Taps Alex Friend Panic Button tile
 → Full-screen panic overlay appears
 → Camera shows tired, sleepy face
 → Typewriter: "Hey. Look at yourself."
@@ -549,12 +549,12 @@ User wakes up, reaches for phone, feels urge
 - Integrate panic button on home dashboard
 - Full-screen panic button route/modal
 - Relapse flow navigation
-- Deep link handling for `quitpo://panic` URL scheme
+- Deep link handling for `alexfriend://panic` URL scheme
 - Quick access setup wizard screens
 - Device-specific setup instructions (Action Button, Back Tap, etc.)
 
 ### mobile-specific Tasks
-- Configure URL scheme `quitpo://panic` in app.json/app.config.js
+- Configure URL scheme `alexfriend://panic` in app.json/app.config.js
 - iOS: Siri Shortcuts integration (donate shortcut action)
 - iOS: Lock Screen and Home Screen widget (WidgetKit via expo-widgets or native module)
 - Android: App Shortcuts in shortcuts.xml

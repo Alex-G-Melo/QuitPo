@@ -4,7 +4,7 @@
 Risky App Usage Monitoring with Smart Notifications
 
 ## Description
-Screen Time Tracking monitors how much time users spend in apps they've designated as "risky" (social media, browsers, etc.) and sends intelligent, empathetic notifications at configurable thresholds. Unlike built-in device screen time features, this is specifically designed for addiction recovery with non-judgmental messaging, pattern insights, and integration with other QuitPo features.
+Screen Time Tracking monitors how much time users spend in apps they've designated as "risky" (social media, browsers, etc.) and sends intelligent, empathetic notifications at configurable thresholds. Unlike built-in device screen time features, this is specifically designed for addiction recovery with non-judgmental messaging, pattern insights, and integration with other Alex Friend features.
 
 ## Problem Statement
 
@@ -47,7 +47,7 @@ Visual breakdown of time spent:
 
 ### 4. Integration
 Connected to other features:
-- AI therapist knows usage patterns
+- Alex knows usage patterns
 - Check-ins reference screen time
 - Panic button integration
 
@@ -402,7 +402,7 @@ Send push notification
               ↓
 User taps notification
               ↓
-Opens QuitPo with options:
+Opens Alex Friend with options:
 ├── View usage stats
 ├── Talk to AI
 └── Start breathing exercise
@@ -431,7 +431,7 @@ Display summary with comparisons
 - Evening check-in shows day's screen time
 - "You spent 45 minutes in risky apps today. How are you feeling about that?"
 
-### With AI Therapist
+### With Alex
 - AI can access usage stats (with permission)
 - "I noticed you've been on Instagram more this week. Want to talk about it?"
 

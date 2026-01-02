@@ -418,7 +418,7 @@ mindfulness_preferences {
 - "Did you try breathing today?" prompt
 - Post-breathing check-in for urge reduction
 
-### With AI Therapist
+### With Alex
 - AI can suggest specific meditations
 - "Have you tried the Urge Surfing meditation?"
 

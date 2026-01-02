@@ -22,7 +22,7 @@ Addiction recovery is inherently difficult to gamify because:
 
 ## Solution
 
-QuitPo's gamification addresses these challenges through:
+Alex Friend's gamification addresses these challenges through:
 
 ### 1. Life Tree Metaphor
 A growing tree serves as a visual representation of brain rewiring:
@@ -446,7 +446,7 @@ user_achievements {
 - Profile shows achievement badges
 - Leaderboard shows top achievers
 
-### With AI Therapist
+### With Alex
 - Chat sessions count toward engagement
 - AI references current stage/achievements
 

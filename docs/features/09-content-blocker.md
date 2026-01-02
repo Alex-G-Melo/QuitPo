@@ -107,7 +107,7 @@ Users trying to avoid porn face an internet saturated with access:
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
-│              🛡️ QuitPo                       │
+│              🛡️ Alex Friend                   │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │                                     │   │
@@ -132,7 +132,7 @@ Users trying to avoid porn face an internet saturated with access:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  [Talk to AI Therapist]                     │
+│  [Talk to Alex]                             │
 │  [Start Breathing Exercise]                 │
 │  [Close This Tab]                           │
 │                                             │
@@ -181,7 +181,7 @@ Users trying to avoid porn face an internet saturated with access:
 
 ```
 ┌───────────────────────────────┐
-│  QuitPo Protector             │
+│  Alex Friend Protector        │
 │                               │
 │  Status: Active ✓             │
 │                               │
@@ -197,7 +197,7 @@ Users trying to avoid porn face an internet saturated with access:
 │                               │
 │  ─────────────────────────    │
 │                               │
-│  [Open QuitPo]                │
+│  [Open Alex Friend]           │
 │  [Settings]                   │
 │                               │
 │  Protection active on 47      │
@@ -315,8 +315,8 @@ Users trying to avoid porn face an internet saturated with access:
 ### Block Page Features
 - Motivational message
 - Current streak display
-- Quick access to QuitPo app
-- AI therapist chat link
+- Quick access to Alex Friend app
+- Alex chat link
 - Breathing exercise launcher
 - Request access (with accountability)
 
@@ -325,7 +325,7 @@ Users trying to avoid porn face an internet saturated with access:
 The blocked page is a critical intervention point - the user is actively trying to access porn. This is the perfect moment to trigger panic mode.
 
 **Primary CTA: Open Panic Button**
-The most prominent button on the blocked page opens the app directly in panic mode via `quitpo://panic`. This creates a seamless intervention flow:
+The most prominent button on the blocked page opens the app directly in panic mode via `alexfriend://panic`. This creates a seamless intervention flow:
 
 ```
 User attempts blocked site
@@ -335,7 +335,7 @@ Block page appears immediately
 Large "PANIC BUTTON" displayed prominently
         ↓
 ┌─ User taps Panic Button ─────────────────────┐
-│  → Opens quitpo://panic                      │
+│  → Opens alexfriend://panic                  │
 │  → App launches in full panic mode           │
 │  → Camera + typewriter messages activate     │
 │  → Full intervention experience              │
@@ -399,7 +399,7 @@ Ideally, we'd show the camera directly on the blocked page for maximum impact. H
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
-│              🛡️ QuitPo                       │
+│              🛡️ Alex Friend                   │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │                                     │   │
@@ -422,7 +422,7 @@ Ideally, we'd show the camera directly on the blocked page for maximum impact. H
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  [Talk to AI Therapist]                     │
+│  [Talk to Alex]                             │
 │  [Start Breathing Exercise]                 │
 │  [Close This Tab]                           │
 │                                             │
@@ -435,7 +435,7 @@ Ideally, we'd show the camera directly on the blocked page for maximum impact. H
 **Auto-Open Panic Mode (Optional Setting)**
 For users who want maximum intervention:
 - Setting: "Auto-open panic mode when site blocked"
-- When enabled: Blocked site immediately triggers `quitpo://panic`
+- When enabled: Blocked site immediately triggers `alexfriend://panic`
 - No block page shown - straight to app panic mode
 - More aggressive but potentially more effective
 
@@ -446,7 +446,7 @@ const userSettings = await chrome.storage.sync.get('autoOpenPanic');
 
 if (userSettings.autoOpenPanic) {
   // Auto-redirect to panic mode
-  window.location.href = 'quitpo://panic';
+  window.location.href = 'alexfriend://panic';
 } else {
   // Show block page with panic button option
   renderBlockPage();
@@ -455,7 +455,7 @@ if (userSettings.autoOpenPanic) {
 
 // Panic button click handler
 document.getElementById('panicBtn').addEventListener('click', () => {
-  window.location.href = 'quitpo://panic?source=blocker';
+  window.location.href = 'alexfriend://panic?source=blocker';
 });
 
 // Camera integration (if permission granted)
@@ -508,7 +508,7 @@ extension/
 
 ### iOS Screen Time Integration
 
-**What QuitPo Can Do:**
+**What Alex Friend Can Do:**
 - Provide setup instructions
 - Detect if Screen Time is enabled
 - Suggest categories to block
@@ -521,17 +521,17 @@ extension/
 - Adding specific app limits
 
 **Safari Content Blocker:**
-- QuitPo provides content blocker extension
+- Alex Friend provides content blocker extension
 - Blocks adult URLs within Safari
 - User must enable in Settings
 - Limited to Safari only
 
 ### Android Digital Wellbeing
 
-**What QuitPo Can Do:**
+**What Alex Friend Can Do:**
 - Accessibility Service for app monitoring
 - Overlay protection reminders
-- Custom browser blocking (QuitPo browser)
+- Custom browser blocking (Alex Friend browser)
 - DNS-level blocking (private DNS config)
 
 **What Requires User Action:**
@@ -629,7 +629,7 @@ Verification: "Did you complete the setup?"
                     ↓
 Chrome extension prompt (if browser detected)
                     ↓
-"Install QuitPo extension"
+"Install Alex Friend extension"
                     ↓
 Success screen: "You're now protected!"
 ```
@@ -643,7 +643,7 @@ Platform intercepts request
 Block page displays
                     ↓
 Options shown:
-├── Open QuitPo app
+├── Open Alex Friend app
 ├── Talk to AI
 ├── Breathing exercise
 └── Request access (if enabled)
@@ -681,7 +681,7 @@ Accountability check:
 - Block patterns show high-risk times
 - "You typically get blocked at 11 PM on Saturdays"
 
-### With AI Therapist
+### With Alex
 - AI can discuss blocking patterns
 - "I noticed several blocked attempts this week..."
 
