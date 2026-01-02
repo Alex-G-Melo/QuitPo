@@ -1,6 +1,6 @@
 # QuitPo - Project Context
 
-QuitPo is a porn addiction recovery app inspired by [Quittr](https://quittrapp.com/). This document provides context for Claude Code when working on this project.
+QuitPo is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through psychological tools, community support, and behavioral interventions. Built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
 
 ## Quick Reference
 
@@ -10,6 +10,7 @@ QuitPo is a porn addiction recovery app inspired by [Quittr](https://quittrapp.c
 | **Type** | Multi-platform recovery app |
 | **Platforms** | iOS, Android, Web, Chrome Extension |
 | **Architecture** | pnpm + Turborepo monorepo |
+| **Documentation** | See `/docs/` folder for comprehensive feature specs |
 
 ## Tech Stack
 
@@ -43,37 +44,59 @@ quitpo/
 │   ├── api/                    # tRPC routers
 │   ├── db/                     # Drizzle ORM + pgvector schemas
 │   └── shared/                 # Types, utils, constants
-├── docs/                       # Implementation plans (11 phases)
+├── docs/                       # Feature documentation (see below)
+│   ├── README.md               # Overview and navigation
+│   └── features/               # Individual feature specs
+├── old-docs/                   # Legacy docs + reference images
 ├── docker-compose.yml          # PostgreSQL + pgvector
 ├── turbo.json
 └── pnpm-workspace.yaml
 ```
 
-## Documentation Structure
+## Feature Documentation
 
-Implementation is split into phases in `/docs/`:
+Comprehensive feature documentation is in `/docs/features/`. Each document includes: title, description, problem statement, solution, screen content, data models, user flows, and agent implementation guides.
 
-1. **01-foundation.md** - Monorepo setup, Docker, Next.js, Expo, Chrome extension
-2. **02-auth.md** - Firebase Auth, OAuth (Google + Apple), onboarding quiz
-3. **03-core-features.md** - Database schema, streak tracking, panic button, check-ins
-4. **04-ai-therapist.md** - GPT-5 Mini integration, chat interface, embeddings
-5. **05-gamification.md** - Life Tree stages, achievements, progress visualization
-6. **06-community.md** - Posts, comments, voting, challenges, moderation
-7. **07-education.md** - Learning modules, quizzes, journal, recommendations
-8. **08-mindfulness.md** - Breathing exercises, meditation, sounds, notifications
-9. **09-content-blocker.md** - Screen Time API, Chrome extension, blocklists
-10. **10-monetization.md** - RevenueCat, Stripe, subscription management
-11. **11-launch.md** - Performance, accessibility, security, store submissions
+### Core Features
+| Feature | Document | Description |
+|---------|----------|-------------|
+| Panic Button | [01-panic-button.md](docs/features/01-panic-button.md) | Emergency camera overlay intervention |
+| AI Therapist | [02-ai-therapist.md](docs/features/02-ai-therapist.md) | 24/7 GPT-powered support conversations |
+| Streak System | [03-streak-system.md](docs/features/03-streak-system.md) | 90-day rewiring tracker |
+| Gamification | [04-gamification.md](docs/features/04-gamification.md) | Life Tree + achievements |
+| Daily Check-ins | [05-daily-checkins.md](docs/features/05-daily-checkins.md) | Mood and urge tracking |
 
-## Key Features
+### Support Features
+| Feature | Document | Description |
+|---------|----------|-------------|
+| Mindfulness | [06-mindfulness.md](docs/features/06-mindfulness.md) | Breathing, meditation, sounds |
+| Community | [07-community.md](docs/features/07-community.md) | Anonymous posts + challenges |
+| Education | [08-education.md](docs/features/08-education.md) | Science-based learning modules |
 
-- **Panic Button** - Camera overlay with motivational messages + haptic feedback
-- **AI Therapist** - 24/7 GPT-5 Mini powered chat (DeepSeek fallback)
-- **Streak Tracking** - 90-day rewiring goal with daily check-ins
-- **Life Tree** - 8-stage gamification (Seed → Nirvana)
-- **Community** - Anonymous posting, challenges, leaderboards
-- **Content Blocker** - 1M+ site blocklist, keyword blocking, safe search
-- **Education** - 4 modules of science-based recovery content
+### Safety Features
+| Feature | Document | Description |
+|---------|----------|-------------|
+| Content Blocker | [09-content-blocker.md](docs/features/09-content-blocker.md) | Adult site blocking (1M+ sites) |
+| Screen Time | [10-screen-time.md](docs/features/10-screen-time.md) | Risky app usage tracking |
+| Friction Mode | [11-friction-mode.md](docs/features/11-friction-mode.md) | Breathing pause before risky apps |
+| Social Safety | [12-social-safety.md](docs/features/12-social-safety.md) | Platform safety configuration guides |
+
+### User Experience
+| Feature | Document | Description |
+|---------|----------|-------------|
+| Onboarding | [13-onboarding.md](docs/features/13-onboarding.md) | Personalization quiz + setup |
+| Monetization | [14-monetization.md](docs/features/14-monetization.md) | Free vs Premium tiers |
+
+## Key Features Summary
+
+- **Panic Button** - Camera overlay with motivational messages + haptic feedback for urge interruption
+- **AI Therapist** - 24/7 GPT-5 Mini powered chat with CBT techniques (DeepSeek fallback)
+- **Streak System** - 90-day rewiring goal with compassionate relapse handling
+- **Life Tree** - 9-stage visual progression (Seed → Sprout → Pioneer → Momentum → Fortress → Flourishing → Thriving → Enlightened → Nirvana)
+- **Community** - Anonymous posting, peer support, group challenges
+- **Content Blocker** - 1M+ site blocklist, Chrome extension, Screen Time integration
+- **Friction Mode** - 57% proven reduction in unconscious app opens (Max Planck Institute study)
+- **Education** - 4 modules of science-based recovery content with quizzes
 
 ## Database
 
@@ -118,10 +141,32 @@ eas build --platform ios    # Build iOS
 eas build --platform android # Build Android
 ```
 
-## Reference Files
+## Reference Materials
 
-- **QUITTR_ANALYSIS.md** - Competitor analysis (features, pricing, flow)
-- **IMPLEMENTATION_PLAN.md** - Full 74-step implementation plan
+- `/docs/README.md` - Overview of all features with navigation
+- `/docs/features/` - 14 comprehensive feature specifications
+- `/old-docs/references/` - UI reference images from competitor analysis
+- `/old-docs/COMPETITIVE_MARKET_ANALYSIS.md` - Market analysis and pricing strategy
+
+## Implementation Agents
+
+Each feature document includes agent-specific implementation guides:
+
+| Agent | Responsibilities |
+|-------|------------------|
+| **foundation-agent** | Database schemas, migrations, environment config |
+| **backend-agent** | API routes, tRPC procedures, authentication logic |
+| **ui-agent** | Reusable components, design system, animations |
+| **pages-agent** | Screen layouts, navigation, page-level state |
+
+## Development Phases
+
+1. **Foundation** - Monorepo, database, authentication
+2. **Core Loop** - Streak tracking, check-ins, panic button, dashboard
+3. **AI & Engagement** - AI therapist, gamification, achievements
+4. **Community & Content** - Community feed, education modules, challenges
+5. **Safety & Premium** - Content blocker, screen time, friction mode, subscriptions
+6. **Polish & Launch** - Performance, accessibility, store submission
 
 ## Important Notes
 
