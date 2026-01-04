@@ -1,23 +1,33 @@
 # Mindfulness & Meditation
 
+## Overview
+
+The mindfulness feature provides a suite of tools to help users manage urges, reduce stress, and build emotional resilience through breathing exercises, guided meditations, and ambient soundscapes. These evidence-based techniques activate the parasympathetic nervous system, reducing the fight-or-flight response that often precedes relapse.
+
+This feature's core mechanics are shared across all addiction types. Only **meditation scripts** and some **Alex integration context** differ per addiction.
+
+## Addiction-Specific Content
+
+| Addiction | Content File |
+|-----------|--------------|
+| Pornography | [porn.md](porn.md) |
+| Gambling | [gambling.md](gambling.md) |
+| Social Media | [social-media.md](social-media.md) |
+| Gaming | [gaming.md](gaming.md) |
+
+---
+
 ## Title
 Breathing Exercises, Guided Meditation, and Calming Soundscapes
-
-## Description
-The mindfulness feature provides a suite of tools to help users manage urges, reduce stress, and build emotional resilience through breathing exercises, guided meditations, and ambient soundscapes. These evidence-based techniques activate the parasympathetic nervous system, reducing the fight-or-flight response that often precedes relapse.
 
 ## Problem Statement
 
 Users experiencing urges or stress need immediate coping tools:
 
 1. **Urge Intensity**: Strong urges create physical sensations (racing heart, tension) that feel overwhelming.
-
 2. **Stress as Trigger**: Stress is the #1 reported trigger for relapse, yet users lack quick stress-relief tools.
-
 3. **Insomnia Risk**: Sleep issues increase relapse risk, but users struggle with relaxation.
-
 4. **Impulsive State**: During urges, users need something that requires active engagement to interrupt automatic behavior.
-
 5. **Accessibility**: Users need tools available immediately, without equipment or special conditions.
 
 ## Solution
@@ -40,6 +50,8 @@ Calming background audio for relaxation or focus:
 - Nature sounds (rain, ocean, forest)
 - White/brown/pink noise
 - Binaural beats (optional)
+
+---
 
 ## Screen Content
 
@@ -181,6 +193,8 @@ Calming background audio for relaxation or focus:
 └─────────────────────────────────────────────┘
 ```
 
+---
+
 ## Breathing Exercise Specifications
 
 ### Quick Calm (Urge Management)
@@ -213,15 +227,19 @@ Calming background audio for relaxation or focus:
 
 **Best for**: Sleep preparation, deep anxiety relief
 
+---
+
 ## Guided Meditation Library
 
-### Free Meditations
+### Free Meditations (Universal)
 
 **Urge Surfing (5 min)**
 - Purpose: Observe urges without acting
 - Script: Guide user to notice physical sensations, label the urge, watch it rise and fall
 - Background: Ocean waves metaphor
 - Voice: Calm male/female option
+
+Note: Script content varies by addiction type. See addiction-specific files.
 
 **Body Scan (10 min)**
 - Purpose: Release tension, prepare for sleep
@@ -235,7 +253,9 @@ Calming background audio for relaxation or focus:
 - Background: Gentle piano
 - Voice: Warm, understanding
 
-### Premium Meditations
+Note: Script content varies by addiction type. See addiction-specific files.
+
+### Premium Meditations (Universal)
 
 **Morning Intention (3 min)**
 - Purpose: Set daily intentions
@@ -255,11 +275,15 @@ Calming background audio for relaxation or focus:
 - Background: Forest sounds
 - Voice: Empowering
 
+Note: Script content varies by addiction type. See addiction-specific files.
+
 **Emergency Meditation (2 min)**
 - Purpose: Ultra-quick urge intervention
 - Script: Rapid grounding, body awareness, decision point
 - Background: Minimal
 - Voice: Direct but calm
+
+---
 
 ## Soundscape Library
 
@@ -287,6 +311,8 @@ Allow users to combine sounds:
 - Primary sound + optional overlay
 - Individual volume control
 - Save custom mixes
+
+---
 
 ## User Flows
 
@@ -339,6 +365,8 @@ Timer expires, audio fades out
 Phone can be locked during playback
 ```
 
+---
+
 ## Animation Specifications
 
 ### Breathing Circle
@@ -358,6 +386,8 @@ Phone can be locked during playback
 - Confetti or gentle particles
 - Streak display (if applicable)
 
+---
+
 ## Audio Requirements
 
 ### Breathing Exercise Audio
@@ -375,6 +405,8 @@ Phone can be locked during playback
 - Multiple variations to prevent repetition
 - High bitrate for quality
 
+---
+
 ## Data Model
 
 ### Mindfulness Sessions
@@ -382,6 +414,7 @@ Phone can be locked during playback
 mindfulness_sessions {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   type: Enum (breathing, meditation, soundscape)
   subtype: String (e.g., "4-7-8", "urge_surfing", "rain")
   started_at: DateTime
@@ -392,6 +425,8 @@ mindfulness_sessions {
   triggered_by: Enum (manual, panic_button, notification)
 }
 ```
+
+Note: addiction_type determines which meditation script version is played.
 
 ### User Preferences
 ```
@@ -407,6 +442,8 @@ mindfulness_preferences {
 }
 ```
 
+---
+
 ## Integration Points
 
 ### With Panic Button
@@ -419,8 +456,9 @@ mindfulness_preferences {
 - Post-breathing check-in for urge reduction
 
 ### With Alex
-- AI can suggest specific meditations
+- AI can suggest specific meditations based on addiction type
 - "Have you tried the Urge Surfing meditation?"
+- Context-aware suggestions (see addiction-specific files)
 
 ### With Gamification
 - "Zen Master" achievement for 50 sessions
@@ -431,20 +469,22 @@ mindfulness_preferences {
 - "Stressed? Try a quick breathing exercise."
 - Evening reminder: "Wind down with tonight's meditation"
 
+---
+
 ## Agent Implementation Guide
 
 ### foundation-agent Tasks
-- Create mindfulness_sessions table
+- Create mindfulness_sessions table with addiction_type
 - Create mindfulness_preferences table
-- Seed meditation content metadata
+- Seed meditation content metadata per addiction type
 - Set up audio file storage
 
 ### backend-agent Tasks
 - POST /api/mindfulness/session - Log session start
 - PATCH /api/mindfulness/session/:id - Update completion
 - GET /api/mindfulness/stats - Usage statistics
-- GET /api/mindfulness/content - Available meditations
-- Audio streaming endpoints
+- GET /api/mindfulness/content/:addictionType - Available meditations for addiction
+- Audio streaming endpoints with addiction-aware content
 
 ### ui-agent Tasks
 - BreathingCircle animated component
@@ -457,9 +497,11 @@ mindfulness_preferences {
 ### pages-agent Tasks
 - Mindfulness hub page
 - Breathing exercise full-screen
-- Meditation player page
+- Meditation player page (addiction-aware)
 - Soundscape player page
 - Background audio handling
+
+---
 
 ## Success Metrics
 
@@ -479,6 +521,8 @@ mindfulness_preferences {
 - Soundscape usage patterns
 - Voice preference distribution
 
+---
+
 ## Free vs Premium Content
 
 ### Free Tier
@@ -497,6 +541,8 @@ mindfulness_preferences {
 - Offline download
 - New content monthly
 
+---
+
 ## Accessibility
 
 - Voice guidance available
@@ -504,6 +550,8 @@ mindfulness_preferences {
 - Haptic feedback option
 - Screen reader support for all controls
 - Reduced motion mode (simplified animations)
+
+---
 
 ## Offline Support
 
