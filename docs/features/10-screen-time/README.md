@@ -1,35 +1,43 @@
 # Screen Time Tracking
 
+## Overview
+
+Screen Time Tracking monitors how much time users spend in apps they've designated as "risky" and sends intelligent, empathetic notifications at configurable thresholds. Unlike built-in device screen time features, this is specifically designed for addiction recovery with non-judgmental messaging, pattern insights, and integration with other Alex Friend features.
+
+Each addiction type tracks different "risky apps" based on what content might trigger relapse.
+
+## Addiction-Specific Content
+
+| Addiction | Content File | Risky Apps Focus |
+|-----------|--------------|------------------|
+| Pornography | [porn.md](porn.md) | Browsers, social media with NSFW content |
+| Gambling | [gambling.md](gambling.md) | Betting apps, sports apps, casino apps |
+| Social Media | [social-media.md](social-media.md) | Social platforms, infinite scroll apps |
+| Gaming | [gaming.md](gaming.md) | Game launchers, stores, streaming apps |
+
+---
+
 ## Title
 Risky App Usage Monitoring with Smart Notifications
-
-## Description
-Screen Time Tracking monitors how much time users spend in apps they've designated as "risky" (social media, browsers, etc.) and sends intelligent, empathetic notifications at configurable thresholds. Unlike built-in device screen time features, this is specifically designed for addiction recovery with non-judgmental messaging, pattern insights, and integration with other Alex Friend features.
 
 ## Problem Statement
 
 Users often don't realize how much time they spend in trigger-prone apps:
 
 1. **Mindless Scrolling**: Hours pass without awareness, often in apps that surface triggering content.
-
-2. **Algorithm Manipulation**: Social media algorithms progressively show more engaging (often suggestive) content.
-
+2. **Algorithm Manipulation**: Apps progressively show more engaging (often triggering) content.
 3. **Late Night Vulnerability**: Screen use increases at night when willpower is lowest.
-
 4. **No Awareness**: Built-in screen time doesn't connect usage to recovery context.
-
 5. **Punitive Approach**: Default screen time apps shame users rather than support them.
-
 6. **Trigger Correlation**: Users don't see the connection between certain app usage and urge spikes.
 
 ## Solution
 
 ### 1. Selective App Tracking
-Users choose which apps to monitor:
-- Instagram, TikTok, Twitter/X
-- Reddit, YouTube
-- Browsers (Safari, Chrome)
-- Any app user identifies as risky
+Users choose which apps to monitor based on their addiction type:
+- Pre-suggested apps per addiction
+- Custom additions
+- Pattern learning
 
 ### 2. Smart Notifications
 Configurable, empathetic alerts:
@@ -51,6 +59,8 @@ Connected to other features:
 - Check-ins reference screen time
 - Panic button integration
 
+---
+
 ## Screen Content
 
 ### Screen Time Settings
@@ -59,8 +69,8 @@ Connected to other features:
 ┌─────────────────────────────────────────────┐
 │  ← Settings      Screen Time Tracking       │
 │                                             │
-│  📊 Track your time in apps that might      │
-│     trigger you, with gentle reminders.     │
+│  Track your time in apps that might         │
+│  trigger you, with gentle reminders.        │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
@@ -68,26 +78,19 @@ Connected to other features:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  📱 Apps to Track                           │
+│  Apps to Track                              │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
-│  │ [✓] Instagram                       │   │
-│  │ [✓] TikTok                          │   │
-│  │ [✓] Twitter/X                       │   │
-│  │ [ ] Reddit                          │   │
-│  │ [✓] Safari                          │   │
-│  │ [ ] Chrome                          │   │
-│  │ [✓] YouTube                         │   │
-│  │ [ ] Snapchat                        │   │
+│  │ [Addiction-specific app list]       │   │
 │  │ [+ Add other app]                   │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  ⏰ Notification Settings                   │
+│  Notification Settings                      │
 │  [Configure Alerts →]                       │
 │                                             │
-│  📈 View Usage Stats                        │
+│  View Usage Stats                           │
 │  [Open Dashboard →]                         │
 │                                             │
 └─────────────────────────────────────────────┘
@@ -126,7 +129,7 @@ Connected to other features:
 │  ○ Direct                                   │
 │                                             │
 │  Preview: "You're on a 12-day streak.       │
-│  15 minutes in Instagram - maybe a          │
+│  15 minutes in [app] - maybe a              │
 │  good time for a break?"                    │
 │                                             │
 └─────────────────────────────────────────────┘
@@ -141,10 +144,10 @@ Connected to other features:
 │  Total time in tracked apps: 47 min         │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
-│  │ Instagram      ████████░░░░  22 min │   │
-│  │ TikTok         █████░░░░░░░  15 min │   │
-│  │ Twitter        ███░░░░░░░░░   8 min │   │
-│  │ YouTube        █░░░░░░░░░░░   2 min │   │
+│  │ [App 1]        ████████░░░░  22 min │   │
+│  │ [App 2]        █████░░░░░░░  15 min │   │
+│  │ [App 3]        ███░░░░░░░░░   8 min │   │
+│  │ [App 4]        █░░░░░░░░░░░   2 min │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
 │  ─────────────────────────────────────      │
@@ -153,13 +156,11 @@ Connected to other features:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  💡 Insight                                 │
+│  Insight                                    │
 │                                             │
-│  You use these apps 40% more after 9 PM.    │
-│  Consider enabling extra friction during    │
-│  evening hours.                             │
+│  [Addiction-specific insight about usage]   │
 │                                             │
-│  [Enable Evening Friction Mode]             │
+│  [Suggested Action]                         │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
@@ -174,12 +175,12 @@ Connected to other features:
 │                                             │
 │  This Week           vs Last Week           │
 │  ──────────────────────────────────         │
-│  3h 42m total        ↓ 18% less 🎉         │
+│  3h 42m total        ↓ 18% less             │
 │                                             │
 │        M   T   W   T   F   S   S            │
 │        █   █   █   █   █   █   █            │
-│        █   █   █   █   █   ▄   ▄   ← this  │
-│        █   █   ▄   ▄   █   ░   ░     week   │
+│        █   █   █   █   █   ▄   ▄            │
+│        █   █   ▄   ▄   █   ░   ░            │
 │        ▄   ░   ░   ░   ░   ░   ░            │
 │                                             │
 │  Best day: Sunday (12 min)                  │
@@ -189,20 +190,18 @@ Connected to other features:
 │                                             │
 │  Top Apps This Week                         │
 │                                             │
-│  1. Instagram          1h 45m               │
-│  2. TikTok             1h 12m               │
-│  3. Twitter              35m                │
-│  4. YouTube              10m                │
+│  [Addiction-specific app breakdown]         │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  🏆 Achievement Unlocked!                   │
+│  Achievement Unlocked!                      │
 │                                             │
-│  "Mindful Scroller" - Used 15% less         │
-│  than your monthly average!                 │
+│  "[Achievement name]"                       │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
+
+---
 
 ## Notification Messages
 
@@ -210,26 +209,26 @@ Connected to other features:
 
 **Gentle Style**
 Soft, non-pressuring check-ins:
-- "You've been scrolling for 15 minutes. Just wanted you to know. 💙"
-- "15 minutes in Instagram. Maybe a good time for a break?"
-- "Hey, checking in. You've been in TikTok for a bit."
+- "You've been scrolling for 15 minutes. Just wanted you to know."
+- "15 minutes in [app]. Maybe a good time for a break?"
+- "Hey, checking in. You've been in [app] for a bit."
 
 **Encouraging Style**
 Motivational, progress-focused:
-- "15 minutes in Instagram. You're on a 12-day streak - protect it! 🌱"
+- "15 minutes in [app]. You're on a 12-day streak - protect it!"
 - "Quick check-in: 15 minutes scrolling. Your streak is worth protecting!"
 - "You're stronger than the scroll. 15 minutes - time for a break?"
 
 **Direct Style**
 Clear, action-oriented:
-- "15 minutes in Instagram. Consider closing it now."
-- "TikTok: 15 minutes. Set it down."
-- "You've hit your 15-minute mark in Twitter."
+- "15 minutes in [app]. Consider closing it now."
+- "[App]: 15 minutes. Set it down."
+- "You've hit your 15-minute mark in [app]."
 
 ### Threshold-Based Messages
 
 **Continuous Use (15 min)**
-- "You've been scrolling for 15 minutes. Take a breath."
+- "You've been in [app] for 15 minutes. Take a breath."
 
 **Daily Total (30 min)**
 - "30 minutes in risky apps today. You're aware now - that's powerful."
@@ -241,16 +240,16 @@ Clear, action-oriented:
 - "2 hours today. Consider taking a longer break. Your brain will thank you."
 
 ### Late Night Messages (10 PM - 6 AM)
-
 - "Late night scrolling is extra risky. Your willpower is lower when tired."
 - "It's 11:30 PM. Your brain is more vulnerable right now. Maybe sleep instead?"
-- "Night scrolling rarely ends well. How about calling it a night?"
+- "Night browsing rarely ends well. How about calling it a night?"
 
 ### Pattern-Based Messages
+- "You're using [app] faster than usual today. Everything okay?"
+- "You typically use [app] less on Mondays. Checking in."
+- "After yesterday's tough day, you're back in [app] already. Need support?"
 
-- "You're using Instagram faster than usual today. Everything okay?"
-- "You typically use TikTok less on Mondays. Checking in."
-- "After yesterday's tough day, you're back in Twitter already. Need support?"
+---
 
 ## Technical Implementation
 
@@ -317,6 +316,8 @@ class ScreenTimeService : Service() {
 - `PACKAGE_USAGE_STATS` (special permission)
 - User must manually enable in Settings
 
+---
+
 ## Data Model
 
 ### Screen Time Settings
@@ -337,7 +338,7 @@ screen_time_settings {
 }
 ```
 
-Note: Different addiction types track different "risky apps". Gambling tracks betting apps, social media tracks Instagram/TikTok, etc.
+Note: Each addiction type tracks different "risky apps" appropriate to that addiction.
 
 ### Daily Usage Stats
 ```
@@ -371,6 +372,8 @@ weekly_reports {
 }
 ```
 
+---
+
 ## User Flows
 
 ### Initial Setup
@@ -381,9 +384,9 @@ Permission request (iOS: Screen Time API, Android: Usage Stats)
               ↓
 User grants permission in system settings
               ↓
-App selection screen
+App selection screen (pre-populated by addiction type)
               ↓
-User selects risky apps to track
+User selects/adjusts risky apps to track
               ↓
 Threshold configuration
               ↓
@@ -410,7 +413,7 @@ User taps notification
               ↓
 Opens Alex Friend with options:
 ├── View usage stats
-├── Talk to AI
+├── Talk to Alex
 └── Start breathing exercise
 ```
 
@@ -431,6 +434,8 @@ User opens report
 Display summary with comparisons
 ```
 
+---
+
 ## Integration Points
 
 ### With Check-ins
@@ -439,20 +444,21 @@ Display summary with comparisons
 
 ### With Alex
 - AI can access usage stats (with permission)
-- "I noticed you've been on Instagram more this week. Want to talk about it?"
+- "I noticed you've been on [app] more this week. Want to talk about it?"
 
 ### With Panic Button
 - After panic button use, track if user goes to risky apps
 - Proactive follow-up if they do
 
 ### With Gamification
-- "Mindful Scroller" achievement for reduced usage
-- "Phone-Free Friday" for <10 min on Friday
-- "Night Owl No More" for no late-night usage for 7 days
+- Achievements for reduced usage
+- Per-addiction achievement names
 
 ### With Friction Mode
 - Insights suggest friction mode for high-risk times
-- "Enable friction for Instagram after 9 PM?"
+- "Enable friction for [app] after 9 PM?"
+
+---
 
 ## Agent Implementation Guide
 
@@ -463,7 +469,7 @@ Display summary with comparisons
 - Set up aggregation jobs
 
 ### backend-agent Tasks
-- GET /api/screentime/settings - Get settings
+- GET /api/screentime/settings?addiction_type=X - Get settings
 - PATCH /api/screentime/settings - Update settings
 - POST /api/screentime/usage - Log usage data
 - GET /api/screentime/today - Today's stats
@@ -484,6 +490,8 @@ Display summary with comparisons
 - Weekly report page
 - Notification deep links
 
+---
+
 ## Success Metrics
 
 **Engagement Metrics**
@@ -501,6 +509,8 @@ Display summary with comparisons
 - Screen time vs relapse correlation
 - Users with decreasing usage vs streak length
 
+---
+
 ## Free vs Premium
 
 ### Free Tier
@@ -517,6 +527,8 @@ Display summary with comparisons
 - Pattern-based alerts
 - Achievement integration
 
+---
+
 ## Platform Limitations
 
 ### iOS
@@ -530,6 +542,8 @@ Display summary with comparisons
 - User must manually grant in Settings
 - Some manufacturers may kill background services
 - Can track individual apps precisely
+
+---
 
 ## Privacy Considerations
 
