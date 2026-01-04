@@ -1,25 +1,34 @@
 # Daily Check-ins
 
+## Overview
+
+Daily check-ins are brief, structured self-assessments that help users monitor their emotional state, urge levels, and triggers throughout their recovery journey. By consistently tracking this data, users develop self-awareness, identify patterns, and can proactively address high-risk situations.
+
+This feature works across all addiction types. Only the **trigger categories** and some **insight messages** differ per addiction.
+
+## Addiction-Specific Content
+
+| Addiction | Content File |
+|-----------|--------------|
+| Pornography | [porn.md](porn.md) |
+| Gambling | [gambling.md](gambling.md) |
+| Social Media | [social-media.md](social-media.md) |
+| Gaming | [gaming.md](gaming.md) |
+
+---
+
 ## Title
 Morning & Evening Mood and Urge Tracking System
-
-## Description
-Daily check-ins are brief, structured self-assessments that help users monitor their emotional state, urge levels, and triggers throughout their recovery journey. By consistently tracking this data, users develop self-awareness, identify patterns, and can proactively address high-risk situations. The check-in system also provides valuable data for Alex and analytics features.
 
 ## Problem Statement
 
 Users in addiction recovery often struggle with:
 
 1. **Lack of Self-Awareness**: Many users don't recognize patterns in their behavior until after relapse.
-
 2. **Trigger Blindness**: Users often can't identify what triggers their urges without systematic tracking.
-
 3. **Time-of-Day Patterns**: Evening and nighttime present higher risks, but users may not realize this without data.
-
 4. **Mood-Urge Connection**: The link between emotional states (stress, boredom, loneliness) and urges isn't always obvious.
-
 5. **No Early Warning System**: By the time users notice they're struggling, they may already be in a compromised state.
-
 6. **Inconsistent Reflection**: Without prompting, users rarely pause to assess their state proactively.
 
 ## Solution
@@ -47,6 +56,8 @@ Alex Friend's check-in system provides:
 - High urge triggers check-in follow-up
 - AI suggestions based on patterns
 - Notification adjustments based on risk times
+
+---
 
 ## Screen Content
 
@@ -105,10 +116,8 @@ Alex Friend's check-in system provides:
 │                                             │
 │     What triggered it? (select all)         │
 │     ┌─────────────────────────────────┐    │
-│     │ [x] Stress     [ ] Social media │    │
-│     │ [ ] Boredom    [ ] Loneliness   │    │
-│     │ [ ] HALT*      [ ] Late night   │    │
-│     │ [ ] Other: _____________        │    │
+│     │ [Addiction-specific triggers]   │    │
+│     │ (See addiction files for list)  │    │
 │     └─────────────────────────────────┘    │
 │                                             │
 │     Anything you want to note?              │
@@ -120,8 +129,6 @@ Alex Friend's check-in system provides:
 │           [Submit Check-in]                 │
 │                                             │
 └─────────────────────────────────────────────┘
-
-*HALT = Hungry, Angry, Lonely, Tired
 ```
 
 ### Quick Urge Check-in
@@ -141,15 +148,13 @@ Alex Friend's check-in system provides:
 │                                             │
 │     What's triggering it?                   │
 │     ┌─────────────────────────────────┐    │
-│     │ [x] Stress     [ ] Social media │    │
-│     │ [ ] Boredom    [ ] Loneliness   │    │
-│     │ [ ] HALT       [ ] Late night   │    │
+│     │ [Addiction-specific triggers]   │    │
 │     └─────────────────────────────────┘    │
 │                                             │
 │           [Log Urge]                        │
 │                                             │
 │     Need help?                              │
-│     [Talk to AI]  [Breathing Exercise]      │
+│     [Talk to Alex]  [Breathing Exercise]    │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
@@ -187,6 +192,8 @@ Alex Friend's check-in system provides:
 └─────────────────────────────────────────────┘
 ```
 
+---
+
 ## Check-in Components
 
 ### Mood Scale (1-10)
@@ -205,21 +212,22 @@ Visual slider with icons:
 
 Default position: 1 (low)
 
-### Trigger Categories
+### Universal Triggers
 
-**Primary Triggers**
+These triggers are shared across all addiction types:
+
 | Category | Description | Icon |
 |----------|-------------|------|
 | Stress | Work, finances, responsibilities | 😰 |
 | Boredom | Nothing to do, restless | 😑 |
 | Loneliness | Isolated, disconnected | 😢 |
-| Social Media | Instagram, TikTok, etc. | 📱 |
-| Late Night | After 10 PM scrolling | 🌙 |
 | HALT | Hungry, Angry, Lonely, Tired | ⚠️ |
 | Relationship | Partner issues, rejection | 💔 |
 | Celebration | "Treating" self after success | 🎉 |
 
-**Custom Triggers**
+See addiction-specific files for additional triggers unique to each addiction type.
+
+### Custom Triggers
 Users can add their own triggers that appear in future check-ins.
 
 ### Intention/Note Fields
@@ -227,6 +235,8 @@ Users can add their own triggers that appear in future check-ins.
 - Max 280 characters
 - Saves for journal reference
 - AI can reference in conversations
+
+---
 
 ## User Flows
 
@@ -285,6 +295,8 @@ Follow-up notification in 30 minutes:
 "How are you feeling now?"
 ```
 
+---
+
 ## Check-in Analytics Display
 
 ### Weekly Overview
@@ -301,7 +313,7 @@ Follow-up notification in 30 minutes:
 │  Average Urge: 3.0 (↓ from last week)       │
 │  Check-in Streak: 12 days                   │
 │                                             │
-│  Top Trigger This Week: Stress (4x)         │
+│  Top Trigger This Week: [Addiction-specific]│
 │                                             │
 │  [View Detailed Analytics →]                │
 │                                             │
@@ -313,15 +325,13 @@ Follow-up notification in 30 minutes:
 ┌─────────────────────────────────────────────┐
 │  Your Triggers (Last 30 Days)               │
 │                                             │
-│  Stress          ████████████░░░ 12         │
-│  Late Night      ████████░░░░░░░  8         │
-│  Boredom         ██████░░░░░░░░░  6         │
-│  Social Media    ████░░░░░░░░░░░  4         │
-│  Loneliness      ██░░░░░░░░░░░░░  2         │
+│  [Top trigger]     ████████████░░░ 12       │
+│  [2nd trigger]     ████████░░░░░░░  8       │
+│  [3rd trigger]     ██████░░░░░░░░░  6       │
+│  [4th trigger]     ████░░░░░░░░░░░  4       │
+│  [5th trigger]     ██░░░░░░░░░░░░░  2       │
 │                                             │
-│  💡 Insight: Your urges spike when          │
-│  stressed. Consider stress management        │
-│  techniques.                                │
+│  💡 Insight: [Addiction-specific insight]   │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
@@ -344,6 +354,8 @@ Follow-up notification in 30 minutes:
 │                                             │
 └─────────────────────────────────────────────┘
 ```
+
+---
 
 ## Notification Schedule
 
@@ -368,6 +380,8 @@ Follow-up notification in 30 minutes:
 
 **Positive streak**
 - "🌟 7 days of check-ins! Your self-awareness is growing."
+
+---
 
 ## Data Model
 
@@ -404,7 +418,7 @@ triggers {
 }
 ```
 
-Note: Different addictions have different default triggers (see addiction-profiles.md for examples).
+Note: Different addictions have different default triggers. See addiction-specific files for trigger lists.
 
 ### Check-in Streak
 ```
@@ -437,9 +451,11 @@ checkin_analytics {
 
 Note: Analytics can be computed per addiction type or combined (addiction_type = null).
 
+---
+
 ## Insights Engine
 
-### Pattern Detection Rules
+### Universal Pattern Detection Rules
 
 **High Evening Risk**
 ```
@@ -449,27 +465,16 @@ THEN flag "Evening Risk Pattern"
 AND suggest friction mode for evening apps
 ```
 
-**Stress-Urge Correlation**
-```
-IF "Stress" trigger appears in 50%+ of check-ins
-   AND those check-ins have urge > 5
-THEN flag "Stress-Driven Pattern"
-AND suggest stress management resources
-```
-
-**Social Media Trigger**
-```
-IF "Social Media" trigger appears 3+ times in 7 days
-THEN flag "Social Media Risk"
-AND suggest social media safety settings
-```
-
 **Consistent Checker Benefit**
 ```
 IF user has 14+ day check-in streak
    AND average urge has decreased
 THEN show "Your consistent tracking is helping!"
 ```
+
+See addiction-specific files for addiction-tailored pattern detection rules.
+
+---
 
 ## Integration Points
 
@@ -495,11 +500,13 @@ THEN show "Your consistent tracking is helping!"
 - Risk-time notifications based on check-in patterns
 - Adjusted reminder timing based on when user typically checks in
 
+---
+
 ## Agent Implementation Guide
 
 ### foundation-agent Tasks
-- Create check_ins table with indexes
-- Create triggers table with default seed data
+- Create check_ins table with indexes on user_id, addiction_type, for_date
+- Create triggers table with default seed data per addiction type
 - Create user_checkin_streak table
 - Create checkin_analytics materialized view
 - Set up aggregation jobs
@@ -510,6 +517,7 @@ THEN show "Your consistent tracking is helping!"
 - GET /api/checkins/history - Paginated history
 - GET /api/checkins/analytics - Pattern analysis
 - POST /api/triggers/custom - Add custom trigger
+- GET /api/triggers/:addictionType - Get triggers for addiction
 - Cron job: Aggregate analytics nightly
 
 ### ui-agent Tasks
@@ -518,7 +526,7 @@ THEN show "Your consistent tracking is helping!"
 - UrgeQuickLog component
 - MoodSlider component
 - UrgeSlider component
-- TriggerSelector component
+- TriggerSelector component (addiction-aware)
 - CheckinInsight component
 - WeeklyCheckinsGraph component
 
@@ -527,6 +535,8 @@ THEN show "Your consistent tracking is helping!"
 - Analytics page check-in section
 - Check-in history page
 - Deep link: notification to check-in
+
+---
 
 ## Success Metrics
 
@@ -545,6 +555,8 @@ THEN show "Your consistent tracking is helping!"
 - Urge trend over time (should decrease)
 - Relapse prediction accuracy based on check-in data
 
+---
+
 ## Configuration Options
 
 **Settings > Check-in Preferences**
@@ -559,12 +571,16 @@ THEN show "Your consistent tracking is helping!"
 - Add custom triggers
 - Hide triggers not relevant to user
 
+---
+
 ## Accessibility
 
 - Sliders work with keyboard/VoiceOver
 - Numerical input alternative to sliders
 - High contrast mode for mood colors
 - Voice input for notes (premium)
+
+---
 
 ## Privacy
 
