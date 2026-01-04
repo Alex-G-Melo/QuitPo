@@ -323,6 +323,7 @@ class ScreenTimeService : Service() {
 ```
 screen_time_settings {
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   enabled: Boolean
   tracked_apps: JSON Array (app identifiers)
   continuous_threshold_minutes: Integer
@@ -332,14 +333,18 @@ screen_time_settings {
   late_night_end: Time
   notification_style: Enum (gentle, encouraging, direct)
   weekly_report_enabled: Boolean
+  PRIMARY KEY (user_id, addiction_type)
 }
 ```
+
+Note: Different addiction types track different "risky apps". Gambling tracks betting apps, social media tracks Instagram/TikTok, etc.
 
 ### Daily Usage Stats
 ```
 daily_usage_stats {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   date: Date
   total_minutes: Integer
   app_breakdown: JSON
@@ -354,6 +359,7 @@ daily_usage_stats {
 weekly_reports {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   week_start: Date
   week_end: Date
   total_minutes: Integer

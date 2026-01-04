@@ -1,6 +1,19 @@
 # Alex Friend - Project Context
 
-Alex Friend is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through psychological tools, community support, and behavioral interventions. Built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
+Alex Friend is a **multi-addiction recovery platform** designed to help users break free from behavioral addictions through psychological tools, community support, and behavioral interventions. Built on an addiction-agnostic architecture that supports multiple addiction types with a single codebase.
+
+## Multi-Addiction Architecture
+
+| Addiction Type | Status | Primary Markets | Problem Scale |
+|----------------|--------|-----------------|---------------|
+| **Pornography** | Primary (v1.0) | Global | 200M+ affected |
+| **Gambling/Betting** | Planned (v1.1) | Brazil, Germany, UK | 80M+ globally, 10M+ Brazil crisis |
+| **Social Media/Phone** | Planned (v1.2) | Brazil, Global | 210M+ addicted |
+| **Gaming** | Planned (v1.3) | Global (teens) | 60M+ affected |
+
+**Architecture**: ~90% shared code, ~10% addiction-specific content. See `/docs/architecture/multi-addiction.md` for full details.
+
+**Key principle**: All features work identically across addictions — only terminology, triggers, education content, blocklists, and Alex's knowledge base change per addiction type.
 
 ## Branding
 
@@ -62,8 +75,15 @@ alex-friend/                    # Repo name (or quitpo/ for existing)
 └── pnpm-workspace.yaml
 ```
 
-## Feature Documentation
+## Documentation
 
+### Architecture
+| Document | Description |
+|----------|-------------|
+| [Multi-Addiction](docs/architecture/multi-addiction.md) | How the app supports multiple addiction types |
+| [Addiction Profiles](docs/architecture/addiction-profiles.md) | Content structure and checklist for each addiction type |
+
+### Feature Documentation
 Comprehensive feature documentation is in `/docs/features/`. Each document includes: title, description, problem statement, solution, screen content, data models, user flows, and agent implementation guides.
 
 ### Core Features

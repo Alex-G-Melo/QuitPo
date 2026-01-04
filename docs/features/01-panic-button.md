@@ -625,6 +625,7 @@ This section defines the database schema for this feature. Use this for implemen
 |--------|------|-------------|--------------|-------------|
 | id | uuid | PK | | Unique event identifier |
 | user_id | uuid | NOT NULL | users.id | User who triggered panic button |
+| addiction_type | enum | NOT NULL | | 'porn', 'gambling', 'social_media', 'gaming' |
 | opened_at | timestamp | NOT NULL | | When panic button was opened |
 | closed_at | timestamp | | | When panic button was closed |
 | outcome | enum | NOT NULL | | 'survived', 'relapsed', 'support_requested' |
@@ -641,6 +642,7 @@ This section defines the database schema for this feature. Use this for implemen
 |--------|------|-------------|--------------|-------------|
 | id | uuid | PK | | Unique relapse identifier |
 | user_id | uuid | NOT NULL | users.id | User who relapsed |
+| addiction_type | enum | NOT NULL | | 'porn', 'gambling', 'social_media', 'gaming' |
 | relapsed_at | timestamp | NOT NULL | | When relapse was logged |
 | streak_at_relapse | integer | NOT NULL | | Days lost |
 | panic_event_id | uuid | | panic_button_events.id | If logged from panic button |
@@ -653,11 +655,13 @@ This section defines the database schema for this feature. Use this for implemen
 | Column | Type | Constraints | FK Reference | Description |
 |--------|------|-------------|--------------|-------------|
 | id | uuid | PK | | Unique message identifier |
+| addiction_type | enum | | | 'porn', 'gambling', 'social_media', 'gaming', null for universal |
 | content | text | NOT NULL | | The message text |
-| category | enum | NOT NULL | | 'grounding', 'neural_science', 'progress', 'identity', 'consequence', 'empowerment', 'time_based' |
+| category | enum | NOT NULL | | 'grounding', 'neural_science', 'progress', 'identity', 'consequence', 'empowerment', 'time_based', 'journey_aware' |
+| journey_stage | varchar | | | Stage-specific messages (the_void, asteroid_field, etc.) |
 | time_context | enum | | | 'late_night', 'morning', 'weekend', null for any |
-| requires_streak | boolean | DEFAULT false | | If message uses [X] placeholder |
-| requires_person | boolean | DEFAULT false | | If message uses [person] placeholder |
+| requires_streak | boolean | DEFAULT false | | If message uses {X} placeholder |
+| requires_person | boolean | DEFAULT false | | If message uses {person} placeholder |
 | effectiveness_score | float | DEFAULT 0.5 | | Updated based on survival rate |
 | is_active | boolean | DEFAULT true | | Can be disabled without deletion |
 | created_at | timestamp | NOT NULL, DEFAULT now() | | Record creation time |

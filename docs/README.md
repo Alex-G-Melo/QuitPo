@@ -10,7 +10,18 @@
 
 ## Overview
 
-Alex Friend is a comprehensive porn addiction recovery app designed to help users break free from compulsive pornography use through a combination of psychological tools, community support, and behavioral interventions. The app is built on the scientific understanding that porn addiction typically requires 90 days for neural pathway rewiring.
+Alex Friend is a **multi-addiction recovery platform** designed to help users break free from behavioral addictions through psychological tools, community support, and behavioral interventions. Built on an addiction-agnostic architecture, the app supports multiple addiction types with a single codebase.
+
+### Supported Addiction Types
+
+| Type | Status | Primary Markets | Scale |
+|------|--------|-----------------|-------|
+| **Pornography** | Primary (v1.0) | Global | 200M+ affected |
+| **Gambling/Betting** | Planned (v1.1) | Brazil, Germany, UK | 80M+ globally |
+| **Social Media/Phone** | Planned (v1.2) | Brazil, Global | 210M+ addicted |
+| **Gaming** | Planned (v1.3) | Global (teens) | 60M+ affected |
+
+The app is built on the scientific understanding that behavioral addictions typically require 90 days for neural pathway rewiring.
 
 ## Core Philosophy
 
@@ -22,10 +33,24 @@ Alex Friend is a comprehensive porn addiction recovery app designed to help user
 
 ## Target Audience
 
-- Adults struggling with compulsive porn use
+- Adults struggling with behavioral addictions (porn, gambling, social media, gaming)
 - People who have tried to quit unsuccessfully
 - Those seeking anonymous, judgment-free support
 - Users wanting to understand and change their behavior patterns
+
+## Architecture
+
+| Document | Description |
+|----------|-------------|
+| [Multi-Addiction Architecture](architecture/multi-addiction.md) | How the app supports multiple addiction types with a single codebase |
+| [Addiction Profiles](architecture/addiction-profiles.md) | Content structure and checklist for each addiction type |
+
+### Key Architecture Decisions
+
+- **Single codebase, multiple profiles**: ~90% shared code, ~10% addiction-specific content
+- **Content externalization**: All user-facing text in profile-specific config files
+- **Shared features**: Streak system, Alex AI, gamification, community work identically across addictions
+- **Profile-specific**: Terminology, triggers, education content, blocklists, Alex knowledge base
 
 ## Feature Documentation
 

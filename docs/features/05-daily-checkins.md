@@ -376,6 +376,7 @@ Follow-up notification in 30 minutes:
 check_ins {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   type: Enum (morning, evening, urge)
   mood_score: Integer (1-10, nullable for urge type)
   urge_score: Integer (1-10)
@@ -387,10 +388,13 @@ check_ins {
 }
 ```
 
+Note: Users with multiple addictions do ONE check-in that applies to all their addiction types (shared mood/urge), but triggers are addiction-specific.
+
 ### Trigger Definitions
 ```
 triggers {
   id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   name: String
   display_name: String
   icon: String
@@ -399,6 +403,8 @@ triggers {
   sort_order: Integer
 }
 ```
+
+Note: Different addictions have different default triggers (see addiction-profiles.md for examples).
 
 ### Check-in Streak
 ```
@@ -412,10 +418,13 @@ user_checkin_streak {
 }
 ```
 
+Note: Check-in streak is user-level (not per addiction) since check-ins track overall wellbeing.
+
 ### Aggregated Analytics
 ```
 checkin_analytics {
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming, nullable for combined)
   period_start: Date
   period_end: Date
   avg_mood: Decimal
@@ -425,6 +434,8 @@ checkin_analytics {
   time_distribution: JSON
 }
 ```
+
+Note: Analytics can be computed per addiction type or combined (addiction_type = null).
 
 ## Insights Engine
 

@@ -349,6 +349,7 @@ Action taken (remove, warn, ban)
 community_posts {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   category: Enum (win, struggle, question)
   content: Text
   streak_at_post: Integer
@@ -362,6 +363,8 @@ community_posts {
   is_hidden: Boolean
 }
 ```
+
+Note: Community feeds are filtered by addiction_type. Users with multiple addictions see posts from all their addiction types.
 
 ### Comments
 ```
@@ -382,6 +385,7 @@ community_comments {
 ```
 challenges {
   id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   name: String
   description: Text
   type: Enum (streak, behavior, engagement)
@@ -394,6 +398,8 @@ challenges {
   icon: String
 }
 ```
+
+Note: Challenges are addiction-specific. "7-Day Warrior" for porn is different from "7-Day Warrior" for gambling.
 
 ### Challenge Participation
 ```

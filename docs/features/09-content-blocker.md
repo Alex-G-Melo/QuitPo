@@ -565,36 +565,44 @@ If configured:
 ```
 blocklist_entries {
   id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   domain: String
-  category: Enum (adult, social_nsfw, custom)
+  category: Enum (adult, social_nsfw, casino, betting, custom)
   source: Enum (default, user, reported)
+  region: String (nullable - for region-specific sites like BR gambling)
   added_at: DateTime
   is_active: Boolean
 }
 ```
 
+Note: Different addiction types have completely different blocklists. Gambling blocklist includes casino/betting sites, porn blocklist includes adult sites.
+
 ### User Block Settings
 ```
 user_block_settings {
   user_id: UUID
-  block_adult_sites: Boolean
-  block_adult_search: Boolean
+  addiction_type: Enum (porn, gambling, social_media, gaming)
+  blocking_enabled: Boolean
+  block_categories: JSON Array (which categories to block)
   force_safe_search: Boolean
-  block_reddit_nsfw: Boolean
   accountability_enabled: Boolean
   accountability_partner_id: UUID
   passcode_enabled: Boolean
   passcode_hash: String
+  PRIMARY KEY (user_id, addiction_type)
 }
 ```
+
+Note: Each addiction type has separate blocking settings. User can enable porn blocking but not gambling blocking.
 
 ### Block Events (Privacy-Preserving)
 ```
 block_events {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   platform: Enum (ios, android, chrome)
-  category: Enum (adult, social_nsfw, custom, search)
+  category: Enum (adult, social_nsfw, casino, betting, custom, search)
   blocked_at: DateTime
   day_of_week: Integer
   hour_of_day: Integer
@@ -607,6 +615,7 @@ block_events {
 user_custom_blocks {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   domain: String
   added_at: DateTime
   is_active: Boolean

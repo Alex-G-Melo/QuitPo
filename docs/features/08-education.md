@@ -478,6 +478,7 @@ Reflection prompts throughout:
 ```
 education_modules {
   id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   order: Integer
   name: String
   description: Text
@@ -487,6 +488,8 @@ education_modules {
   unlock_requirement: UUID (prev module ID, nullable)
 }
 ```
+
+Note: Each addiction type has its own set of 4 education modules with addiction-specific content.
 
 ### Lessons
 ```
@@ -546,6 +549,7 @@ quiz_attempts {
 journal_entries {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming, nullable for general)
   lesson_id: UUID (nullable - can be freeform)
   prompt: Text (nullable)
   content: Text (encrypted)
@@ -554,6 +558,8 @@ journal_entries {
   updated_at: DateTime
 }
 ```
+
+Note: Journal entries can be addiction-specific (from education prompts) or general (freeform).
 
 ## User Flows
 

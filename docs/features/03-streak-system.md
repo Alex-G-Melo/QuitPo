@@ -416,6 +416,7 @@ If Current Streak >= 90: Show "Home! 🌍"
 user_streaks {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   started_at: DateTime
   ended_at: DateTime (nullable - current journey is null)
   days: Integer (computed)
@@ -425,10 +426,13 @@ user_streaks {
 }
 ```
 
+Note: Users can have multiple active streaks (one per addiction type they're recovering from).
+
 ### User Streak Summary
 ```
 user_streak_summary {
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   current_streak_id: UUID (FK)
   current_streak_days: Integer
   current_stage: Integer
@@ -437,14 +441,18 @@ user_streak_summary {
   total_course_corrections: Integer
   quit_date: DateTime
   last_updated: DateTime
+  PRIMARY KEY (user_id, addiction_type)
 }
 ```
+
+Note: One summary row per user per addiction type. Dashboard shows primary addiction prominently.
 
 ### Milestone Events
 ```
 milestone_events {
   id: UUID
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   milestone_type: Enum (day_1, day_7, day_14, day_30, day_45, day_60, day_75, day_90, day_100, day_180, day_365)
   achieved_at: DateTime
   streak_id: UUID (FK)

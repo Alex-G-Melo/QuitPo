@@ -512,12 +512,27 @@ Brief introduction to key features:
 
 ## Data Model
 
+### User Addiction Profiles
+```
+user_addiction_profiles {
+  id: UUID
+  user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
+  is_primary: Boolean (one must be primary for dashboard display)
+  created_at: DateTime
+  UNIQUE(user_id, addiction_type)
+}
+```
+
+Note: Users select their addiction type(s) during onboarding. They can recover from multiple addictions simultaneously.
+
 ### Onboarding Progress
 ```
 onboarding_progress {
   user_id: UUID
   started_at: DateTime
   completed_at: DateTime
+  addiction_selection_completed: Boolean
   quiz_completed: Boolean
   tour_completed: Boolean
   current_step: String
@@ -528,6 +543,7 @@ onboarding_progress {
 ```
 user_profile {
   user_id: UUID
+  addiction_type: Enum (porn, gambling, social_media, gaming)
   addiction_duration: Enum
   usage_frequency: Enum
   triggers: JSON Array
@@ -539,8 +555,11 @@ user_profile {
   notification_preferences: JSON
   created_at: DateTime
   updated_at: DateTime
+  PRIMARY KEY (user_id, addiction_type)
 }
 ```
+
+Note: Users with multiple addictions have separate profiles for each, as triggers, duration, and reasons may differ per addiction.
 
 ## User Flows
 
@@ -554,19 +573,27 @@ Promise screen
           ↓
 Account creation
           ↓
+Addiction type selection
+(What brings you here?)
+├── Pornography
+├── Gambling/Betting
+├── Social Media/Phone
+├── Gaming
+└── Multiple (select all that apply)
+          ↓
 Quiz introduction
           ↓
-5 quiz questions
+5 quiz questions (per addiction if multiple)
           ↓
-Set quit date
+Set quit date (per addiction)
           ↓
-Write personal "why"
+Write personal "why" (per addiction)
           ↓
 Setup complete
           ↓
 Optional tour
           ↓
-Dashboard
+Dashboard (shows primary addiction)
 ```
 
 ### Anonymous User
