@@ -66,10 +66,12 @@ alex-friend/                    # Repo name (or quitpo/ for existing)
 │   ├── api/                    # tRPC routers
 │   ├── db/                     # Drizzle ORM + pgvector schemas
 │   └── shared/                 # Types, utils, constants
-├── docs/                       # Feature documentation (see below)
+├── docs/                       # Documentation
 │   ├── README.md               # Overview and navigation
-│   └── features/               # Individual feature specs
-├── old-docs/                   # Legacy docs + reference images
+│   ├── features/               # Feature specs (folder per feature)
+│   ├── architecture/           # Architecture docs
+│   ├── references/             # UI reference images
+│   └── design-system/          # Design assets
 ├── docker-compose.yml          # PostgreSQL + pgvector
 ├── turbo.json
 └── pnpm-workspace.yaml
@@ -84,37 +86,42 @@ alex-friend/                    # Repo name (or quitpo/ for existing)
 | [Addiction Profiles](docs/architecture/addiction-profiles.md) | Content structure and checklist for each addiction type |
 
 ### Feature Documentation
-Comprehensive feature documentation is in `/docs/features/`. Each document includes: title, description, problem statement, solution, screen content, data models, user flows, and agent implementation guides.
+Comprehensive feature documentation is in `/docs/features/`. Each feature is a folder containing:
+- `README.md` - Shared functionality (UI, data model, flows, agent implementation guides)
+- `porn.md` - Pornography addiction-specific content
+- `gambling.md` - Gambling addiction-specific content
+- `social-media.md` - Social media/phone addiction-specific content
+- `gaming.md` - Gaming addiction-specific content
 
 ### Core Features
 | Feature | Document | Description |
 |---------|----------|-------------|
-| Panic Button | [01-panic-button.md](docs/features/01-panic-button.md) | Emergency camera overlay intervention |
-| Alex (AI Companion) | [02-ai-therapist.md](docs/features/02-ai-therapist.md) | 24/7 GPT-powered recovery support |
-| Streak System | [03-streak-system.md](docs/features/03-streak-system.md) | 90-day rewiring tracker |
-| Gamification | [04-gamification.md](docs/features/04-gamification.md) | Life Tree + achievements |
-| Daily Check-ins | [05-daily-checkins.md](docs/features/05-daily-checkins.md) | Mood and urge tracking |
+| Panic Button | [01-panic-button/](docs/features/01-panic-button/) | Emergency camera overlay intervention |
+| Alex (AI Companion) | [02-alex-friend-ai-agent/](docs/features/02-alex-friend-ai-agent/) | 24/7 GPT-powered recovery support |
+| Streak System | [03-streak-system/](docs/features/03-streak-system/) | 90-day rewiring tracker |
+| Gamification | [04-gamification/](docs/features/04-gamification/) | Life Tree + achievements |
+| Daily Check-ins | [05-daily-checkins/](docs/features/05-daily-checkins/) | Mood and urge tracking |
 
 ### Support Features
 | Feature | Document | Description |
 |---------|----------|-------------|
-| Mindfulness | [06-mindfulness.md](docs/features/06-mindfulness.md) | Breathing, meditation, sounds |
-| Community | [07-community.md](docs/features/07-community.md) | Anonymous posts + challenges |
-| Education | [08-education.md](docs/features/08-education.md) | Science-based learning modules |
+| Mindfulness | [06-mindfulness/](docs/features/06-mindfulness/) | Breathing, meditation, sounds |
+| Community | [07-community/](docs/features/07-community/) | Anonymous posts + challenges |
+| Education | [08-education/](docs/features/08-education/) | Science-based learning modules |
 
 ### Safety Features
 | Feature | Document | Description |
 |---------|----------|-------------|
-| Content Blocker | [09-content-blocker.md](docs/features/09-content-blocker.md) | Adult site blocking (1M+ sites) |
-| Screen Time | [10-screen-time.md](docs/features/10-screen-time.md) | Risky app usage tracking |
-| Friction Mode | [11-friction-mode.md](docs/features/11-friction-mode.md) | Breathing pause before risky apps |
-| Social Safety | [12-social-safety.md](docs/features/12-social-safety.md) | Platform safety configuration guides |
+| Content Blocker | [09-content-blocker/](docs/features/09-content-blocker/) | Addiction-specific blocking |
+| Screen Time | [10-screen-time/](docs/features/10-screen-time/) | Risky app usage tracking |
+| Friction Mode | [11-friction-mode/](docs/features/11-friction-mode/) | Breathing pause before risky apps |
+| Social Safety | [12-social-safety/](docs/features/12-social-safety/) | Platform safety configuration guides |
 
 ### User Experience
 | Feature | Document | Description |
 |---------|----------|-------------|
-| Onboarding | [13-onboarding.md](docs/features/13-onboarding.md) | Personalization quiz + setup |
-| Monetization | [14-monetization.md](docs/features/14-monetization.md) | Free vs Premium tiers |
+| Onboarding | [13-onboarding/](docs/features/13-onboarding/) | Personalization quiz + setup |
+| Monetization | [14-monetization/](docs/features/14-monetization/) | Free vs Premium tiers |
 
 ## Key Features Summary
 
@@ -173,9 +180,10 @@ eas build --platform android # Build Android
 ## Reference Materials
 
 - `/docs/README.md` - Overview of all features with navigation
-- `/docs/features/` - 14 comprehensive feature specifications
-- `/old-docs/references/` - UI reference images from competitor analysis
-- `/old-docs/COMPETITIVE_MARKET_ANALYSIS.md` - Market analysis and pricing strategy
+- `/docs/features/` - 14 feature specifications (folder per feature with addiction-specific content)
+- `/docs/references/` - UI reference images from competitor analysis
+- `/docs/COMPETITIVE_MARKET_ANALYSIS.md` - Market analysis and pricing strategy
+- `/docs/architecture/` - Multi-addiction architecture and addiction profiles
 
 ## Implementation Agents
 
