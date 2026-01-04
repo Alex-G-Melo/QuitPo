@@ -1,25 +1,34 @@
 # Content Blocker
 
-## Title
-Cross-Platform Adult Content Blocking System
+## Overview
 
-## Description
-The content blocker is a multi-platform protection system that prevents access to adult websites and content through a combination of mobile device settings integration, a Chrome browser extension, and DNS-level blocking. This creates multiple layers of defense to support users during moments of weakness, recognizing that strong intentions can falter when willpower is depleted.
+The content blocker is a multi-platform protection system that prevents access to triggering websites and content through a combination of mobile device settings integration, a Chrome browser extension, and DNS-level blocking. This creates multiple layers of defense to support users during moments of weakness, recognizing that strong intentions can falter when willpower is depleted.
+
+Each addiction type has its own blocklist and blocking configuration.
+
+## Addiction-Specific Content
+
+| Addiction | Content File | Blocklist Focus |
+|-----------|--------------|-----------------|
+| Pornography | [porn.md](porn.md) | Adult sites, NSFW content |
+| Gambling | [gambling.md](gambling.md) | Casinos, betting sites |
+| Social Media | [social-media.md](social-media.md) | Social platforms, algorithms |
+| Gaming | [gaming.md](gaming.md) | Gaming sites, stores, streams |
+
+---
+
+## Title
+Cross-Platform Addictive Content Blocking System
 
 ## Problem Statement
 
-Users trying to avoid porn face an internet saturated with access:
+Users trying to recover from addictions face an internet saturated with triggers:
 
-1. **Instant Access**: Adult content is seconds away on any device at any time.
-
+1. **Instant Access**: Addictive content is seconds away on any device at any time.
 2. **Weak Moment Vulnerability**: When willpower is low, easy access leads to relapse.
-
-3. **Accidental Exposure**: Non-adult sites (social media, ads) can surface triggering content.
-
+3. **Accidental Exposure**: Non-addiction sites can surface triggering content.
 4. **Multiple Devices**: Blocking one device leaves others unprotected.
-
 5. **Easy to Bypass**: Most blockers are trivially circumvented by determined users.
-
 6. **DNS Limitations**: DNS blockers work but require setup and can be bypassed.
 
 ## Solution
@@ -37,7 +46,7 @@ Users trying to avoid porn face an internet saturated with access:
 - Safe search enforcement
 
 ### 3. Blocklist System
-- 1M+ known adult domains
+- Comprehensive domain lists per addiction type
 - User-configurable additions
 - Regular updates
 - Category-based blocking
@@ -47,6 +56,8 @@ Users trying to avoid porn face an internet saturated with access:
 - Accountability notification option
 - Time-limited access (if enabled)
 
+---
+
 ## Screen Content
 
 ### Content Blocker Settings
@@ -55,7 +66,7 @@ Users trying to avoid porn face an internet saturated with access:
 ┌─────────────────────────────────────────────┐
 │  ← Settings        Content Blocker          │
 │                                             │
-│  🛡️ Protection Status                       │
+│  Protection Status                          │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │         ✓ PROTECTED                 │   │
@@ -66,7 +77,7 @@ Users trying to avoid porn face an internet saturated with access:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  📱 Mobile Protection                       │
+│  Mobile Protection                          │
 │                                             │
 │  Screen Time Blocking         [Enabled ✓]  │
 │  Safari Content Blocker       [Enabled ✓]  │
@@ -74,26 +85,25 @@ Users trying to avoid porn face an internet saturated with access:
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  💻 Browser Protection                      │
+│  Browser Protection                         │
 │                                             │
 │  Chrome Extension            [Installed ✓]  │
-│  Block adult sites                [ON]      │
-│  Block adult search results       [ON]      │
-│  Force safe search                [ON]      │
-│  Block Reddit NSFW                [ON]      │
+│  Block [addiction] sites           [ON]    │
+│  Block search results              [ON]    │
+│  Force safe search                 [ON]    │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  ⚙️ Advanced                                │
+│  Advanced                                   │
 │                                             │
 │  [Custom Blocked Sites]                     │
 │  [Blocked Keywords]                         │
 │  [Whitelist]                               │
-│  [Block Schedule]           🔒 Premium     │
+│  [Block Schedule]           Premium        │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  🔐 Accountability                          │
+│  Accountability                             │
 │                                             │
 │  Notify partner if disabled   [OFF]        │
 │  Require passcode to disable  [ON]         │
@@ -107,28 +117,26 @@ Users trying to avoid porn face an internet saturated with access:
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
-│              🛡️ Alex Friend                   │
+│              Alex Friend                    │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │                                     │   │
-│  │   ▌Stay with me.                    │   │
+│  │   ▌[Addiction-specific message]     │   │
 │  │   (typewriter animation + haptics)  │   │
 │  │                                     │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
-│         Day 23 • Don't reset now            │
+│         Day X • Don't reset now            │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │                                     │   │
-│  │   🚨 OPEN PANIC BUTTON              │   │
+│  │        OPEN PANIC BUTTON            │   │
 │  │                                     │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  Side effects of relapsing:                 │
-│  • Brain fog • Dopamine crash               │
-│  • Shame spiral • Progress reset            │
+│  [Addiction-specific consequences]          │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
@@ -160,13 +168,11 @@ Users trying to avoid porn face an internet saturated with access:
 │  2. Tap "Screen Time"                       │
 │  3. Tap "Content & Privacy Restrictions"    │
 │  4. Turn ON "Content & Privacy..."          │
-│  5. Tap "Content Restrictions"              │
-│  6. Tap "Web Content"                       │
-│  7. Select "Limit Adult Websites"           │
+│  5. [Addiction-specific steps]              │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  💡 Pro Tip: Have someone else set the      │
+│  Pro Tip: Have someone else set the         │
 │  Screen Time passcode so you can't easily   │
 │  disable it during weak moments.            │
 │                                             │
@@ -191,9 +197,9 @@ Users trying to avoid porn face an internet saturated with access:
 │  ─────────────────────────    │
 │                               │
 │  Quick Settings:              │
-│  [✓] Block adult sites        │
+│  [✓] Block [addiction] sites  │
 │  [✓] Safe search              │
-│  [✓] Block NSFW Reddit        │
+│  [✓] Block [platform] content │
 │                               │
 │  ─────────────────────────    │
 │                               │
@@ -226,42 +232,33 @@ Users trying to avoid porn face an internet saturated with access:
 │  │ Added Dec 20, 2025                  │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ anothersite.com             [Remove]│   │
-│  │ Added Dec 15, 2025                  │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│  ... more sites ...                         │
-│                                             │
-│  💡 These sites are blocked in addition     │
+│  These sites are blocked in addition        │
 │  to the default blocklist.                  │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
+
+---
 
 ## Blocking System Architecture
 
 ### Blocklist Tiers
 
 **Tier 1: Default Blocklist**
-- 1M+ known adult domains
-- Porn aggregators and tubes
-- Adult content hosting
-- NSFW subreddits
-- Adult Twitter/X accounts
+- Comprehensive domain list per addiction type
+- See individual addiction files for specifics
 - Regular updates
 
-**Tier 2: Social Media NSFW**
-- Reddit NSFW subreddit URLs
-- Twitter/X media domains (when NSFW)
-- Tumblr adult content
-- Discord server invites (adult)
+**Tier 2: Social Platform Integration**
+- Platform-specific NSFW/triggering content
+- Subreddit/hashtag blocking
+- Algorithm-served content blocking
 
 **Tier 3: Search Engine Integration**
 - Enforce SafeSearch on Google
 - Enforce Safe Mode on Bing
-- Block explicit image searches
-- Block adult keywords in search
+- Block explicit searches
+- Block addiction keywords in search
 
 **Tier 4: User Custom**
 - User-added domains
@@ -276,7 +273,7 @@ Users trying to avoid porn face an internet saturated with access:
 // Blocklist rule example
 {
   "trigger": {
-    "url-filter": ".*\\.(pornsite\\.com).*"
+    "url-filter": ".*\\.(blockedsite\\.com).*"
   },
   "action": {
     "type": "block"
@@ -292,7 +289,7 @@ Users trying to avoid porn face an internet saturated with access:
   "priority": 1,
   "action": { "type": "block" },
   "condition": {
-    "urlFilter": "*://pornsite.com/*",
+    "urlFilter": "*://blockedsite.com/*",
     "resourceTypes": ["main_frame", "sub_frame"]
   }
 }
@@ -303,17 +300,19 @@ Users trying to avoid porn face an internet saturated with access:
 - Cloudflare Family DNS settings
 - NextDNS configuration guide
 
+---
+
 ## Chrome Extension Features
 
 ### Core Features
 1. **URL Blocking**: Intercept requests to blocked domains
-2. **Search Filtering**: Modify search results to remove adult content
+2. **Search Filtering**: Modify search results to remove triggering content
 3. **Safe Search Enforcement**: Prevent disabling safe search
-4. **NSFW Reddit Block**: Block r/nsfw and similar subreddits
-5. **Image Blocking**: Block known adult image CDNs
+4. **Platform-Specific Blocking**: Block triggering content on social platforms
+5. **Image Blocking**: Block known triggering image CDNs
 
 ### Block Page Features
-- Motivational message
+- Motivational message (addiction-specific)
 - Current streak display
 - Quick access to Alex Friend app
 - Alex chat link
@@ -322,10 +321,10 @@ Users trying to avoid porn face an internet saturated with access:
 
 ### Panic Button Integration
 
-The blocked page is a critical intervention point - the user is actively trying to access porn. This is the perfect moment to trigger panic mode.
+The blocked page is a critical intervention point - the user is actively trying to access triggering content. This is the perfect moment to trigger panic mode.
 
 **Primary CTA: Open Panic Button**
-The most prominent button on the blocked page opens the app directly in panic mode via `alexfriend://panic`. This creates a seamless intervention flow:
+The most prominent button on the blocked page opens the app directly in panic mode via `alexfriend://panic`.
 
 ```
 User attempts blocked site
@@ -344,100 +343,23 @@ Large "PANIC BUTTON" displayed prominently
 ┌─ User stays on block page ───────────────────┐
 │  → Typewriter messages play on block page    │
 │  → Motivational content rotates              │
-│  → Side effects shown                        │
+│  → Consequences shown                        │
 │  → Lighter intervention without app          │
 └──────────────────────────────────────────────┘
 ```
 
 **In-Page Intervention (Fallback)**
 When the user doesn't open the app, the block page itself provides intervention:
-- Typewriter-style motivational messages (same library as panic button)
+- Typewriter-style motivational messages (addiction-specific)
 - Current streak displayed prominently
-- Side effects of relapsing listed
+- Consequences of relapsing listed
 - Breathing exercise that works in-browser
-
-**Camera on Block Page (Future/Experimental)**
-Ideally, we'd show the camera directly on the blocked page for maximum impact. However:
-- **Challenge**: Websites require explicit camera permission
-- **User might deny**: Permission popup could be dismissed
-- **Privacy concern**: Users may not want camera on a webpage
-- **Solution**: Offer as optional "Enable enhanced protection" setting
-  - If enabled and permission granted: Camera shows on block page
-  - If not: Standard block page with text intervention
-
-**Block Page with Camera (If Enabled)**
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │                                     │   │
-│  │      [CAMERA FEED - USER'S FACE]    │   │
-│  │                                     │   │
-│  │   ▌Hey. Look at yourself.           │   │
-│  │   (typewriter animation)            │   │
-│  │                                     │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│  You're on Day 23. Don't reset now.         │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ 🚨 OPEN PANIC BUTTON                │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│  Side effects of relapsing:                 │
-│  • Brain fog for days                       │
-│  • Dopamine crash                           │
-│  • Shame spiral                             │
-│  • Reset your progress                      │
-│                                             │
-│  [Talk to AI] [Breathe] [Close Tab]         │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-**Block Page without Camera (Default)**
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│              🛡️ Alex Friend                   │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │                                     │   │
-│  │   ▌Your brain is playing tricks.    │   │
-│  │   (typewriter animation)            │   │
-│  │                                     │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│         Day 23 • Don't reset now            │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ 🚨 OPEN PANIC BUTTON                │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│  ─────────────────────────────────────      │
-│                                             │
-│  Side effects of relapsing:                 │
-│  • Brain fog • Shame spiral                 │
-│  • Dopamine crash • Progress reset          │
-│                                             │
-│  ─────────────────────────────────────      │
-│                                             │
-│  [Talk to Alex]                             │
-│  [Start Breathing Exercise]                 │
-│  [Close This Tab]                           │
-│                                             │
-│  ─────────────────────────────────────      │
-│  Request Access (partner notified)          │
-│                                             │
-└─────────────────────────────────────────────┘
-```
 
 **Auto-Open Panic Mode (Optional Setting)**
 For users who want maximum intervention:
 - Setting: "Auto-open panic mode when site blocked"
 - When enabled: Blocked site immediately triggers `alexfriend://panic`
 - No block page shown - straight to app panic mode
-- More aggressive but potentially more effective
 
 **Technical Implementation**
 ```javascript
@@ -457,18 +379,6 @@ if (userSettings.autoOpenPanic) {
 document.getElementById('panicBtn').addEventListener('click', () => {
   window.location.href = 'alexfriend://panic?source=blocker';
 });
-
-// Camera integration (if permission granted)
-async function enableCameraIntervention() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    document.getElementById('cameraFeed').srcObject = stream;
-    document.getElementById('cameraSection').style.display = 'block';
-  } catch (err) {
-    // Permission denied - use text-only intervention
-    console.log('Camera not available, using text intervention');
-  }
-}
 ```
 
 ### Extension Settings
@@ -477,7 +387,7 @@ async function enableCameraIntervention() {
 - View block statistics
 - Sync with app account
 
-### Technical Implementation
+### Technical Structure
 
 **Manifest V3 Structure**
 ```
@@ -504,6 +414,8 @@ extension/
 - `chrome.runtime` - Background communication
 - `chrome.tabs` - Tab management
 
+---
+
 ## Mobile Implementation
 
 ### iOS Screen Time Integration
@@ -522,7 +434,7 @@ extension/
 
 **Safari Content Blocker:**
 - Alex Friend provides content blocker extension
-- Blocks adult URLs within Safari
+- Blocks triggering URLs within Safari
 - User must enable in Settings
 - Limited to Safari only
 
@@ -538,6 +450,8 @@ extension/
 - Enabling accessibility permissions
 - Setting Digital Wellbeing limits
 - Choosing restricted apps
+
+---
 
 ## Accountability Features
 
@@ -559,23 +473,25 @@ If configured:
 - Option: Have partner set passcode
 - Time-locked changes (can't change for 24h after setting)
 
+---
+
 ## Data Model
 
-### Blocklist
+### Blocklist Entries
 ```
 blocklist_entries {
   id: UUID
   addiction_type: Enum (porn, gambling, social_media, gaming)
   domain: String
-  category: Enum (adult, social_nsfw, casino, betting, custom)
+  category: String (addiction-specific categories)
   source: Enum (default, user, reported)
-  region: String (nullable - for region-specific sites like BR gambling)
+  region: String (nullable - for region-specific sites)
   added_at: DateTime
   is_active: Boolean
 }
 ```
 
-Note: Different addiction types have completely different blocklists. Gambling blocklist includes casino/betting sites, porn blocklist includes adult sites.
+Note: Each addiction type has completely different blocklists with different categories.
 
 ### User Block Settings
 ```
@@ -593,7 +509,7 @@ user_block_settings {
 }
 ```
 
-Note: Each addiction type has separate blocking settings. User can enable porn blocking but not gambling blocking.
+Note: Each addiction type has separate blocking settings.
 
 ### Block Events (Privacy-Preserving)
 ```
@@ -602,7 +518,7 @@ block_events {
   user_id: UUID
   addiction_type: Enum (porn, gambling, social_media, gaming)
   platform: Enum (ios, android, chrome)
-  category: Enum (adult, social_nsfw, casino, betting, custom, search)
+  category: String (addiction-specific)
   blocked_at: DateTime
   day_of_week: Integer
   hour_of_day: Integer
@@ -621,6 +537,8 @@ user_custom_blocks {
   is_active: Boolean
 }
 ```
+
+---
 
 ## User Flows
 
@@ -653,7 +571,7 @@ Block page displays
                     ↓
 Options shown:
 ├── Open Alex Friend app
-├── Talk to AI
+├── Talk to Alex
 ├── Breathing exercise
 └── Request access (if enabled)
                     ↓
@@ -680,6 +598,8 @@ Accountability check:
         └── Blocker disabled
 ```
 
+---
+
 ## Integration Points
 
 ### With Streak System
@@ -698,22 +618,24 @@ Accountability check:
 - High block count triggers check-in prompt
 - "Seems like today was tough. How are you?"
 
+---
+
 ## Agent Implementation Guide
 
 ### foundation-agent Tasks
-- Create blocklist_entries table with seed data (1M+ domains)
+- Create blocklist_entries table with seed data per addiction
 - Create user_block_settings table
 - Create block_events table
 - Create user_custom_blocks table
 - Set up blocklist update mechanism
 
 ### backend-agent Tasks
-- GET /api/blocker/settings - User settings
+- GET /api/blocker/settings?addiction_type=X - User settings
 - PATCH /api/blocker/settings - Update settings
 - POST /api/blocker/custom - Add custom block
 - DELETE /api/blocker/custom/:id - Remove custom block
 - POST /api/blocker/event - Log block event
-- GET /api/blocker/blocklist - Sync blocklist for extension
+- GET /api/blocker/blocklist?addiction_type=X - Sync blocklist
 - Notification endpoint for accountability
 
 ### ui-agent Tasks
@@ -730,10 +652,12 @@ Accountability check:
 - Chrome extension popup UI
 - Blocked page (standalone HTML)
 
+---
+
 ## Success Metrics
 
 **Protection Metrics**
-- Blocklist coverage (% of adult sites blocked)
+- Blocklist coverage (% of triggering sites blocked)
 - Block event frequency per user
 - Extension installation rate
 - Setup completion rate
@@ -742,6 +666,8 @@ Accountability check:
 - Streak length correlation with blocker use
 - Relapse rate: users with blocker vs without
 - Block pattern changes over time
+
+---
 
 ## Free vs Premium
 
@@ -752,12 +678,14 @@ Accountability check:
 - 5 custom blocks
 
 ### Premium Tier
-- Full blocklist (1M+ sites)
+- Full blocklist (1M+ entries)
 - Unlimited custom blocks
 - Block scheduling
 - Accountability partner features
 - Pattern analytics
 - Priority blocklist updates
+
+---
 
 ## Privacy Considerations
 
@@ -778,6 +706,8 @@ Accountability check:
 - Aggregated after that
 - User can delete anytime
 - No third-party sharing
+
+---
 
 ## Browser Compatibility
 
