@@ -6,6 +6,17 @@ Subscription Model with Free Tier and Premium Features
 ## Description
 Alex Friend uses a freemium model with a generous free tier that provides core recovery functionality, and a premium subscription that unlocks advanced features, unlimited access, and enhanced personalization. The pricing strategy balances accessibility (recovery tools should be available to all) with sustainability (the app needs revenue to continue development and support).
 
+## Addiction-Specific Content
+
+| Addiction | Content File | Focus |
+|-----------|--------------|-------|
+| Pornography | [porn.md](porn.md) | Content blocker, Alex unlimited, privacy emphasis |
+| Gambling | [gambling.md](gambling.md) | Money saved tracking, self-exclusion, financial recovery |
+| Social Media | [social-media.md](social-media.md) | Time reclaimed, friction mode, attention value |
+| Gaming | [gaming.md](gaming.md) | Real-life achievements, time tracking, skill building |
+
+---
+
 ## Problem Statement
 
 Monetizing recovery apps presents unique challenges:
@@ -44,7 +55,7 @@ Clear value proposition:
 
 ### 3. Accessible Pricing
 - Regional pricing (PPP adjusted)
-- Annual discount (40%)
+- Annual discount (50%)
 - Student discount (40%)
 - Hardship program
 
@@ -53,6 +64,8 @@ Clear value proposition:
 - Easy cancellation
 - Grace period after lapse
 - No guilt messaging
+
+---
 
 ## Pricing Structure
 
@@ -80,6 +93,8 @@ Clear value proposition:
 **Student Discount**: 40% off (verification required)
 **Hardship Program**: 50-100% off (application-based)
 **Launch Promotion**: 60% off first year (limited time)
+
+---
 
 ## Feature Comparison
 
@@ -121,7 +136,7 @@ Clear value proposition:
 | Advanced analytics | ✅ Full patterns |
 | **Crisis Support** | |
 | Panic button | ✅ Full |
-| Alex (AI companion) | ✅ Unlimited |
+| Alex (AI companion) | ✅ 100 messages/day |
 | All meditations | ✅ 15+ sessions |
 | All soundscapes | ✅ 12+ sounds |
 | Voice input | ✅ Enabled |
@@ -146,32 +161,9 @@ Clear value proposition:
 | No ads (future) | ✅ Guaranteed |
 | Custom themes | ✅ Enabled |
 
+---
+
 ## Screen Content
-
-### Upgrade Prompt (In-Context)
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│     🔒 Premium Feature                      │
-│                                             │
-│     Unlimited Alex (AI Companion)           │
-│                                             │
-│     You've used your 10 free messages       │
-│     today. Upgrade to continue chatting     │
-│     24/7 with no limits.                    │
-│                                             │
-│     ─────────────────────────────────       │
-│                                             │
-│     [Upgrade to Premium]                    │
-│     Starting at $9.99/month                 │
-│                                             │
-│     [Remind Me Later]                       │
-│                                             │
-│     Messages reset tomorrow at midnight     │
-│                                             │
-└─────────────────────────────────────────────┘
-```
 
 ### Premium Upsell Page
 
@@ -179,13 +171,12 @@ Clear value proposition:
 ┌─────────────────────────────────────────────┐
 │  ← Back         Alex Friend Premium         │
 │                                             │
-│               👑                            │
 │                                             │
 │     Unlock Your Full Recovery Toolkit       │
 │                                             │
 │  ─────────────────────────────────────      │
 │                                             │
-│  ✓ Unlimited Alex (24/7)                    │
+│  ✓ Alex AI - 100 messages/day               │
 │  ✓ All 15+ guided meditations               │
 │  ✓ Complete education library               │
 │  ✓ Advanced usage analytics                 │
@@ -201,7 +192,7 @@ Clear value proposition:
 │  └─────────────────────────────────────┘   │
 │  ┌─────────────────────────────────────┐   │
 │  │ ● Annual         $59.99/year        │   │
-│  │                  SAVE 50%  ⭐        │   │
+│  │                  SAVE 50%           │   │
 │  └─────────────────────────────────────┘   │
 │  ┌─────────────────────────────────────┐   │
 │  │ ○ Lifetime       $149.99 once       │   │
@@ -229,7 +220,7 @@ Clear value proposition:
 │  Current Plan                               │
 │                                             │
 │  ┌─────────────────────────────────────┐   │
-│  │ 👑 Alex Friend Premium              │   │
+│  │ Alex Friend Premium                 │   │
 │  │                                     │   │
 │  │ Annual Plan                         │   │
 │  │ $59.99/year                         │   │
@@ -258,36 +249,7 @@ Clear value proposition:
 └─────────────────────────────────────────────┘
 ```
 
-### Free Trial End Reminder
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│     ⏰ Your trial ends tomorrow             │
-│                                             │
-│     You've been using Alex Friend Premium   │
-│     for 6 days. Here's what you'll          │
-│     lose access to:                         │
-│                                             │
-│     • Unlimited Alex                        │
-│     • 12 meditations you've used            │
-│     • Advanced analytics                    │
-│     • Full content blocker                  │
-│                                             │
-│     In the last week:                       │
-│     📊 You've messaged the AI 47 times      │
-│     🧘 You've meditated 8 times             │
-│     🛡️ We blocked 23 site attempts          │
-│                                             │
-│     ─────────────────────────────────       │
-│                                             │
-│     [Continue Premium - $59.99/year]        │
-│                                             │
-│     [Switch to Free]                        │
-│     (Keep basic features)                   │
-│                                             │
-└─────────────────────────────────────────────┘
-```
+---
 
 ## Payment Integration
 
@@ -362,6 +324,8 @@ async function checkPremiumStatus(userId: string): Promise<boolean> {
 }
 ```
 
+---
+
 ## Data Model
 
 ### Subscriptions
@@ -407,6 +371,8 @@ promo_codes {
   created_at: DateTime
 }
 ```
+
+---
 
 ## User Flows
 
@@ -472,6 +438,8 @@ User keeps premium until period end
 Period ends → Downgrade to free
 ```
 
+---
+
 ## Ethical Guidelines
 
 ### What We DO
@@ -490,21 +458,7 @@ Period ends → Downgrade to free
 - No hidden auto-renewals
 - No paywalling crisis features (panic button always free)
 
-## Integration Points
-
-### With Features
-- Feature checks at point of use
-- Graceful degradation for free users
-- Clear upgrade paths
-
-### With Analytics
-- Conversion funnel tracking
-- Feature usage by tier
-- Churn prediction
-
-### With Alex (AI Companion)
-- Message counting for free tier
-- Entitlement check before response
+---
 
 ## Agent Implementation Guide
 
@@ -535,6 +489,8 @@ Period ends → Downgrade to free
 - Success page after purchase
 - Promo code entry
 
+---
+
 ## Success Metrics
 
 **Conversion Metrics**
@@ -555,6 +511,8 @@ Period ends → Downgrade to free
 - Reactivation rate
 - Grace period save rate
 
+---
+
 ## Platform Fees
 
 | Platform | Fee |
@@ -562,6 +520,8 @@ Period ends → Downgrade to free
 | App Store | 15-30% (Small Business Program: 15%) |
 | Play Store | 15% (first $1M), 30% after |
 | Stripe | 2.9% + $0.30 per transaction |
+
+---
 
 ## Financial Projections
 
@@ -571,6 +531,8 @@ Assuming 100k MAU with 5% premium conversion:
 - Average revenue: ~$6.50/subscriber/month
 - Monthly revenue: ~$32,500
 - After platform fees (~20%): ~$26,000
+
+---
 
 ## Privacy
 
@@ -583,6 +545,8 @@ Assuming 100k MAU with 5% premium conversion:
 - Feature usage tracked for product improvement
 - No selling of subscription data
 - Transparent analytics
+
+---
 
 ## Refund Policy
 
