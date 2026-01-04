@@ -205,6 +205,22 @@ Each feature document includes agent-specific implementation guides:
 5. **Safety & Premium** - Content blocker, screen time, friction mode, subscriptions
 6. **Polish & Launch** - Performance, accessibility, store submission
 
+## Implementation Plan
+
+Detailed implementation documentation is in `/docs/implementation/`. Start with the main overview:
+
+| Document | Description |
+|----------|-------------|
+| [CLAUDE.md](docs/implementation/CLAUDE.md) | Main implementation overview and phase status |
+| [01-foundation/](docs/implementation/01-foundation/) | Monorepo, database, auth setup |
+| [02-core-loop/](docs/implementation/02-core-loop/) | Dashboard, streaks, check-ins, panic button |
+| [03-ai-engagement/](docs/implementation/03-ai-engagement/) | Alex AI, Life Tree, achievements |
+| [04-community-content/](docs/implementation/04-community-content/) | Community feed, education, challenges |
+| [05-safety-features/](docs/implementation/05-safety-features/) | Content blocker, screen time, friction mode |
+| [06-onboarding-polish/](docs/implementation/06-onboarding-polish/) | Onboarding, monetization, app store prep |
+
+**Current Phase**: 1 - Foundation (Not Started)
+
 ## Important Notes
 
 - All code uses TypeScript
