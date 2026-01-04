@@ -4,7 +4,18 @@
 Personalized Setup Quiz and Goal Configuration
 
 ## Description
-The onboarding flow guides new users through account creation, a personalization quiz, and goal setting to customize their recovery experience. It collects information about their addiction history, triggers, motivations, and preferences to personalize the app from day one. The flow is designed to be welcoming, non-judgmental, and to build commitment through explicit goal-setting.
+The onboarding flow guides new users through account creation, addiction type selection, a personalization quiz, and goal setting to customize their recovery experience. It collects information about their addiction history, triggers, motivations, and preferences to personalize the app from day one.
+
+## Addiction-Specific Content
+
+| Addiction | Content File | Focus |
+|-----------|--------------|-------|
+| Pornography | [porn.md](porn.md) | Triggers, shame prevention, relationship focus |
+| Gambling | [gambling.md](gambling.md) | Financial impact, sports triggers, debt awareness |
+| Social Media | [social-media.md](social-media.md) | Usage patterns, FOMO, attention recovery |
+| Gaming | [gaming.md](gaming.md) | Time investment, social gaming, real-life goals |
+
+---
 
 ## Problem Statement
 
@@ -37,29 +48,38 @@ Minimal friction authentication:
 - Apple Sign-In
 - Anonymous option (limited features)
 
-### 3. Personalization Quiz
-5-7 questions covering:
+### 3. Addiction Type Selection
+Users select what they're recovering from:
+- Pornography
+- Gambling/Betting
+- Social Media/Phone Addiction
+- Gaming
+- Multiple (select all that apply)
+
+### 4. Personalization Quiz
+5 addiction-specific questions covering:
 - Addiction severity (how often, how long)
-- Primary triggers
-- Personal reasons for quitting
+- Primary triggers (addiction-specific options)
+- Personal reasons for quitting (addiction-specific options)
 - Previous quit attempts
 - Notification preferences
 
-### 4. Goal Setting
+### 5. Goal Setting
 Explicit commitment:
 - Set quit date (now or future)
 - Define personal "why"
 - Choose accountability level
-- Select which features to enable
 
-### 5. App Tour
+### 6. App Tour
 Brief introduction to key features:
 - Dashboard overview
 - Panic button location
 - Alex availability
 - Community access
 
-## Screen Flow
+---
+
+## Shared Screen Flow
 
 ### Screen 1: Welcome
 
@@ -71,7 +91,7 @@ Brief introduction to key features:
 │            Welcome to Alex Friend           │
 │                                             │
 │     Your companion on the journey to        │
-│     freedom from porn addiction.            │
+│     freedom and recovery.                   │
 │                                             │
 │                                             │
 │     ─────────────────────────────────       │
@@ -99,19 +119,19 @@ Brief introduction to key features:
 │              Our Promise to You             │
 │                                             │
 │                                             │
-│     🔒 Complete Privacy                     │
+│     Complete Privacy                        │
 │        Your data stays yours. No            │
 │        judgment, ever.                      │
 │                                             │
-│     🧠 Science-Based                        │
+│     Science-Based                           │
 │        Tools grounded in addiction          │
 │        psychology and neuroscience.         │
 │                                             │
-│     💙 24/7 Support                         │
+│     24/7 Support                            │
 │        Alex and community available         │
 │        whenever you need.                   │
 │                                             │
-│     🌱 Progress, Not Perfection             │
+│     Progress, Not Perfection                │
 │        Slips happen. We help you            │
 │        get back up.                         │
 │                                             │
@@ -159,7 +179,42 @@ Brief introduction to key features:
 └─────────────────────────────────────────────┘
 ```
 
-### Screen 4: Quiz Introduction
+### Screen 4: Addiction Type Selection
+
+```
+┌─────────────────────────────────────────────┐
+│                                             │
+│                                             │
+│          What Brings You Here?              │
+│                                             │
+│     Select what you'd like to work on.      │
+│     (You can select multiple)               │
+│                                             │
+│  ┌─────────────────────────────────────┐   │
+│  │ [ ] Pornography                     │   │
+│  │     Compulsive porn use             │   │
+│  └─────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────┐   │
+│  │ [ ] Gambling & Betting              │   │
+│  │     Sports betting, casino, etc.    │   │
+│  └─────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────┐   │
+│  │ [ ] Social Media & Phone            │   │
+│  │     Compulsive scrolling, FOMO      │   │
+│  └─────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────┐   │
+│  │ [ ] Gaming                          │   │
+│  │     Video games, mobile games       │   │
+│  └─────────────────────────────────────┘   │
+│                                             │
+│             [Continue]                      │
+│                                             │
+│             ○ ○ ○ ● ○ ○ ○                   │
+│                                             │
+└─────────────────────────────────────────────┘
+```
+
+### Screen 5: Quiz Introduction
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -182,194 +237,14 @@ Brief introduction to key features:
 │                                             │
 │             [Skip for Now]                  │
 │                                             │
-│             ○ ○ ○ ● ○ ○ ○                   │
+│             ○ ○ ○ ○ ● ○ ○                   │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-### Screen 5: Quiz Question 1 - Duration
+**Note**: Quiz questions are addiction-specific. See addiction files for questions.
 
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  Question 1 of 5                            │
-│                                             │
-│  How long have you been struggling          │
-│  with porn?                                 │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Less than 1 year                  │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ 1-3 years                         │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ● 3-5 years                         │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ 5-10 years                        │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ More than 10 years                │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│             [Next →]                        │
-│                                             │
-│             ━━━░░░░░░░░░░░░░               │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-### Screen 6: Quiz Question 2 - Frequency
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  Question 2 of 5                            │
-│                                             │
-│  How often do you typically view            │
-│  pornography?                               │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Multiple times per day            │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ● Once daily                        │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ A few times per week              │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Once a week                       │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Less than weekly                  │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│             [Next →]                        │
-│                                             │
-│             ━━━━━━░░░░░░░░░░               │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-### Screen 7: Quiz Question 3 - Triggers
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  Question 3 of 5                            │
-│                                             │
-│  What typically triggers your urges?        │
-│  (Select all that apply)                    │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ [✓] Stress or anxiety              │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [✓] Boredom                        │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Loneliness                      │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [✓] Late nights                    │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Social media                    │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Being home alone                │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Other: _____________            │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│             [Next →]                        │
-│                                             │
-│             ━━━━━━━━━░░░░░░░               │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-### Screen 8: Quiz Question 4 - Reasons
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  Question 4 of 5                            │
-│                                             │
-│  Why do you want to quit?                   │
-│  (Select all that apply)                    │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ [✓] Mental clarity and focus       │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [✓] Better relationships           │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Self-respect                    │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] More time and energy            │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Religious/spiritual reasons     │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Physical health                 │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ [ ] Other: _____________            │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│             [Next →]                        │
-│                                             │
-│             ━━━━━━━━━━━━░░░░               │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-### Screen 9: Quiz Question 5 - Previous Attempts
-
-```
-┌─────────────────────────────────────────────┐
-│                                             │
-│  Question 5 of 5                            │
-│                                             │
-│  Have you tried to quit before?             │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ No, this is my first attempt      │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Yes, once or twice                │   │
-│  └─────────────────────────────────────┘   │
-│  ┌─────────────────────────────────────┐   │
-│  │ ● Yes, many times                   │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│                                             │
-│  If yes, what's the longest you went        │
-│  without porn?                              │
-│                                             │
-│  ┌─────────────────────────────────────┐   │
-│  │ ○ Less than 1 week                  │   │
-│  │ ○ 1-2 weeks                         │   │
-│  │ ● 2-4 weeks                         │   │
-│  │ ○ 1-3 months                        │   │
-│  │ ○ More than 3 months                │   │
-│  └─────────────────────────────────────┘   │
-│                                             │
-│             [Next →]                        │
-│                                             │
-│             ━━━━━━━━━━━━━━━░               │
-│                                             │
-└─────────────────────────────────────────────┘
-```
-
-### Screen 10: Set Your Quit Date
+### Screen: Set Your Quit Date
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -391,7 +266,7 @@ Brief introduction to key features:
 │  └─────────────────────────────────────┘   │
 │                                             │
 │                                             │
-│     💡 Starting today means your counter    │
+│     Starting today means your counter       │
 │     begins immediately. Every day counts!   │
 │                                             │
 │                                             │
@@ -402,7 +277,7 @@ Brief introduction to key features:
 └─────────────────────────────────────────────┘
 ```
 
-### Screen 11: Your Why
+### Screen: Your Why
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -414,14 +289,13 @@ Brief introduction to key features:
 │                                             │
 │  ┌─────────────────────────────────────┐   │
 │  │                                     │   │
-│  │  I want to be present for my        │   │
-│  │  family and stop feeling ashamed    │   │
-│  │  of myself. I deserve better.       │   │
+│  │  [User writes their personal        │   │
+│  │   motivation here]                  │   │
 │  │                                     │   │
 │  │                                     │   │
 │  └─────────────────────────────────────┘   │
 │                                             │
-│     💡 We'll show you this when you need    │
+│     We'll show you this when you need       │
 │     motivation most - during urges.         │
 │                                             │
 │                                             │
@@ -434,12 +308,12 @@ Brief introduction to key features:
 └─────────────────────────────────────────────┘
 ```
 
-### Screen 12: Setup Complete
+### Screen: Setup Complete
 
 ```
 ┌─────────────────────────────────────────────┐
 │                                             │
-│               🌱 You're Ready!              │
+│               You're Ready!                 │
 │                                             │
 │                                             │
 │     Your journey begins now.                │
@@ -448,10 +322,9 @@ Brief introduction to key features:
 │                                             │
 │     Based on your answers, we recommend:    │
 │                                             │
-│     ✓ Daily morning & evening check-ins     │
-│     ✓ Late night alerts enabled             │
-│     ✓ Panic button on home screen           │
-│     ✓ Alex available 24/7                   │
+│     [Personalized recommendations           │
+│      based on quiz answers and              │
+│      addiction type]                        │
 │                                             │
 │     ─────────────────────────────────       │
 │                                             │
@@ -466,7 +339,7 @@ Brief introduction to key features:
 └─────────────────────────────────────────────┘
 ```
 
-### Screen 13: Quick Tour (Optional)
+### Quick Tour (Optional)
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -500,15 +373,7 @@ Brief introduction to key features:
 └─────────────────────────────────────────────┘
 ```
 
-## Quiz Questions Summary
-
-| Question | Purpose | Personalization Impact |
-|----------|---------|----------------------|
-| Duration | Addiction severity | Content depth, encouragement level |
-| Frequency | Baseline | Realistic expectations, progress framing |
-| Triggers | Personal triggers | Check-in prompts, AI context, notifications |
-| Reasons | Motivation | Panic button messages, personalized quotes |
-| Previous attempts | Experience | Messaging tone, feature recommendations |
+---
 
 ## Data Model
 
@@ -561,6 +426,8 @@ user_profile {
 
 Note: Users with multiple addictions have separate profiles for each, as triggers, duration, and reasons may differ per addiction.
 
+---
+
 ## User Flows
 
 ### First-Time User
@@ -602,6 +469,8 @@ App launch → Welcome → Promise
           ↓
 [Continue Anonymously]
           ↓
+Addiction type selection
+          ↓
 Quiz (optional)
           ↓
 Limited dashboard access
@@ -621,6 +490,26 @@ Complete remaining steps
           ↓
 Dashboard
 ```
+
+### Multiple Addiction Flow
+```
+User selects: Pornography + Gambling
+          ↓
+Primary addiction selection:
+"Which would you like to focus on first?"
+          ↓
+Quiz for primary addiction (5 questions)
+          ↓
+"Do you want to set up Gambling recovery too?"
+          ↓
+[Yes] → Quiz for secondary addiction
+[Later] → Can add from Settings
+          ↓
+Dashboard shows primary addiction
+Switcher in settings for other addictions
+```
+
+---
 
 ## Integration Points
 
@@ -644,23 +533,28 @@ Dashboard
 - Track onboarding completion rates
 - Identify drop-off points
 
+---
+
 ## Agent Implementation Guide
 
 ### foundation-agent Tasks
 - Create onboarding_progress table
+- Create user_addiction_profiles table
 - Create user_profile table
-- Set up quiz question content
+- Set up quiz question content (per addiction type)
 - Configure default feature recommendations
 
 ### backend-agent Tasks
 - POST /api/onboarding/start - Begin onboarding
 - PATCH /api/onboarding/progress - Update step
-- POST /api/onboarding/quiz - Save quiz responses
+- POST /api/onboarding/addiction-types - Save selected addictions
+- POST /api/onboarding/quiz - Save quiz responses (per addiction)
 - POST /api/onboarding/profile - Save profile data
 - POST /api/onboarding/complete - Mark complete
 
 ### ui-agent Tasks
 - WelcomeScreen component
+- AddictionTypeSelector component
 - QuizQuestion component
 - MultiSelectQuestion component
 - QuitDatePicker component
@@ -670,15 +564,19 @@ Dashboard
 
 ### pages-agent Tasks
 - Onboarding flow navigation
-- Quiz step routing
+- Addiction type routing
+- Quiz step routing (per addiction)
 - Tour modal system
 - Skip handling
+
+---
 
 ## Success Metrics
 
 **Completion Metrics**
 - Onboarding start rate
-- Quiz completion rate
+- Addiction selection completion rate
+- Quiz completion rate (per addiction type)
 - Tour completion rate
 - Drop-off by step
 
@@ -686,11 +584,14 @@ Dashboard
 - "Why" field completion rate
 - Average triggers selected
 - Date selection (today vs future)
+- Multiple addiction selection rate
 
 **Outcome Metrics**
 - Day 1 retention by onboarding completion
 - 7-day retention by quiz completion
 - Feature usage by tour completion
+
+---
 
 ## Privacy Considerations
 
@@ -704,6 +605,8 @@ Dashboard
 - Not shared with third parties
 - User can view/edit anytime
 - Deletable with account
+
+---
 
 ## Accessibility
 
